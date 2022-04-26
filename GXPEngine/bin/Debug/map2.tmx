@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="5" height="5" tilewidth="128" tileheight="128" infinite="0" nextlayerid="3" nextobjectid="3">
+ <tileset firstgid="1" name="tile_set_prototype_l1" tilewidth="128" tileheight="128" tilecount="4" columns="2">
+  <image source="../../../../project_lift_off/FireScript/GXPEngine/bin/Debug/tile_set_prototype_l1.png" width="256" height="256"/>
+ </tileset>
+ <layer id="1" name="Warstwa Kafelków 1" width="5" height="5">
+  <data encoding="csv">
+4,4,4,4,4,
+4,4,4,1,4,
+4,4,4,4,4,
+4,4,4,4,4,
+4,4,4,4,4
+</data>
+ </layer>
+ <objectgroup id="2" name="Warstwa Obiektu 1">
+  <object id="1" name="button" type="Button" x="385.845" y="128.909" width="124.495" height="125.378"/>
+  <object id="2" name="MovingObject" type="Object" x="128.026" y="384.079" width="126.261" height="127.144"/>
+ </objectgroup>
+</map>

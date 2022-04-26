@@ -4,21 +4,17 @@ using System.Drawing;							// System.Drawing contains drawing tools such as Col
 
 public class MyGame : Game
 {
+	Ball ball;
+	Mushroom mushroom;
+
 	public MyGame() : base(800, 600, false)		// Create a window that's 800x600 and NOT fullscreen
 	{
-		// Draw some things on a canvas:
-		EasyDraw canvas = new EasyDraw(800, 600);
-		canvas.Clear(Color.MediumPurple);
-		canvas.Fill(Color.Yellow);
-		canvas.Ellipse(width / 2, height / 2, 400, 200);
-		canvas.Fill(50);
-		canvas.TextSize(32);
-		canvas.TextAlign(CenterMode.Center, CenterMode.Center);
-		canvas.Text("Welcome!", width / 2, height / 2);
+		ball = new Ball(64, 64, new Vec2(width/2, height/2), new Vec2(0,1));
+		AddChild(ball);
 
-		// Add the canvas to the engine to display it:
-		AddChild(canvas);
-		Console.WriteLine("MyGame initialized");
+		mushroom = new Mushroom(new Vec2(width/2, height - 50), 64, 64);
+		AddChild(mushroom);
+
 	}
 
 	// For every game object, Update is called every frame, by the engine:
