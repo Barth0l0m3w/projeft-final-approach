@@ -1,0 +1,6 @@
+S:\courses\semester 2\game programming\GXPEngine2022BB\GXPEngine2022BB\GXPEngine\bin\Debug\GXPEngine.exe
+S:\courses\semester 2\game programming\GXPEngine2022BB\GXPEngine2022BB\GXPEngine\bin\Debug\GXPEngine.pdb
+S:\courses\semester 2\game programming\GXPEngine2022BB\GXPEngine2022BB\GXPEngine\obj\x86\Debug\GXPEngine.csprojAssemblyReference.cache
+S:\courses\semester 2\game programming\GXPEngine2022BB\GXPEngine2022BB\GXPEngine\obj\x86\Debug\GXPEngine.csproj.CoreCompileInputs.cache
+S:\courses\semester 2\game programming\GXPEngine2022BB\GXPEngine2022BB\GXPEngine\obj\x86\Debug\GXPEngine.exe
+S:\courses\semester 2\game programming\GXPEngine2022BB\GXPEngine2022BB\GXPEngine\obj\x86\Debug\GXPEngine.pdb
