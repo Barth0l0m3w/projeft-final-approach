@@ -4,3 +4,11 @@ S:\courses\semester 2\game programming\GXPEngine2022BB\GXPEngine2022BB\GXPEngine
 S:\courses\semester 2\game programming\GXPEngine2022BB\GXPEngine2022BB\GXPEngine\obj\x86\Debug\GXPEngine.csproj.CoreCompileInputs.cache
 S:\courses\semester 2\game programming\GXPEngine2022BB\GXPEngine2022BB\GXPEngine\obj\x86\Debug\GXPEngine.exe
 S:\courses\semester 2\game programming\GXPEngine2022BB\GXPEngine2022BB\GXPEngine\obj\x86\Debug\GXPEngine.pdb
+D:\courses\semester 4\project\git\projeft-final-approach\GXPEngine\bin\Debug\GXPEngine.exe.config
+D:\courses\semester 4\project\git\projeft-final-approach\GXPEngine\bin\Debug\GXPEngine.exe
+D:\courses\semester 4\project\git\projeft-final-approach\GXPEngine\bin\Debug\GXPEngine.pdb
+D:\courses\semester 4\project\git\projeft-final-approach\GXPEngine\obj\x86\Debug\GXPEngine.csproj.AssemblyReference.cache
+D:\courses\semester 4\project\git\projeft-final-approach\GXPEngine\obj\x86\Debug\GXPEngine.csproj.SuggestedBindingRedirects.cache
+D:\courses\semester 4\project\git\projeft-final-approach\GXPEngine\obj\x86\Debug\GXPEngine.csproj.CoreCompileInputs.cache
+D:\courses\semester 4\project\git\projeft-final-approach\GXPEngine\obj\x86\Debug\GXPEngine.exe
+D:\courses\semester 4\project\git\projeft-final-approach\GXPEngine\obj\x86\Debug\GXPEngine.pdb
