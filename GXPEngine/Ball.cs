@@ -40,7 +40,7 @@ public class Ball : Sprite
         float impactY;
         float time;
         float ballDistance;
-        Vec2 normal = new Vec2(0, 0);
+        Vec2 point = new Vec2(0, 0);
 
         GameObject[] collisions = GetCollisions();
         for (int i = 0; i < collisions.Length; i++)
@@ -51,9 +51,25 @@ public class Ball : Sprite
                 //time = (impactY - oldPosition.y) / (position.y - oldPosition.y);
                 //position = oldPosition + time * velocity;
                 //velocity.y = -bounciness * velocity.y;
-                Console.WriteLine(boxCollider.GetCollisionInfo(((Mushroom)collisions[i]).boxCollider));
-                time = boxCollider.TimeOfImpact(((Mushroom)collisions[i]).boxCollider, velocity.y, velocity.x, out normalBig);
-                velocity = new Vec2(0, 0);
+                //Console.WriteLine(boxCollider.GetCollisionInfo(((Mushroom)collisions[i]).boxCollider).normal);
+                normalBig = boxCollider.GetCollisionInfo(((Mushroom)collisions[i]).boxCollider).normal;
+               // Console.WriteLine(boxCollider.GetCollisionInfo(((Mushroom)collisions[i]).boxCollider).point);
+                Vector2 pPoint = boxCollider.GetCollisionInfo(((Mushroom)collisions[i]).boxCollider).point;
+               // Console.WriteLine(boxCollider.GetCollisionInfo(((Mushroom)collisions[i]).boxCollider).penetrationDepth);
+                ballDistance = boxCollider.GetCollisionInfo(((Mushroom)collisions[i]).boxCollider).penetrationDepth;
+                // time = boxCollider.TimeOfImpact(((Mushroom)collisions[i]).boxCollider, velocity.y, velocity.x, out normalBig);
+                point = new Vec2(pPoint.x, pPoint.y);
+                //position -= normal.Normal() * (ballDistance - height/2);
+                //velocity.Reflect(new Vec2(normalBig.x, normalBig.y));
+                Console.WriteLine(ballDistance);
+                //if (ballDistance >= 1)
+                //{
+                    position -= new Vec2(normalBig.x, normalBig.y) * (ballDistance - height/2);
+                    //velocity = new Vec2(0, 0);
+                velocity.Reflect(new Vec2(normalBig.x, normalBig.y));
+                //}
+                // Console.WriteLine(velocity);
+                // Console.WriteLine(normalBig.ToString());
             }
         }
     }

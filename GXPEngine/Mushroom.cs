@@ -22,6 +22,8 @@ class Mushroom : Sprite
 
         x = position.x;
         y = position.y;
+
+        rotation = 45;
     }
 }
 

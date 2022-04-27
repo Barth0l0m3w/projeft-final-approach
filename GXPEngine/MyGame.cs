@@ -9,10 +9,10 @@ public class MyGame : Game
 
 	public MyGame() : base(800, 600, false)		// Create a window that's 800x600 and NOT fullscreen
 	{
-		ball = new Ball(64, 64, new Vec2(width/2, height/2), new Vec2(0,1));
+		ball = new Ball(64, 64, new Vec2(500, height/2), new Vec2(-2,1));
 		AddChild(ball);
 
-		mushroom = new Mushroom(new Vec2(width/2, height - 50), 64, 64);
+		mushroom = new Mushroom(new Vec2(350, height - 200), 64, 64);
 		AddChild(mushroom);
 
 	}
