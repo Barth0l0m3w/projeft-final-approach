@@ -11,8 +11,6 @@ namespace GXPEngine
         //private int whatLevel = 0;
         private static SceneManager _instance;
 
-        TiledLoader loader;
-
         public static SceneManager Instance
         {
             get
