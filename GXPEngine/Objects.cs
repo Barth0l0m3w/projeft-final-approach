@@ -32,8 +32,6 @@ public abstract class Objects : Sprite
     public Objects(string image) : base(image)
     {
        // SetOrigin(width / 2, height / 2);
-       x= 0;
-        y= 0;
         Console.WriteLine("position "+_position);
         
     }
