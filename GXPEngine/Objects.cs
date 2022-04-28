@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using GXPEngine;
 
 
-public class Objects : Sprite
+public abstract class Objects : Sprite
 {
     public Vec2 Position
     {
@@ -23,20 +23,19 @@ public class Objects : Sprite
     public Vec2 mouseP;
     Vec2 distance;
 
-    public Objects(Vec2 pPosition) : base("circle.png")
+    public Objects(Vec2 pPosition, string image) : base(image)
     {
         _position = pPosition;
-        UpdateScreenPosition();
         SetOrigin(width / 2, height / 2);
     }
 
-    void UpdateScreenPosition()
+    protected virtual void UpdateScreenPosition()
     {
         x = _position.x;
         y = _position.y;
     }
 
-    void OnCollision()
+    protected void OnCollision()
     {
         if (distance.Length() <= this.width)
         {
@@ -53,7 +52,7 @@ public class Objects : Sprite
         }
     }
 
-    void UpdateMousePosition()
+    protected void UpdateMousePosition()
     {
         mouseP.x = Input.mouseX;
         mouseP.y = Input.mouseY;
