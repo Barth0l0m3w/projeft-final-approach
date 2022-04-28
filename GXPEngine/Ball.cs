@@ -11,29 +11,34 @@ public class Ball : Sprite
     private Vec2 position;
     private Vec2 velocity;
     private Vec2 oldPosition;
+    private Vec2 oldVelocity;
     private float speed = 3f;
     private float bounciness = 0.8f;
-    private static Vec2 acceleration = new Vec2(0, 1);
+    private static Vec2 acceleration = new Vec2(0, 0.2f);
     private Collider boxCollider;
     Vector2 normalBig;
 
-    public Ball(int height, int width, Vec2 position, Vec2 velocity) : base("circle.png")
+    public Ball(int radius, Vec2 position, Vec2 velocity) : base("circle.png")
     {
         this.position = position;
         this.velocity = velocity;
         x = position.x;
         y = position.y;
-        this.height = height;
-        this.width = width;
+        height = radius*2;
+        width = radius*2;
         boxCollider = createCollider();
         SetOrigin(width / 2, height / 2);
+        oldVelocity = velocity;
+        Console.WriteLine("X: " + x + " Y: " + y);
     }
 
     private void Move()
     {
-        //velocity += acceleration;
+      //  velocity += acceleration;
         position += velocity;
     }
+
+
 
     private void CheckCollisions()
     {
@@ -47,29 +52,27 @@ public class Ball : Sprite
         {
             if (collisions[i] is Mushroom)
             {
-                //impactY = collisions[i].y - height;
-                //time = (impactY - oldPosition.y) / (position.y - oldPosition.y);
-                //position = oldPosition + time * velocity;
-                //velocity.y = -bounciness * velocity.y;
-                //Console.WriteLine(boxCollider.GetCollisionInfo(((Mushroom)collisions[i]).boxCollider).normal);
-                normalBig = boxCollider.GetCollisionInfo(((Mushroom)collisions[i]).boxCollider).normal;
-               // Console.WriteLine(boxCollider.GetCollisionInfo(((Mushroom)collisions[i]).boxCollider).point);
-                Vector2 pPoint = boxCollider.GetCollisionInfo(((Mushroom)collisions[i]).boxCollider).point;
+                // TODO: use this:
+                Collision colInfo = boxCollider.GetCollisionInfo(((Mushroom)collisions[i]).boxCollider);
                // Console.WriteLine(boxCollider.GetCollisionInfo(((Mushroom)collisions[i]).boxCollider).penetrationDepth);
-                ballDistance = boxCollider.GetCollisionInfo(((Mushroom)collisions[i]).boxCollider).penetrationDepth;
-                // time = boxCollider.TimeOfImpact(((Mushroom)collisions[i]).boxCollider, velocity.y, velocity.x, out normalBig);
-                point = new Vec2(pPoint.x, pPoint.y);
-                //position -= normal.Normal() * (ballDistance - height/2);
-                //velocity.Reflect(new Vec2(normalBig.x, normalBig.y));
-                Console.WriteLine(ballDistance);
-                //if (ballDistance >= 1)
-                //{
-                    position -= new Vec2(normalBig.x, normalBig.y) * (ballDistance - height/2);
-                    //velocity = new Vec2(0, 0);
-                velocity.Reflect(new Vec2(normalBig.x, normalBig.y));
-                //}
-                // Console.WriteLine(velocity);
-                // Console.WriteLine(normalBig.ToString());
+                ballDistance = colInfo.penetrationDepth;
+
+                Vec2 normal = new Vec2(colInfo.normal.x, colInfo.normal.y);
+
+                Vec2 normalCopy = normal;
+                normalCopy.WeirdNormalize();
+                float overshootFactor = normalCopy.Length();
+
+                Console.WriteLine("depth: {0}  overshootFactor: {1}",ballDistance,overshootFactor);
+
+                ballDistance -= 1 - overshootFactor;
+
+                position += normal * (ballDistance);
+
+                if (normal.Dot(velocity) < 0)
+                {
+                    velocity.Reflect(normal, bounciness); // new Vec2(normalBig.x, normalBig.y));
+                }
             }
         }
     }
@@ -80,9 +83,27 @@ public class Ball : Sprite
         y = position.y;
     }
 
+    void Alternative()
+    {
+        velocity += acceleration;
+        Collision colInfo = MoveUntilCollision(velocity.x, velocity.y);
+        if (colInfo!=null)
+        {
+            Vec2 normal = new Vec2(colInfo.normal.x, colInfo.normal.y);
+            velocity.Reflect(normal);
+
+        }
+
+    }
+
     void Update()
     {
         oldPosition = position;
+        oldVelocity = velocity;
+
+        //Alternative();
+
+        Gizmos.DrawRectangle(0, 0, width, height, this);
         Move();
         CheckCollisions();
         UpdateScreenPosition();
