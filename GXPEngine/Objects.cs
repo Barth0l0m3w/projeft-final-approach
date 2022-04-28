@@ -64,7 +64,7 @@ public abstract class Objects : Sprite
         }
     }
 
-    public void Step()
+    protected void Step()
     {
         UpdateMousePosition();
         UpdateScreenPosition();

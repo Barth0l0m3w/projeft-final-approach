@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="BlowPlant.cs" />
     <Compile Include="Buttons.cs" />
+    <Compile Include="Cloud.cs" />
     <Compile Include="GXPEngine\AddOns\Gizmos.cs" />
     <Compile Include="GXPEngine\AddOns\SpriteBatch.cs" />
     <Compile Include="GXPEngine\AddOns\TiledLoader.cs" />

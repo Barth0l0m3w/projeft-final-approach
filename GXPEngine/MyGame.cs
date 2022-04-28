@@ -1,12 +1,12 @@
-using System;									// System contains a lot of default C# libraries 
-using GXPEngine;                                // GXPEngine contains the engine
-using System.Drawing;							// System.Drawing contains drawing tools such as Color definitions
+using System;									
+using GXPEngine;                                
+using System.Drawing;							
 
 public class MyGame : Game
 {
     Mushroom mushroom;
     BlowPlant blowPlant;
-    public MyGame() : base(800, 600, false)     // Create a window that's 800x600 and NOT fullscreen
+    public MyGame() : base(1920, 1080, false, true, 960, 540)     
     {
         // Draw some things on a canvas:
         EasyDraw canvas = new EasyDraw(800, 600);
@@ -19,14 +19,14 @@ public class MyGame : Game
         AddChild(blowPlant);
     }
 
-    // For every game object, Update is called every frame, by the engine:
+    
     void Update()
     {
         
     }
 
-    static void Main()                          // Main() is the first method that's called when the program is run
+    static void Main()                          
     {
-        new MyGame().Start();                   // Create a "MyGame" and start it
+        new MyGame().Start();                   
     }
 }
