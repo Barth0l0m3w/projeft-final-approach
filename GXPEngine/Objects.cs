@@ -14,6 +14,10 @@ public abstract class Objects : Sprite
         {
             return _position;
         }
+        set
+        {
+            _position = value;
+        }
     }
 
 
@@ -25,14 +29,16 @@ public abstract class Objects : Sprite
     public Vec2 mouseP;
     Vec2 distance;
 
-    public Objects(Vec2 pPosition, string image) : base(image)
+    public Objects(string image) : base(image)
     {
-        _position = pPosition;
-        SetOrigin(width / 2, height / 2);
+       // SetOrigin(width / 2, height / 2);
+       x= 0;
+        y= 0;
+        Console.WriteLine("position "+_position);
+        
     }
 
-
-    protected virtual void UpdateScreenPosition()
+    protected void UpdateScreenPosition()
     {
         x = _position.x;
         y = _position.y;
