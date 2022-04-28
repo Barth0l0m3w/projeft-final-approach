@@ -16,8 +16,10 @@ public abstract class Objects : Sprite
         }
     }
 
+
     public Vec2 velocity;
     bool clicked = false;
+    bool inSpellRange = false;
 
     Vec2 _position;
     public Vec2 mouseP;
@@ -29,13 +31,21 @@ public abstract class Objects : Sprite
         SetOrigin(width / 2, height / 2);
     }
 
+
     protected virtual void UpdateScreenPosition()
     {
         x = _position.x;
         y = _position.y;
     }
+    protected void OnCollision(GameObject Other)
+    {
+        if (Other is SpellRange)
+        {
+            inSpellRange = true;
+        }
+    }
 
-    protected void OnCollision()
+    protected void MouseTouching()
     {
         if (distance.Length() <= this.width)
         {
@@ -44,7 +54,7 @@ public abstract class Objects : Sprite
                 clicked = true;
                 //Console.WriteLine(clicked);
             }
-            else if (clicked && Input.GetMouseButtonUp(0))
+            else if (clicked && Input.GetMouseButtonUp(0) && inSpellRange)
             {
                 clicked = false;
                 //Console.WriteLine(clicked + "SECOND");
@@ -68,7 +78,8 @@ public abstract class Objects : Sprite
     {
         UpdateMousePosition();
         UpdateScreenPosition();
-        OnCollision();
+        MouseTouching();
+        inSpellRange = false;
         distance = mouseP - Position;
     }
 }

@@ -9,7 +9,6 @@ using GXPEngine;
 public class Mushroom : Objects
 {
 
-
     public Mushroom(): base(new Vec2(400, 500), "circle.png")
     {
 
