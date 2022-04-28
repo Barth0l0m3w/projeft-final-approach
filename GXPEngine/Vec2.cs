@@ -166,4 +166,14 @@ public struct Vec2
 	{
 		this -= (1 + pBounciness) * Dot(pNormal) * pNormal;
 	}
+
+	/// <summary>
+	/// Changes length of a vector without changing direction. Changes it such that max of abs(x),abs(y) = 1.
+	/// </summary>
+	public void WeirdNormalize()
+    {
+		float maxAbs = Mathf.Max(Mathf.Abs(x), Mathf.Abs(y));
+		x /= maxAbs;
+		y /= maxAbs;
+    }
 }

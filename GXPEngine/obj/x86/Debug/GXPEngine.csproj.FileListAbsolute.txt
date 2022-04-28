@@ -12,3 +12,11 @@ D:\courses\semester 4\project\git\projeft-final-approach\GXPEngine\obj\x86\Debug
 D:\courses\semester 4\project\git\projeft-final-approach\GXPEngine\obj\x86\Debug\GXPEngine.csproj.CoreCompileInputs.cache
 D:\courses\semester 4\project\git\projeft-final-approach\GXPEngine\obj\x86\Debug\GXPEngine.exe
 D:\courses\semester 4\project\git\projeft-final-approach\GXPEngine\obj\x86\Debug\GXPEngine.pdb
+E:\projeft-final-approach\GXPEngine\bin\Debug\GXPEngine.exe.config
+E:\projeft-final-approach\GXPEngine\bin\Debug\GXPEngine.exe
+E:\projeft-final-approach\GXPEngine\bin\Debug\GXPEngine.pdb
+E:\projeft-final-approach\GXPEngine\obj\x86\Debug\GXPEngine.csproj.AssemblyReference.cache
+E:\projeft-final-approach\GXPEngine\obj\x86\Debug\GXPEngine.csproj.SuggestedBindingRedirects.cache
+E:\projeft-final-approach\GXPEngine\obj\x86\Debug\GXPEngine.csproj.CoreCompileInputs.cache
+E:\projeft-final-approach\GXPEngine\obj\x86\Debug\GXPEngine.exe
+E:\projeft-final-approach\GXPEngine\obj\x86\Debug\GXPEngine.pdb

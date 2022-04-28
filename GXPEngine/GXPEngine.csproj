@@ -43,6 +43,7 @@
     <Compile Include="BlowPlant.cs" />
     <Compile Include="Buttons.cs" />
     <Compile Include="Cloud.cs" />
+    <Compile Include="Ball.cs" />
     <Compile Include="GXPEngine\AddOns\Gizmos.cs" />
     <Compile Include="GXPEngine\AddOns\SpriteBatch.cs" />
     <Compile Include="GXPEngine\AddOns\TiledLoader.cs" />
@@ -86,10 +87,6 @@
     <Compile Include="GXPEngine\FMOD\FMODSoundSystem.cs" />
     <Compile Include="GXPEngine\SoLoud\Soloud.cs" />
     <Compile Include="GXPEngine\SoLoud\SoloudSoundSystem.cs" />
-    <Compile Include="Objects.cs" />
-    <Compile Include="SceneManager.cs" />
-    <Compile Include="SpellRange.cs" />
-    <Compile Include="Vec2.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
