@@ -5,36 +5,46 @@ using System.Text;
 using System.Threading.Tasks;
 using GXPEngine;
 using GXPEngine.Core;
+using TiledMapParser;
 
 public class Ball : Sprite
 {
     private Vec2 position;
     private Vec2 velocity;
-    private Vec2 oldPosition;
-    private Vec2 oldVelocity;
+    private Vec2 aiming;
+    private int angle;
     private float speed = 3f;
     private float bounciness = 0.8f;
-    private static Vec2 acceleration = new Vec2(0, 0.2f);
+    private static Vec2 acceleration = new Vec2(0, 0.12f);
     private Collider boxCollider;
     Vector2 normalBig;
 
-    public Ball(int radius, Vec2 position, Vec2 velocity) : base("circle.png")
+    public Ball(TiledObject obj = null) : base("Placeholder_size_and_colors_test.png")
     {
-        this.position = position;
-        this.velocity = velocity;
+        position = new Vec2(obj.X, obj.Y);
+        velocity = new Vec2(0,0);
+        height = (int)obj.Height;
+        width = (int)obj.Width;
+        angle = obj.GetIntProperty("angle", 0);
+        speed = obj.GetFloatProperty("speed", 0f);
+        SetOrigin(width / 2, height / 2);
         x = position.x;
         y = position.y;
-        height = radius*2;
-        width = radius*2;
         boxCollider = createCollider();
-        SetOrigin(width / 2, height / 2);
-        oldVelocity = velocity;
+       // rotation = angle;
+        //scale = 2;
+       // obj.Rotation = angle;
         Console.WriteLine("X: " + x + " Y: " + y);
+        aiming = Vec2.GetUnitVectorDeg(angle);
+        Console.WriteLine(aiming.ToString());
+        Console.WriteLine(speed);
+        velocity = aiming * speed;
+        Console.WriteLine(velocity);
     }
 
     private void Move()
     {
-      //  velocity += acceleration;
+        velocity += acceleration;
         position += velocity;
     }
 
@@ -65,11 +75,14 @@ public class Ball : Sprite
 
                 Console.WriteLine("depth: {0}  overshootFactor: {1}",ballDistance,overshootFactor);
 
-                ballDistance -= 1 - overshootFactor;
+               ballDistance /= overshootFactor;
 
-                position += normal * (ballDistance);
+                Console.WriteLine("depth: {0}  overshootFactor: {1}", ballDistance, overshootFactor);
 
-                if (normal.Dot(velocity) < 0)
+
+                position += normal * ballDistance;
+
+                if (normal.Dot(velocity) < 0) //&& ballDistance >= (1-overshootFactor))
                 {
                     velocity.Reflect(normal, bounciness); // new Vec2(normalBig.x, normalBig.y));
                 }
@@ -98,16 +111,14 @@ public class Ball : Sprite
 
     void Update()
     {
-        oldPosition = position;
-        oldVelocity = velocity;
-
+        
         //Alternative();
-
-        Gizmos.DrawRectangle(0, 0, width, height, this);
+        //Draw the boxCollider
+        
         Move();
         CheckCollisions();
         UpdateScreenPosition();
-        
+        Gizmos.DrawRectangle(0, 0, texture.width, texture.height, this);
     }
 }
 
