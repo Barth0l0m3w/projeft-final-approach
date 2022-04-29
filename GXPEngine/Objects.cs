@@ -50,12 +50,10 @@ public abstract class Objects : Sprite
             if (!clicked && Input.GetMouseButtonUp(0))
             {
                 clicked = true;
-                //Console.WriteLine(clicked);
             }
             else if (clicked && Input.GetMouseButtonUp(0) && inSpellRange)
             {
                 clicked = false;
-                //Console.WriteLine(clicked + "SECOND");
             }
         }
     }
@@ -69,15 +67,14 @@ public abstract class Objects : Sprite
         {
             _position.x = Input.mouseX;
             _position.y = Input.mouseY;
+            UpdateScreenPosition();
         }
     }
 
     protected void Step()
     {
         UpdateMousePosition();
-        UpdateScreenPosition();
         MouseTouching();
-
         inSpellRange = false;
         distance = mouseP - Position;
 
