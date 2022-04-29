@@ -18,11 +18,12 @@ public class Ball : Sprite
     private static Vec2 acceleration = new Vec2(0, 0.12f);
     private Collider boxCollider;
     Vector2 normalBig;
+    bool start = false;
 
     public Ball(TiledObject obj = null) : base("Placeholder_size_and_colors_test.png")
     {
         position = new Vec2(obj.X, obj.Y);
-        velocity = new Vec2(0,0);
+        velocity = new Vec2(0, 0);
         height = (int)obj.Height;
         width = (int)obj.Width;
         angle = obj.GetIntProperty("angle", 0);
@@ -31,9 +32,9 @@ public class Ball : Sprite
         x = position.x;
         y = position.y;
         boxCollider = createCollider();
-       // rotation = angle;
+        // rotation = angle;
         //scale = 2;
-       // obj.Rotation = angle;
+        // obj.Rotation = angle;
         Console.WriteLine("X: " + x + " Y: " + y);
         aiming = Vec2.GetUnitVectorDeg(angle);
         Console.WriteLine(aiming.ToString());
@@ -64,7 +65,7 @@ public class Ball : Sprite
             {
                 // TODO: use this:
                 Collision colInfo = boxCollider.GetCollisionInfo(((Mushroom)collisions[i]).boxCollider);
-               // Console.WriteLine(boxCollider.GetCollisionInfo(((Mushroom)collisions[i]).boxCollider).penetrationDepth);
+                // Console.WriteLine(boxCollider.GetCollisionInfo(((Mushroom)collisions[i]).boxCollider).penetrationDepth);
                 ballDistance = colInfo.penetrationDepth;
 
                 Vec2 normal = new Vec2(colInfo.normal.x, colInfo.normal.y);
@@ -73,9 +74,9 @@ public class Ball : Sprite
                 normalCopy.WeirdNormalize();
                 float overshootFactor = normalCopy.Length();
 
-                Console.WriteLine("depth: {0}  overshootFactor: {1}",ballDistance,overshootFactor);
+                Console.WriteLine("depth: {0}  overshootFactor: {1}", ballDistance, overshootFactor);
 
-               ballDistance /= overshootFactor;
+                ballDistance /= overshootFactor;
 
                 Console.WriteLine("depth: {0}  overshootFactor: {1}", ballDistance, overshootFactor);
 
@@ -100,7 +101,7 @@ public class Ball : Sprite
     {
         velocity += acceleration;
         Collision colInfo = MoveUntilCollision(velocity.x, velocity.y);
-        if (colInfo!=null)
+        if (colInfo != null)
         {
             Vec2 normal = new Vec2(colInfo.normal.x, colInfo.normal.y);
             velocity.Reflect(normal);
@@ -111,14 +112,22 @@ public class Ball : Sprite
 
     void Update()
     {
-        
+
         //Alternative();
         //Draw the boxCollider
-        
-        Move();
-        CheckCollisions();
+        if (Input.GetKeyDown(Key.A))
+        {
+            start = true;
+        }
+        if (start)
+        {
+            Move();
+
+            CheckCollisions();
+            Gizmos.DrawRectangle(0, 0, texture.width, texture.height, this);
+        }
+
         UpdateScreenPosition();
-        Gizmos.DrawRectangle(0, 0, texture.width, texture.height, this);
     }
 }
 
