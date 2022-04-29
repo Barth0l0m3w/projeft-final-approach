@@ -41,7 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlowPlant.cs" />
-    <Compile Include="Buttons.cs" />
+    <Compile Include="ReloadButton.cs" />
     <Compile Include="Cloud.cs" />
     <Compile Include="Ball.cs" />
     <Compile Include="GXPEngine\AddOns\Gizmos.cs" />

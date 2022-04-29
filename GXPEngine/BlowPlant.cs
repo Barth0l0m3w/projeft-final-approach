@@ -25,6 +25,7 @@ public class BlowPlant : Objects
     void Update()
     {
         Step();
+        Console.WriteLine(Position);
     }
 }
 

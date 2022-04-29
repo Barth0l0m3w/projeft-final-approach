@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="6" nextobjectid="14">
- <tileset firstgid="1" name="tileset1" tilewidth="120" tileheight="120" tilecount="4" columns="2">
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="6" nextobjectid="12">
+ <tileset firstgid="1" name="tileset1" tilewidth="120" tileheight="120" tilecount="0" columns="2">
   <image source="../../../../project_lift_off/FireScript/GXPEngine/bin/Debug/tile_set_prototype_l1.png" width="256" height="256"/>
  </tileset>
  <imagelayer id="5" name="Warstwa Obrazka 1">
@@ -37,15 +37,7 @@
    </properties>
   </object>
   <object id="9" name="mushroom3" type="Mushroom" x="460.606" y="145.455" width="500" height="60"/>
-  <object id="10" name="PLANT" type="BlowPlant" x="1800" y="840" width="120" height="240">
-   <properties>
-    <property name="power" type="float" value="0.5"/>
-   </properties>
-  </object>
-  <object id="13" name="obj" type="Objects" x="480" y="960.5" width="122" height="119.5">
-   <properties>
-    <property name="whatObject" type="int" value="1"/>
-   </properties>
-  </object>
+  <object id="10" name="name" type="ReloadButton" x="1802.42" y="954.667" width="112.97" height="120"/>
+  <object id="11" name="test plant" type="BlowPlant" x="645.455" y="530.303" width="120" height="120"/>
  </objectgroup>
 </map>

@@ -20,24 +20,21 @@ public abstract class Objects : Sprite
         }
     }
 
+    //protected Vec2 velocity;
+    protected bool clicked = false;
+    protected bool inSpellRange = false;
 
-    public Vec2 velocity;
-    bool clicked = false;
-    bool inSpellRange = false;
+    protected Vec2 _position;
+    protected Vec2 mouseP;
+    protected Vec2 distance;
 
-    Vec2 _position;
-    public Vec2 mouseP;
-    Vec2 distance;
-
-    public Objects(string image) : base(image)
+    public Objects( string image) : base(image)
     {
-       // SetOrigin(width / 2, height / 2);
-        Console.WriteLine("position "+_position);
-        Console.WriteLine(x + " " + y);
         
+        SetOrigin(width / 2, height / 2);
     }
 
-    protected void UpdateScreenPosition()
+    protected virtual void UpdateScreenPosition()
     {
         x = _position.x;
         y = _position.y;
@@ -52,17 +49,15 @@ public abstract class Objects : Sprite
 
     protected void MouseTouching()
     {
-        if (distance.Length() <= this.width)
+        if (distance.Length() <= this.width/2)
         {
             if (!clicked && Input.GetMouseButtonUp(0))
             {
                 clicked = true;
-                //Console.WriteLine(clicked);
             }
             else if (clicked && Input.GetMouseButtonUp(0) && inSpellRange)
             {
                 clicked = false;
-                //Console.WriteLine(clicked + "SECOND");
             }
         }
     }
@@ -76,16 +71,19 @@ public abstract class Objects : Sprite
         {
             _position.x = Input.mouseX;
             _position.y = Input.mouseY;
+            UpdateScreenPosition();
         }
     }
 
     protected void Step()
     {
         UpdateMousePosition();
-        UpdateScreenPosition();
         MouseTouching();
         inSpellRange = false;
         distance = mouseP - Position;
+
+        _position.x = x;
+        _position.y = y;
     }
 }
 
