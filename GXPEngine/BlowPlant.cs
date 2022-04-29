@@ -16,13 +16,15 @@ public class BlowPlant : Objects
         height = (int)obj.Height;
         width = (int)obj.Width;
         SetOrigin(width / 2, height / 2);
-        Console.WriteLine("flower position: "+ Position);
+        Console.WriteLine(obj.X + ", "+obj.Y);
         Position = new Vec2(obj.X, obj.Y);
+        Console.WriteLine("flower position: "+ Position + " " +x + " " +y);
+        
     }
 
     void Update()
     {
-        //Step();
+        Step();
     }
 }
 

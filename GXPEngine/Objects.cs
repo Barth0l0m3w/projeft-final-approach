@@ -33,6 +33,7 @@ public abstract class Objects : Sprite
     {
        // SetOrigin(width / 2, height / 2);
         Console.WriteLine("position "+_position);
+        Console.WriteLine(x + " " + y);
         
     }
 
