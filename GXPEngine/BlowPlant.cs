@@ -4,12 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GXPEngine;
+using TiledMapParser;
 
 
 public class BlowPlant : Objects
 {
 
-    public BlowPlant() : base(new Vec2(300, 300), "triangle.png")
+    public BlowPlant(TiledObject obj = null) : base("triangle.png")
     {
 
     }
@@ -17,6 +18,7 @@ public class BlowPlant : Objects
     void Update()
     {
         Step();
+        Console.WriteLine(Position);
     }
 }
 
