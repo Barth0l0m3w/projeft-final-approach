@@ -37,7 +37,7 @@ public abstract class Objects : Sprite
     }
     protected void OnCollision(GameObject Other)
     {
-        if (Other is SpellRange)
+        if (Other is CollisionSpellRange)
         {
             inSpellRange = true;
         }

@@ -7,7 +7,7 @@ using GXPEngine;
 using GXPEngine.Core;
 using TiledMapParser;
 
-class Mushroom : Sprite
+class Mushroom : Objects
 {
     public Vec2 position;
     public Collider boxCollider;
@@ -33,7 +33,7 @@ class Mushroom : Sprite
 
     void Update()
     {
-        
+        Step();
         //rotation = angle;
         Gizmos.DrawRectangle(0, 0, texture.width, texture.height, this);
     }
