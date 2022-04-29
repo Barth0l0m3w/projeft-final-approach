@@ -12,7 +12,7 @@ public class CollisionSpellRange : Sprite
 
     public CollisionSpellRange(TiledObject obj = null) : base("colors.png", true)
     {
-        alpha = 0.3f;
+        alpha = 0.0f;
         SetOrigin(width / 2, height / 2);
     }
 }
