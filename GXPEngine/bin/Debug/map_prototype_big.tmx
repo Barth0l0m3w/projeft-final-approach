@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="6" nextobjectid="12">
- <tileset firstgid="1" name="tileset1" tilewidth="120" tileheight="120" tilecount="0" columns="2">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="6" nextobjectid="13">
+ <tileset firstgid="1" name="tileset1" tilewidth="120" tileheight="120" tilecount="4" columns="2">
   <image source="../../../../project_lift_off/FireScript/GXPEngine/bin/Debug/tile_set_prototype_l1.png" width="256" height="256"/>
  </tileset>
  <imagelayer id="5" name="Warstwa Obrazka 1">
@@ -26,18 +26,17 @@
     <property name="speed" type="float" value="20"/>
    </properties>
   </object>
-  <object id="6" name="Mushroom" type="Mushroom" x="287.879" y="1015.15" width="481.818" height="63.6364" rotation="-110">
+  <object id="6" name="Mushroom" type="Mushroom" x="157.879" y="407.15" width="481.818" height="63.6364" rotation="-110">
    <properties>
     <property name="angle" type="int" value="-110"/>
    </properties>
   </object>
-  <object id="8" name="Mushroom2" type="Mushroom" x="1096.97" y="1103.03" width="509.091" height="60.6061" rotation="-30">
+  <object id="8" name="Mushroom2" type="Mushroom" x="-59.03" y="651.03" width="509.091" height="60.6061" rotation="-30">
    <properties>
     <property name="angle" type="int" value="-30"/>
    </properties>
   </object>
-  <object id="9" name="mushroom3" type="Mushroom" x="460.606" y="145.455" width="500" height="60"/>
   <object id="10" name="name" type="ReloadButton" x="1802.42" y="954.667" width="112.97" height="120"/>
-  <object id="11" name="test plant" type="BlowPlant" x="645.455" y="530.303" width="120" height="120"/>
+  <object id="12" name="spellrange" type="SpellRange" x="-34" y="-18" width="1104" height="1118"/>
  </objectgroup>
 </map>

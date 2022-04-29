@@ -4,18 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using GXPEngine;
-
+using TiledMapParser;
 
 public class SpellRange : Sprite
 {
 
 
-    public SpellRange(float _ScaleX, float _ScaleY, float _x, float _y) : base("colors.png", false)
+    public SpellRange(TiledObject obj = null) : base("colors.png", false)
     {
-        scaleX = _ScaleX;
-        scaleY = _ScaleY;
-        x = _x;
-        y = _y;
+        
 
         SetOrigin(width / 2, height / 2);
 
