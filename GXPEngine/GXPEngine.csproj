@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlowPlant.cs" />
+    <Compile Include="VisualSpellRange.cs" />
     <Compile Include="ReloadButton.cs" />
     <Compile Include="Cloud.cs" />
     <Compile Include="Ball.cs" />
@@ -89,7 +90,7 @@
     <Compile Include="GXPEngine\SoLoud\SoloudSoundSystem.cs" />
     <Compile Include="Objects.cs" />
     <Compile Include="SceneManager.cs" />
-    <Compile Include="SpellRange.cs" />
+    <Compile Include="CollisionSpellRange.cs" />
     <Compile Include="Vec2.cs" />
   </ItemGroup>
   <ItemGroup>
