@@ -9,7 +9,7 @@ using GXPEngine;
 public class BlowPlant : Objects
 {
 
-    public BlowPlant() : base(new Vec2(300, 300), "triangle.png")
+    public BlowPlant() : base("triangle.png")
     {
 
     }

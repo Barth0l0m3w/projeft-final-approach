@@ -5,23 +5,11 @@ using System.Collections.Generic;
 
 public class MyGame : Game
 {
-    Mushroom mushroom;
-    BlowPlant blowPlant;
-    SpellRange spellRange;
 	string levelName = "map_prototype_big.tmx";
 	Levels level;
 
-	public MyGame() : base(1920, 1080, false, true, 960, 540)
+	public MyGame() : base(1920, 1080, false, false, 960, 540)
 	{
-        //// Draw some things on a canvas:
-        //EasyDraw canvas = new EasyDraw(800, 600);
-        //AddChild(canvas);
-
-        //spellRange = new SpellRange(3, 3, width / 2, height / 2);
-        //AddChild(spellRange);
-
-        //mushroom = new Mushroom();
-        //AddChild(mushroom);
 
     }
 
