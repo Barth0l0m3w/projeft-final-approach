@@ -77,6 +77,7 @@ public abstract class Objects : Sprite
         UpdateMousePosition();
         UpdateScreenPosition();
         MouseTouching();
+
         inSpellRange = false;
         distance = mouseP - Position;
 

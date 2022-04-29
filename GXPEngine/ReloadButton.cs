@@ -27,23 +27,31 @@ public class ReloadButton : Sprite
 
     private void Update()
     {
-        clicked = false;
-
+        
+        Console.WriteLine(clicked);
         _position.x = x;
         _position.y = y;
         Step();
+        
     }
 
     private void MouseTouching()
     {
         if (distance.Length() <= width/2)
         {
-            Console.WriteLine("NOW");
-            if (!clicked && Input.GetMouseButtonUp(0))
+            
+            if (Input.GetMouseButtonUp(0))
             {
                 clicked = true;
-                Console.WriteLine(clicked);
+                
             }
+        }
+    }
+    private void Reload()
+    {
+        if (clicked)
+        {
+
         }
     }
     private void UpdateMousePosition()
@@ -57,6 +65,7 @@ public class ReloadButton : Sprite
         distance = mouseP - Position;
         MouseTouching();
         UpdateMousePosition();
+        
     }
 }
 
