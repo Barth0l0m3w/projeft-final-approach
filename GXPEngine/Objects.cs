@@ -14,6 +14,10 @@ public abstract class Objects : Sprite
         {
             return _position;
         }
+        set
+        {
+            _position = value;
+        }
     }
 
     //protected Vec2 velocity;

@@ -9,16 +9,19 @@ using TiledMapParser;
 
 public class BlowPlant : Objects
 {
+   public float power = 0f;
 
-    public BlowPlant(TiledObject obj = null) : base("triangle.png")
-    {
-
+    public BlowPlant(TiledObject obj = null) : base("plant.png")
+    { 
+        SetOrigin(width / 2, height / 2);
+        Position = new Vec2(obj.X, obj.Y);
+        power = obj.GetFloatProperty("power", 0f);
+        Console.WriteLine(power);
     }
 
     void Update()
     {
         Step();
-        Console.WriteLine(Position);
     }
 }
 
