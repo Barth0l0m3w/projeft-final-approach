@@ -6,20 +6,20 @@ using System.Threading.Tasks;
 using TiledMapParser;
 using GXPEngine;
 
-public class Levels : GameObject
+public class LevelLoader : GameObject
 {
     private TiledLoader loader;
     private List<TiledObject> tiledObjects = new List<TiledObject>();
     private string filename;
 
-    public Levels(string filename)
+    public LevelLoader(string filename)
     {
+        Console.WriteLine(game.GetChildCount());
         this.filename = filename;
 
         loader = new TiledLoader(filename);
         loader.OnObjectCreated += OnSpriteCreated;
         StartLevel();
-
     }
 
     private void OnSpriteCreated(Sprite sprite, TiledObject obj)
@@ -40,6 +40,8 @@ public class Levels : GameObject
         loader.LoadTileLayers(3);
         loader.autoInstance = true;
         loader.LoadObjectGroups();
+
+        Console.WriteLine(game.GetChildCount());
     }
 
     void Update()

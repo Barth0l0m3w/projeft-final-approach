@@ -5,13 +5,15 @@ using System.Collections.Generic;
 
 public class MyGame : Game
 {
-    public string levelName = "map_prototype_big.tmx";
-    public Levels level;
+    public LevelLoader level;
+    SceneManager sceneManager;
 
     public MyGame() : base(1920, 1080, false, false, 960, 540)
     {
-        Console.WriteLine("Reloading the level " + levelName);
-        LoadLevel(levelName);
+        sceneManager = new SceneManager();
+        AddChild(sceneManager);
+
+        SceneManager.Instance.LoadLevel("map_prototype_big");
     }
 
     void Update()
@@ -24,6 +26,11 @@ public class MyGame : Game
         {
             targetFps = 60;
         }
+        if (Input.GetKey(Key.L))
+        {
+            SceneManager.Instance.LoadLevel("map_prototype");
+        }
+
     }
 
     static void Main()
@@ -40,10 +47,10 @@ public class MyGame : Game
         }
     }
 
-    private void LoadLevel(string filename)
+    /*private void LoadLevel(string filename)
     {
         DestroyAll();
-        level = new Levels(filename);
+        level = new LevelLoader(filename);
         LateAddChild(level);
-    }
+    }*/
 }
