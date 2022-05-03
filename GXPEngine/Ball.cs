@@ -13,12 +13,11 @@ public class Ball : Sprite
     private Vec2 velocity;
     private Vec2 aiming;
     private int angle;
-    private float speed = 3f;
+    private float speed = 10f;
     private float bounciness = 0.8f;
-    private static Vec2 acceleration = new Vec2(0, 0.12f);
+    private static Vec2 acceleration = new Vec2(0, 0.4f);
+    private Vec2 accelerationOriginal;
     private Collider boxCollider;
-    Vector2 normalBig;
-    bool start = false;
 
     public Ball(TiledObject obj = null) : base("Placeholder_size_and_colors_test.png")
     {
@@ -32,31 +31,34 @@ public class Ball : Sprite
         x = position.x;
         y = position.y;
         boxCollider = createCollider();
-        // rotation = angle;
+       // rotation = angle;
         //scale = 2;
-        // obj.Rotation = angle;
+       // obj.Rotation = angle;
         Console.WriteLine("X: " + x + " Y: " + y);
         aiming = Vec2.GetUnitVectorDeg(angle);
         Console.WriteLine(aiming.ToString());
         Console.WriteLine(speed);
         velocity = aiming * speed;
         Console.WriteLine(velocity);
+        accelerationOriginal = acceleration;
     }
 
     private void Move()
     {
+        
         velocity += acceleration;
         position += velocity;
+        
+        ReduceAcceleration();
+        
+        
     }
 
 
 
     private void CheckCollisions()
     {
-        float impactY;
-        float time;
         float ballDistance;
-        Vec2 point = new Vec2(0, 0);
 
         GameObject[] collisions = GetCollisions();
         for (int i = 0; i < collisions.Length; i++)
@@ -83,12 +85,21 @@ public class Ball : Sprite
 
                 position += normal * ballDistance;
 
-                if (normal.Dot(velocity) < 0) //&& ballDistance >= (1-overshootFactor))
+                if (normal.Dot(velocity) < 0)
                 {
-                    velocity.Reflect(normal, bounciness); // new Vec2(normalBig.x, normalBig.y));
+                    velocity.Reflect(normal, bounciness);
                 }
             }
+            if (collisions[i] is BlowPlant)
+            {
+                acceleration = accelerationOriginal * -((BlowPlant)collisions[i]).power;
+            }
         }
+    }
+
+    private void ReduceAcceleration()
+    {
+        acceleration = accelerationOriginal;
     }
 
     private void UpdateScreenPosition()
@@ -115,18 +126,9 @@ public class Ball : Sprite
 
         //Alternative();
         //Draw the boxCollider
-        if (Input.GetKeyDown(Key.A))
-        {
-            start = true;
-        }
-        if (start)
-        {
-            Move();
-
-            CheckCollisions();
-            Gizmos.DrawRectangle(0, 0, texture.width, texture.height, this);
-        }
-
+        
+        Move();
+        CheckCollisions();
         UpdateScreenPosition();
     }
 }

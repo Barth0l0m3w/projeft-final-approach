@@ -15,13 +15,13 @@ class Mushroom : Objects
 
     public Mushroom(TiledObject obj = null) : base("mushroom.png")
     {
-        position = new Vec2(obj.X, obj.Y);
+        Position = new Vec2(obj.X, obj.Y);
         height = (int)obj.Height;
         width = (int)obj.Width;
         SetOrigin(width/2,height/2);
 
-        x = position.x;
-        y = position.y;
+        //x = Position.x;
+       // y = Position.y;
 
         angle = obj.GetIntProperty("angle", 0);
         boxCollider = createCollider();
