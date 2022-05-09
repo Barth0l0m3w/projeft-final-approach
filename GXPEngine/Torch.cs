@@ -18,6 +18,8 @@ public class Torch : Sprite
     private static Vec2 acceleration = new Vec2(0, 0.4f);
     private Vec2 accelerationOriginal;
     private Collider boxCollider;
+    private TorchArrow arrow;
+   // private MyGame game;
 
     public Torch(TiledObject obj = null) : base("Placeholder_size_and_colors_test.png")
     {
@@ -38,20 +40,26 @@ public class Torch : Sprite
         aiming = Vec2.GetUnitVectorDeg(angle);
         Console.WriteLine(aiming.ToString());
         Console.WriteLine(speed);
-        velocity = aiming * speed;
+        
         Console.WriteLine(velocity);
         accelerationOriginal = acceleration;
         // Console.WriteLine(speed + " SPEED VALUE");
-        LateAddChild(new TorchArrow(0,0,angle,this));
+        arrow = new TorchArrow(0, 0, angle, this);
+        LateAddChild(arrow);
+      //  game = ((MyGame)game);
     }
 
     private void Move()
     {
 
-        velocity += acceleration;
-        position += velocity;
+        if (((MyGame)game).torchMoving)
+        {
+            velocity += acceleration;
+            position += velocity;
 
-        ReduceAcceleration();
+            ReduceAcceleration();
+        }
+       
         
         
     }
@@ -123,6 +131,16 @@ public class Torch : Sprite
 
     }
 
+    private void ShootTorch()
+    {
+        if (Input.GetKeyUp(Key.T) && !((MyGame)game).torchMoving)
+        {
+            velocity = aiming * speed;
+            ((MyGame)game).torchMoving = true;
+            arrow.LateDestroy();
+        }
+    }
+
     void Update()
     {
 
@@ -132,6 +150,7 @@ public class Torch : Sprite
         Move();
         CheckCollisions();
         UpdateScreenPosition();
+        ShootTorch();
     }
 }
 
