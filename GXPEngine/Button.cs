@@ -21,13 +21,15 @@ public class Button : Sprite
     private bool clicked = false;
     private string levelName = null;
     private int function = 0;
-    public int levelNumber = 1;
+    //private int levelNumber = 1;
+    private string image = null;
 
     public Button(TiledObject obj = null) : base("square.png")
     {
         SetOrigin(width / 2, height / 2);
         levelName = obj.GetStringProperty("levelName", null);
         function = obj.GetIntProperty("function", 0);
+        image = obj.GetStringProperty("image", null);
     }
 
     private void Update()
@@ -57,13 +59,11 @@ public class Button : Sprite
 
     private void GoLevel()
     {
-        levelNumber+=1;
         SceneManager.Instance.LoadLevel(levelName);
     }
 
     private void LastLevel()
     {
-        levelNumber-=1;
         SceneManager.Instance.LoadLevel(levelName);
     }
 
@@ -95,12 +95,6 @@ public class Button : Sprite
                 if (clicked)
                 {
                     Load();
-                }
-                break;
-            case 2:
-                if (clicked)
-                {
-                    LastLevel();
                 }
                 break;
         }

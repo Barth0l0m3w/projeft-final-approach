@@ -20,9 +20,10 @@
 </data>
  </layer>
  <objectgroup id="3" name="Warstwa Obiektu 1">
-  <object id="12" name="Button" type="Button" x="727.273" y="363.636" width="120" height="120">
+  <object id="12" name="Button" type="Button" x="727.273" y="363.636" width="477.576" height="120">
    <properties>
     <property name="function" type="int" value="0"/>
+    <property name="image" value="triangle.png"/>
     <property name="levelName" value="level2"/>
    </properties>
   </object>
