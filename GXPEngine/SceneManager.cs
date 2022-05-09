@@ -38,21 +38,15 @@ namespace GXPEngine
 
         }
 
-        public void loadLevel(string LevelName)
+        public void LoadLevel(string LevelName)
         {
             foreach (GameObject Child in GetChildren())
             {
                 Child.Destroy();
             }
-
-            switch (LevelName)
-            {
-                
-                default:
-                    Console.WriteLine($"{LevelName} is not supported");
-                    break;
-            }
+            Console.WriteLine("Reloading the level " + LevelName);
+            LevelLoader levelLoader = new LevelLoader($"{LevelName}.tmx");
+            AddChild(levelLoader);
         }
     }
 }
-
