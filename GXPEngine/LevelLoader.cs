@@ -14,7 +14,6 @@ public class LevelLoader : GameObject
 
     public LevelLoader(string filename)
     {
-        Console.WriteLine(game.GetChildCount());
         this.filename = filename;
 
         loader = new TiledLoader(filename);
@@ -40,8 +39,6 @@ public class LevelLoader : GameObject
         loader.LoadTileLayers(3);
         loader.autoInstance = true;
         loader.LoadObjectGroups();
-
-        Console.WriteLine(game.GetChildCount());
     }
 
     void Update()

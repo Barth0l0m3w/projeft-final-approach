@@ -42,7 +42,7 @@
   <ItemGroup>
     <Compile Include="BlowPlant.cs" />
     <Compile Include="VisualSpellRange.cs" />
-    <Compile Include="ReloadButton.cs" />
+    <Compile Include="Button.cs" />
     <Compile Include="Cloud.cs" />
     <Compile Include="Ball.cs" />
     <Compile Include="GXPEngine\AddOns\Gizmos.cs" />

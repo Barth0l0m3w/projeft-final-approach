@@ -44,7 +44,7 @@ namespace GXPEngine
             {
                 Child.Destroy();
             }
-            Console.WriteLine("Reloading the level " + LevelName);
+            
             LevelLoader levelLoader = new LevelLoader($"{LevelName}.tmx");
             AddChild(levelLoader);
         }

@@ -13,7 +13,7 @@ public class MyGame : Game
         sceneManager = new SceneManager();
         AddChild(sceneManager);
 
-        SceneManager.Instance.LoadLevel("map_prototype_big");
+        SceneManager.Instance.LoadLevel("level1");
     }
 
     void Update()
@@ -26,11 +26,6 @@ public class MyGame : Game
         {
             targetFps = 60;
         }
-        if (Input.GetKey(Key.L))
-        {
-            SceneManager.Instance.LoadLevel("map_prototype");
-        }
-
     }
 
     static void Main()
@@ -46,11 +41,4 @@ public class MyGame : Game
             child.LateDestroy();
         }
     }
-
-    /*private void LoadLevel(string filename)
-    {
-        DestroyAll();
-        level = new LevelLoader(filename);
-        LateAddChild(level);
-    }*/
 }
