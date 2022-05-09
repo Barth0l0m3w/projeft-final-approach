@@ -95,6 +95,7 @@
     <Compile Include="SceneManager.cs" />
     <Compile Include="CollisionSpellRange.cs" />
     <Compile Include="Vec2.cs" />
+    <Compile Include="Witch.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

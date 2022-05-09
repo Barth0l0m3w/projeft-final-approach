@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="6" nextobjectid="15">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="7" nextobjectid="16">
  <tileset firstgid="1" name="tileset1" tilewidth="120" tileheight="120" tilecount="4" columns="2">
   <image source="../../../../project_lift_off/FireScript/GXPEngine/bin/Debug/tile_set_prototype_l1.png" width="256" height="256"/>
  </tileset>
  <imagelayer id="5" name="Warstwa Obrazka 1">
-  <image source="placeholder 2 background.png" width="1920" height="1080"/>
+  <image source="final_background.png" width="1920" height="1080"/>
+ </imagelayer>
+ <imagelayer id="6" name="Warstwa Obrazka 2" offsetx="0" offsety="960">
+  <image source="inventory.png" width="2020" height="120"/>
  </imagelayer>
  <layer id="1" name="Warstwa Kafelków 1" width="16" height="9">
   <data encoding="csv">
@@ -45,5 +48,6 @@
    </properties>
   </object>
   <object id="14" name="the void" type="TheVoid" x="-4376" y="1200" width="11040" height="248"/>
+  <object id="15" name="witch" type="Witch" x="433.333" y="769.697" width="166.667" height="309.091"/>
  </objectgroup>
 </map>
