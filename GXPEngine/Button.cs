@@ -50,16 +50,17 @@ public class Button : Sprite
             }
         }
     }
-    private void Load()
+    private void CurrentLoad()
     {
 
-        SceneManager.Instance.LoadLevel(levelName);
+        SceneManager.Instance.LoadLevel(((MyGame)game).CurrentLevel);
 
     }
 
     private void GoLevel()
     {
         SceneManager.Instance.LoadLevel(levelName);
+        ((MyGame)game).CurrentLevel = levelName;
     }
 
     private void LastLevel()
@@ -94,7 +95,7 @@ public class Button : Sprite
             case 1:
                 if (clicked)
                 {
-                    Load();
+                    CurrentLoad();
                 }
                 break;
         }
