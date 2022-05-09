@@ -22,14 +22,16 @@
  <objectgroup id="3" name="Warstwa Obiektu 1">
   <object id="12" name="button" type="Button" x="721.212" y="360.606" width="120" height="120">
    <properties>
-    <property name="function" type="int" value="2"/>
+    <property name="function" type="int" value="0"/>
+    <property name="image" value="square.png"/>
     <property name="levelName" value="level1"/>
    </properties>
   </object>
   <object id="15" name="button" type="Button" x="728.788" y="706.06" width="120" height="120">
    <properties>
     <property name="function" type="int" value="1"/>
-    <property name="levelName" value="level2"/>
+    <property name="image" value="square.png"/>
+    <property name="levelName" value="level1"/>
    </properties>
   </object>
  </objectgroup>

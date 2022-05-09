@@ -7,6 +7,7 @@ public class MyGame : Game
 {
     public LevelLoader level;
     SceneManager sceneManager;
+    public String CurrentLevel = null;
 
     public MyGame() : base(1920, 1080, false, false, 960, 540)
     {
@@ -14,6 +15,7 @@ public class MyGame : Game
         AddChild(sceneManager);
 
         SceneManager.Instance.LoadLevel("level1");
+        CurrentLevel = "level1";
     }
 
     void Update()
