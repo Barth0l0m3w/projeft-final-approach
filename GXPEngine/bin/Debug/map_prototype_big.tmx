@@ -22,7 +22,7 @@
  <objectgroup id="3" name="Warstwa Obiektu 1">
   <object id="13" name="visualSellRange" type="VisualSpellRange" x="-90.9091" y="530.303" width="1760.61" height="636.364"/>
   <object id="12" name="spellrange" type="CollisionSpellRange" x="-34" y="794.121" width="1204" height="305.879"/>
-  <object id="3" name="Torch" type="Ball" x="1554.23" y="241.108" width="120" height="120">
+  <object id="3" name="Torch" type="Torch" x="1554.23" y="241.108" width="120" height="120">
    <properties>
     <property name="angle" type="int" value="180"/>
     <property name="speed" type="float" value="20"/>
