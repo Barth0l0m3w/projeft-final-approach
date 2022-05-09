@@ -41,6 +41,7 @@ public class Ball : Sprite
         velocity = aiming * speed;
         Console.WriteLine(velocity);
         accelerationOriginal = acceleration;
+       // Console.WriteLine(speed + " SPEED VALUE");
     }
 
     private void Move()
