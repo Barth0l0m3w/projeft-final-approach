@@ -26,7 +26,7 @@ public class Button : Sprite
 
     public Button(TiledObject obj = null) : base("square.png")
     {
-        SetOrigin(width / 2, height / 2);
+        //SetOrigin(width / 2, height / 2);
         levelName = obj.GetStringProperty("levelName", null);
         function = obj.GetIntProperty("function", 0);
         image = obj.GetStringProperty("image", null);
@@ -80,6 +80,16 @@ public class Button : Sprite
         MouseTouching();
         UpdateMousePosition();
         ChooseFunction();
+        MoveButton();
+    }
+
+    void MoveButton()
+    {
+        if (((MyGame)game).isBurning && function == 0)
+        {
+            x = 1588+64;
+            y = 916+64;
+        }
     }
 
     public void ChooseFunction()

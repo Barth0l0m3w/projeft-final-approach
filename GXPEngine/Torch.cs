@@ -108,12 +108,13 @@ public class Torch : Sprite
             if (collisions[i] is TheVoid)
             {
                 Console.WriteLine("GAME IS OVER, sorry");
-                SceneManager.Instance.LoadLevel("map_prototype_big");
+                SceneManager.Instance.LoadLevel(((MyGame)game).CurrentLevel);
             }
             if(collisions[i] is Witch)
             {
-                ((Witch)collisions[i]).isBurning = true;
+                ((MyGame)game).isBurning = true;
                 Console.WriteLine("BURN THE BITCH!!!!!");
+                LateDestroy();
               //  SceneManager.Instance.LoadLevel("map_prototype_big");
             }
         }

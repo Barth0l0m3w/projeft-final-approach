@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="7" nextobjectid="22">
+ <tileset firstgid="1" name="tileset1" tilewidth="120" tileheight="120" tilecount="0" columns="2">
+  <image source="../projeft-final-approach-development/project_lift_off/FireScript/GXPEngine/bin/Debug/tile_set_prototype_l1.png" width="256" height="256"/>
+ </tileset>
+ <imagelayer id="5" name="Warstwa Obrazka 1">
+  <image source="final_background.png" width="1920" height="1080"/>
+ </imagelayer>
+ <imagelayer id="6" name="Image Layer 2" offsetx="-4" offsety="842">
+  <image source="inventory.png" width="2020" height="287"/>
+ </imagelayer>
+ <layer id="1" name="Warstwa Kafelków 1" width="16" height="9">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="3" name="Warstwa Obiektu 1">
+  <object id="13" name="visualSpellRange" type="VisualSpellRange" x="-46.9091" y="236.303" width="854.61" height="636.364"/>
+  <object id="12" name="spellrange" type="CollisionSpellRange" x="50" y="494.121" width="428" height="379.879"/>
+  <object id="3" name="Torch" type="Torch" x="1532.23" y="715.108" width="120" height="120">
+   <properties>
+    <property name="angle" type="int" value="250"/>
+    <property name="speed" type="float" value="25"/>
+   </properties>
+  </object>
+  <object id="16" name="Mushroom" type="Mushroom" x="513.073" y="894.182" width="171.42" height="63.6364" rotation="43">
+   <properties>
+    <property name="angle" type="int" value="43"/>
+   </properties>
+  </object>
+  <object id="18" name="scary void" type="TheVoid" x="-1046" y="1154" width="3026" height="172"/>
+  <object id="19" name="restart" type="Button" x="1756" y="916" width="128" height="128">
+   <properties>
+    <property name="function" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="20" name="next" type="Button" x="2210" y="356" width="128" height="128">
+   <properties>
+    <property name="function" type="int" value="0"/>
+    <property name="levelName" value="level1"/>
+   </properties>
+  </object>
+  <object id="21" name="witch" type="Witch" x="402" y="656" width="114" height="218"/>
+ </objectgroup>
+</map>
