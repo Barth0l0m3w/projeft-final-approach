@@ -46,6 +46,7 @@ public class Torch : Sprite
         // Console.WriteLine(speed + " SPEED VALUE");
         arrow = new TorchArrow(0, 0, angle, this);
         LateAddChild(arrow);
+        ((MyGame)game).torchMoving = false;
       //  game = ((MyGame)game);
     }
 
@@ -103,6 +104,11 @@ public class Torch : Sprite
             if (collisions[i] is BlowPlant)
             {
                 acceleration = accelerationOriginal * -((BlowPlant)collisions[i]).power;
+            }
+            if (collisions[i] is TheVoid)
+            {
+                Console.WriteLine("GAME IS OVER, sorry");
+                SceneManager.Instance.LoadLevel("map_prototype_big");
             }
         }
     }

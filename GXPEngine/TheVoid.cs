@@ -3,10 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GXPEngine;
+using TiledMapParser;
 
-namespace GXPEngine
+
+internal class TheVoid :Sprite
 {
-    internal class TheVoid
+    public TheVoid(TiledObject obj = null) : base("square.png")
     {
+
     }
 }
+

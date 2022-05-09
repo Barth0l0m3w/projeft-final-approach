@@ -41,9 +41,9 @@
   <object id="10" name="name" type="ReloadButton" x="1802.42" y="954.667" width="112.97" height="120"/>
   <object id="11" name="test plant" type="BlowPlant" x="763.455" y="838.303" width="120" height="240">
    <properties>
-    <property name="power" type="float" value="8"/>
+    <property name="power" type="float" value="10"/>
    </properties>
   </object>
-  <object id="14" name="the void" type="TheVoid" x="-4376" y="1112" width="11040" height="248"/>
+  <object id="14" name="the void" type="TheVoid" x="-4376" y="1200" width="11040" height="248"/>
  </objectgroup>
 </map>
