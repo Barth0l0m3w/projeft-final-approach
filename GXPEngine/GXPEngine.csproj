@@ -41,10 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlowPlant.cs" />
+    <Compile Include="TorchArrow.cs" />
     <Compile Include="VisualSpellRange.cs" />
     <Compile Include="ReloadButton.cs" />
     <Compile Include="Cloud.cs" />
-    <Compile Include="Ball.cs" />
+    <Compile Include="Torch.cs" />
     <Compile Include="GXPEngine\AddOns\Gizmos.cs" />
     <Compile Include="GXPEngine\AddOns\SpriteBatch.cs" />
     <Compile Include="GXPEngine\AddOns\TiledLoader.cs" />

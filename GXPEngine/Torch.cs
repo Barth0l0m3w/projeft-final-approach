@@ -7,7 +7,7 @@ using GXPEngine;
 using GXPEngine.Core;
 using TiledMapParser;
 
-public class Ball : Sprite
+public class Torch : Sprite
 {
     private Vec2 position;
     private Vec2 velocity;
@@ -19,12 +19,12 @@ public class Ball : Sprite
     private Vec2 accelerationOriginal;
     private Collider boxCollider;
 
-    public Ball(TiledObject obj = null) : base("Placeholder_size_and_colors_test.png")
+    public Torch(TiledObject obj = null) : base("Placeholder_size_and_colors_test.png")
     {
         position = new Vec2(obj.X, obj.Y);
         velocity = new Vec2(0, 0);
-        height = (int)obj.Height;
-        width = (int)obj.Width;
+        //height = (int)obj.Height;
+        //width = (int)obj.Width;
         angle = obj.GetIntProperty("angle", 0);
         speed = obj.GetFloatProperty("speed", 0f);
         SetOrigin(width / 2, height / 2);
@@ -41,15 +41,16 @@ public class Ball : Sprite
         velocity = aiming * speed;
         Console.WriteLine(velocity);
         accelerationOriginal = acceleration;
-       // Console.WriteLine(speed + " SPEED VALUE");
+        // Console.WriteLine(speed + " SPEED VALUE");
+        LateAddChild(new TorchArrow(0,0,angle,this));
     }
 
     private void Move()
     {
-        
+
         velocity += acceleration;
         position += velocity;
-        
+
         ReduceAcceleration();
         
         
