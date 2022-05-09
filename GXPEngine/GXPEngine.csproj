@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlowPlant.cs" />
+    <Compile Include="TheVoid.cs" />
     <Compile Include="TorchArrow.cs" />
     <Compile Include="VisualSpellRange.cs" />
     <Compile Include="Button.cs" />
@@ -94,6 +95,7 @@
     <Compile Include="SceneManager.cs" />
     <Compile Include="CollisionSpellRange.cs" />
     <Compile Include="Vec2.cs" />
+    <Compile Include="Witch.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
