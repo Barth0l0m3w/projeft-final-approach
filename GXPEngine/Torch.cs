@@ -114,6 +114,7 @@ public class Torch : Sprite
             {
                 ((Witch)collisions[i]).isBurning = true;
                 Console.WriteLine("BURN THE BITCH!!!!!");
+              //  SceneManager.Instance.LoadLevel("map_prototype_big");
             }
         }
     }
