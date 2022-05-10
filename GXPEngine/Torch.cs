@@ -19,7 +19,7 @@ public class Torch : Sprite
     private Vec2 accelerationOriginal;
     private Collider boxCollider;
     private TorchArrow arrow;
-   // private MyGame game;
+    //private MyGame game;
 
     public Torch(TiledObject obj = null) : base("Placeholder_size_and_colors_test.png")
     {
@@ -49,6 +49,8 @@ public class Torch : Sprite
         ((MyGame)game).torchMoving = false;
         ((MyGame)game).mobHit = false;
         ((MyGame)game).isBurning = false;
+        ((MyGame)game).voidTouched = false;
+        //game = MyGame.instance;
       //  game = ((MyGame)game);
     }
 
@@ -116,7 +118,7 @@ public class Torch : Sprite
                 if (collisions[i] is TheVoid)
                 {
                     Console.WriteLine("GAME IS OVER, sorry");
-                    if (((MyGame)game).isBurning)
+                    if (MyGame.instance.isBurning)
                     {
                         SceneManager.Instance.LoadLevel(((MyGame)game).CurrentLevel);
                     }

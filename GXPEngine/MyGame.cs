@@ -4,7 +4,15 @@ using System.Drawing;
 using System.Collections.Generic;
 
 public class MyGame : Game
-{
+{ 
+    public static MyGame instance
+    {
+        get
+        {
+            return (MyGame)Game.main;
+        }
+    }
+
     public LevelLoader level;
     SceneManager sceneManager;
     public bool torchMoving = false;
@@ -18,8 +26,8 @@ public class MyGame : Game
         sceneManager = new SceneManager();
         AddChild(sceneManager);
 
-        SceneManager.Instance.LoadLevel("Level_1_final_9_05_2022");
-        CurrentLevel = "Level_1_final_9_05_2022";
+        SceneManager.Instance.LoadLevel("mainMenu");
+        CurrentLevel = "mainMenu";
     }
 
     void Update()

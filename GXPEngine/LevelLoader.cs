@@ -23,7 +23,7 @@ public class LevelLoader : GameObject
 
     private void OnSpriteCreated(Sprite sprite, TiledObject obj)
     {
-
+        // if type==mytext: setFont(...) TiledLoader.DrawText(text)
     }
 
     private void StartLevel(bool includeImageLayers = true)
