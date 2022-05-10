@@ -6,25 +6,94 @@ using System.Threading.Tasks;
 using GXPEngine;
 using TiledMapParser;
 
-internal class Witch : Sprite
+internal class Witch : AnimationSprite
 {
-    Sprite burned = new Sprite("witch_burn.png");
-    
-    public Witch(TiledObject obj = null) : base("witch.png")
+    private float animTimer = 0;
+    private float waitTime = 1f;
+    private bool spell = false;
+    private bool free = false;
+    private bool stop = false;
+
+    const int NORMAL = 0;
+    const int BURNING = 1;
+    const int SPELL = 2;
+    const int FREE = 3;
+    int currentState = NORMAL;
+
+    public Witch(TiledObject obj = null) : base("witch_spritesheet.png", 5, 5)
     {
-        burned.SetOrigin(width/2, height/2);
-        AddChild(burned);
-        burned.alpha = 0;
-        SetOrigin(width/2,height/2);
+
+        SetOrigin(width / 2, height / 2);
     }
 
     void Update()
     {
-        if (((MyGame)game).isBurning)
+        if (!stop)
         {
-            burned.alpha = 1;
-            alpha = 0;
-        } 
+            AnimateCharacter();
+        }
+
+        AnimationCycles();
+    }
+
+    private void AnimateCharacter()
+    {
+        switch (currentState)
+        {
+            case NORMAL:
+                SetCycle(0, 10);
+                Animate(0.06f);
+                break;
+            case BURNING:
+                SetCycle(22, 3);
+                Animate(0.07f);
+                break;
+            case SPELL:
+                SetCycle(19, 3);
+                Animate(0.07f);
+                break;
+            case FREE:
+                SetCycle(9, 6);
+                Animate(0.2f);
+                break;
+        }
+    }
+
+    private void AnimationCycles()
+    {
+        if (Input.GetKeyUp(Key.B))
+        {
+            currentState = BURNING;
+        }
+        if (Input.GetKeyDown(Key.S))
+        {
+            spell = true;
+        }
+        if (Input.GetKeyUp(Key.F))
+        {
+            free = true;
+        }
+
+        if (spell)
+        {
+            currentState = SPELL;
+            if (currentFrame == 21)
+            {
+                spell = false;
+                currentState = NORMAL;
+            }
+        }
+
+        if (free)
+        {
+            Console.WriteLine(currentFrame);
+            currentState = FREE;
+            if (currentFrame == 14)
+            {
+                stop = true;
+                free = false;
+                currentState = NORMAL;
+            }
+        }
     }
 }
-
