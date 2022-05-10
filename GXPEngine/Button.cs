@@ -85,7 +85,7 @@ public class Button : Sprite
 
     void MoveButton()
     {
-        if (((MyGame)game).mobHit && function == 0)
+        if (((MyGame)game).mobHit && function == 0 || ((MyGame)game).voidTouched && function == 0)
         {
             x = 1588+64;
             y = 916+64;

@@ -12,6 +12,7 @@ class Mushroom : Objects
     public Vec2 position;
     public Collider boxCollider;
     private int angle;
+    public bool isClicked;
 
     public Mushroom(TiledObject obj = null) : base("mushroom.png")
     {
@@ -19,6 +20,8 @@ class Mushroom : Objects
         height = (int)obj.Height;
         width = (int)obj.Width;
         SetOrigin(width/2,height/2);
+
+        isClicked = clicked;
 
         //x = Position.x;
        // y = Position.y;
@@ -35,7 +38,7 @@ class Mushroom : Objects
     {
         Step();
         //rotation = angle;
-        Gizmos.DrawRectangle(0, 0, texture.width, texture.height, this);
+        //Gizmos.DrawRectangle(0, 0, texture.width, texture.height, this);
     }
 }
 

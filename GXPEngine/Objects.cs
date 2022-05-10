@@ -28,6 +28,8 @@ public abstract class Objects : Sprite
     protected Vec2 mouseP;
     protected Vec2 distance;
 
+    private bool clickedOnce = false;
+
     public Objects( string image) : base(image)
     {
         
@@ -54,6 +56,7 @@ public abstract class Objects : Sprite
             if (!clicked && Input.GetMouseButtonUp(0))
             {
                 clicked = true;
+                clickedOnce = true;
             }
             else if (clicked && Input.GetMouseButtonUp(0) && inSpellRange)
             {
@@ -72,6 +75,15 @@ public abstract class Objects : Sprite
             _position.x = Input.mouseX;
             _position.y = Input.mouseY;
             UpdateScreenPosition();
+           // Grow();
+        }
+    }
+
+    private void Grow()
+    {
+        if (clickedOnce)
+        {
+            scale = 2;
         }
     }
 
