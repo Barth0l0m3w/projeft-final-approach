@@ -9,6 +9,7 @@ public class MyGame : Game
     SceneManager sceneManager;
     public bool torchMoving = false;
     public bool isBurning = false;
+    public bool mobHit = false;
     public String CurrentLevel = null;
 
     public MyGame() : base(1920, 1080, false, false, 960, 540)

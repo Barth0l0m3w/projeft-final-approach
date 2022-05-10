@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlowPlant.cs" />
+    <Compile Include="Mob.cs" />
     <Compile Include="TheVoid.cs" />
     <Compile Include="TorchArrow.cs" />
     <Compile Include="VisualSpellRange.cs" />
