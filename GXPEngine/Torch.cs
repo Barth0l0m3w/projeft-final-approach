@@ -112,7 +112,14 @@ public class Torch : Sprite
                 if (collisions[i] is TheVoid)
                 {
                     Console.WriteLine("GAME IS OVER, sorry");
-                    SceneManager.Instance.LoadLevel(((MyGame)game).CurrentLevel);
+                    if (((MyGame)game).isBurning)
+                    {
+                        SceneManager.Instance.LoadLevel(((MyGame)game).CurrentLevel);
+                    }
+                    else
+                    {
+                        ((MyGame)game).voidTouched = true;
+                    }
                 }
                 if (collisions[i] is Witch)
                 {
