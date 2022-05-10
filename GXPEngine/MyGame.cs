@@ -40,6 +40,8 @@ public class MyGame : Game
         {
             targetFps = 60;
         }
+
+
     }
 
     static void Main()
@@ -55,4 +57,6 @@ public class MyGame : Game
             child.LateDestroy();
         }
     }
+
+  
 }

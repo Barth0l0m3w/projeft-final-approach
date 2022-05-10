@@ -30,9 +30,9 @@ public class Button : Sprite
         levelName = obj.GetStringProperty("levelName", null);
         function = obj.GetIntProperty("function", 0);
         image = obj.GetStringProperty("image", null);
-        alpha = 0;
-        //HierarchyManager.Instance.LateCall(ButtonSprite); // this would call it after update is done (and after the TiledLoader has set scale). But in this case, that's not needed.
-        ButtonSprite();
+        alpha = 0.5f;
+        HierarchyManager.Instance.LateCall(ButtonSprite); // this would call it after update is done (and after the TiledLoader has set scale). But in this case, that's not needed.
+        //ButtonSprite();
     }
 
     private void Update()
@@ -139,7 +139,7 @@ public class Button : Sprite
         // However, we still want to scale relative to the width of this vs width of sprite (child).
         sprite.width = texture.width;
         sprite.height = texture.height;
-        //sprite.alpha = 0.2f;
+        sprite.alpha = 0.2f;
         return sprite;
     }
 

@@ -47,6 +47,27 @@ namespace GXPEngine
             
             LevelLoader levelLoader = new LevelLoader($"{LevelName}.tmx");
             AddChild(levelLoader);
+            LoadMusic(LevelName);
+        }
+
+        private void LoadMusic(string filename)
+        {
+            SoundChannel mainMenuMusic = null;
+
+            if (filename.Contains("Menu"))
+            {
+
+                mainMenuMusic = new Sound("sound_test.mp3", true, true).Play();
+                mainMenuMusic.Volume = 5f;
+            }
+            else
+            {
+                if (mainMenuMusic != null)
+                {
+                    Console.WriteLine("not main menu");
+                    mainMenuMusic.Stop();
+                }
+            }
         }
     }
 }
