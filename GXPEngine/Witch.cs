@@ -9,7 +9,7 @@ using TiledMapParser;
 internal class Witch : Sprite
 {
     Sprite burned = new Sprite("witch_burn.png");
-    public bool isBurning = false;
+    
     public Witch(TiledObject obj = null) : base("witch.png")
     {
         burned.SetOrigin(width/2, height/2);
@@ -20,7 +20,7 @@ internal class Witch : Sprite
 
     void Update()
     {
-        if (isBurning)
+        if (((MyGame)game).isBurning)
         {
             burned.alpha = 1;
             alpha = 0;
