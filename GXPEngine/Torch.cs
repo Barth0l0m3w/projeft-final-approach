@@ -109,6 +109,10 @@ public class Torch : Sprite
                 {
                     acceleration = accelerationOriginal * -((BlowPlant)collisions[i]).power;
                 }
+                if (collisions[i] is DownCloud)
+                {
+                    acceleration = accelerationOriginal * ((DownCloud)collisions[i]).power;
+                }
                 if (collisions[i] is TheVoid)
                 {
                     Console.WriteLine("GAME IS OVER, sorry");
