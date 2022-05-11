@@ -31,7 +31,7 @@ public class Button : Sprite
         levelName = obj.GetStringProperty("levelName", null);
         function = obj.GetIntProperty("function", 0);
         image = obj.GetStringProperty("image", null);
-        alpha = 0.5f;
+        alpha = 0;
         this.obj = obj;
         HierarchyManager.Instance.LateCall(ButtonSprite); // this would call it after update is done (and after the TiledLoader has set scale). But in this case, that's not needed.
         //ButtonSprite();
@@ -124,10 +124,12 @@ public class Button : Sprite
                 LateAddChild(PrepareSprite("restartLevel.png"));
                 break;
             case 2:
-                LateAddChild(PrepareSprite("Quit.png"));
                 break;
             case 3:
                 LateAddChild(PrepareSprite("Play.png"));
+                break;
+            case 4:
+                LateAddChild(PrepareSprite("Quit.png"));
                 break;
             default:
                 break;
@@ -143,7 +145,7 @@ public class Button : Sprite
         // However, we still want to scale relative to the width of this vs width of sprite (child).
         sprite.width = texture.width;
         sprite.height = texture.height;
-        sprite.alpha = 0.2f;
+        //sprite.alpha = 0.2f;
         return sprite;
     }
 
@@ -157,11 +159,14 @@ public class Button : Sprite
             case 1: //restart level
                 CurrentLoad();
                 break;
-            case 2: //quit game
-                ((MyGame)game).Destroy();
+            case 2:
                 break;
             case 3: //start game
                 GoLevel();
+                break;
+                
+            case 4: //quit game
+                ((MyGame)game).Destroy();
                 break;
             default:
                 break;

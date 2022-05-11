@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="4" nextobjectid="3">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="4" nextobjectid="4">
  <imagelayer id="2" name="Background">
   <image source="FInal_StartScreen.png" width="1920" height="1080"/>
  </imagelayer>
  <objectgroup id="3" name="Buttons">
-  <object id="1" name="Quit" type="Button" x="761.636" y="836.152" width="380" height="118">
-   <properties>
-    <property name="function" type="int" value="2"/>
-   </properties>
-  </object>
-  <object id="2" name="Start" type="Button" x="759.515" y="668.833" width="380" height="118">
+  <object id="2" name="Start" type="Button" x="558.06" y="667.15" width="280" height="280">
    <properties>
     <property name="function" type="int" value="3"/>
     <property name="levelName" value="Level_1_final_9_05_2022"/>
+   </properties>
+  </object>
+  <object id="3" name="Quit" type="Button" x="967.394" y="667.152" width="280" height="280">
+   <properties>
+    <property name="function" type="int" value="4"/>
+    <property name="levelName" value=""/>
    </properties>
   </object>
  </objectgroup>
