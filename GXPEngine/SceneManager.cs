@@ -47,7 +47,7 @@ namespace GXPEngine
             
             LevelLoader levelLoader = new LevelLoader($"{LevelName}.tmx");
             AddChild(levelLoader);
-            LoadMusic(LevelName);
+            //LoadMusic(LevelName);
         }
 
         private void LoadMusic(string filename)

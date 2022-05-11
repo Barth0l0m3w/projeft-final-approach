@@ -23,6 +23,7 @@ public class Button : Sprite
     private int function = 0;
     //private int levelNumber = 1;
     private string image = null;
+    TiledObject obj;
 
     public Button(TiledObject obj = null) : base("square.png")
     {
@@ -31,6 +32,7 @@ public class Button : Sprite
         function = obj.GetIntProperty("function", 0);
         image = obj.GetStringProperty("image", null);
         alpha = 0.5f;
+        this.obj = obj;
         HierarchyManager.Instance.LateCall(ButtonSprite); // this would call it after update is done (and after the TiledLoader has set scale). But in this case, that's not needed.
         //ButtonSprite();
     }
@@ -57,12 +59,14 @@ public class Button : Sprite
     {
         if (distance.Length() <= width / 2)
         {
+            Console.WriteLine("I am touching" + obj.Name);
 
             if (Input.GetMouseButtonUp(0))
             {
                 clicked = true;
             }
         }
+        Console.WriteLine("Not touching");
     }
     private void CurrentLoad()
     {
