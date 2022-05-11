@@ -102,13 +102,13 @@ public class Button : Sprite
                     GoLevel();
                 };
                 break;
-            case 1:
+            case 1: //restart level
                 if (clicked)
                 {
                     CurrentLoad();
                 }
                 break;
-            case 2:
+            case 2: //start torch
                 if (clicked)
                 {
                     ((MyGame)game).startTorch = true;
