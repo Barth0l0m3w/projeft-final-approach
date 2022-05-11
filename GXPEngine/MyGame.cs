@@ -11,6 +11,7 @@ public class MyGame : Game
     public bool isBurning = false;
     public bool mobHit = false;
     public bool voidTouched = false;
+    public bool collectibleGrabbed = false;
     public String CurrentLevel = null;
 
     public MyGame() : base(1920, 1080, false, false, 960, 540)
@@ -31,6 +32,12 @@ public class MyGame : Game
         else
         {
             targetFps = 60;
+        }
+
+        if (Input.GetKey(Key.S))
+        {
+            collectibleGrabbed = true;
+            Console.WriteLine(collectibleGrabbed);
         }
     }
 

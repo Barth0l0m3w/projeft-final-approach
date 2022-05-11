@@ -75,7 +75,7 @@ public abstract class Objects : Sprite
             _position.x = Input.mouseX;
             _position.y = Input.mouseY;
             UpdateScreenPosition();
-           // Grow();
+           Grow();
         }
     }
 
