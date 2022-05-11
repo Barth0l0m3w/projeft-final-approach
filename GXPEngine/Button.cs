@@ -108,6 +108,12 @@ public class Button : Sprite
                     CurrentLoad();
                 }
                 break;
+            case 2:
+                if (clicked)
+                {
+                    ((MyGame)game).startTorch = true;
+                }
+                break;
         }
     }
 }

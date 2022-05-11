@@ -7,8 +7,12 @@ using GXPEngine;
 using GXPEngine.Core;
 using TiledMapParser;
 
-public class Torch : Sprite
+public class Torch : AnimationSprite
 {
+    private int currentState = NORMAL;
+    const int NORMAL = 0;
+    const int TURNING = 1;
+
     private Vec2 position;
     private Vec2 velocity;
     private Vec2 aiming;
@@ -21,7 +25,7 @@ public class Torch : Sprite
     private TorchArrow arrow;
    // private MyGame game;
 
-    public Torch(TiledObject obj = null) : base("Placeholder_size_and_colors_test.png")
+    public Torch(TiledObject obj = null) : base("TorchSprite.png", 8,1)
     {
         position = new Vec2(obj.X, obj.Y);
         velocity = new Vec2(0, 0);
@@ -62,9 +66,6 @@ public class Torch : Sprite
 
             ReduceAcceleration();
         }
-       
-        
-        
     }
 
 
@@ -153,11 +154,27 @@ public class Torch : Sprite
 
     private void ShootTorch()
     {
-        if (Input.GetKeyUp(Key.T) && !((MyGame)game).torchMoving)
+        if (((MyGame)game).startTorch == true && !((MyGame)game).torchMoving)
         {
             velocity = aiming * speed;
             ((MyGame)game).torchMoving = true;
+            ((MyGame)game).startTorch = false; 
             arrow.LateDestroy();
+        }
+    }
+
+    private void AnimateCharacter()
+    {
+        switch (currentState)
+        {
+            case NORMAL:
+                SetCycle(0, 8);
+                Animate(0.5f);
+                break;
+            case TURNING:
+                //SetCycle();
+                Animate(0.5f);
+                break;
         }
     }
 
@@ -166,7 +183,7 @@ public class Torch : Sprite
 
         //Alternative();
         //Draw the boxCollider
-        
+        AnimateCharacter(); 
         Move();
         CheckCollisions();
         UpdateScreenPosition();

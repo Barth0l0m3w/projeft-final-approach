@@ -8,11 +8,9 @@ using TiledMapParser;
 
 internal class Witch : AnimationSprite
 {
-    private float animTimer = 0;
-    private float waitTime = 1f;
     private bool spell = false;
     private bool free = false;
-    private bool stop = false;
+    private bool stopAnimating = false;
 
     const int NORMAL = 0;
     const int BURNING = 1;
@@ -28,7 +26,7 @@ internal class Witch : AnimationSprite
 
     void Update()
     {
-        if (!stop)
+        if (!stopAnimating)
         {
             AnimateCharacter();
         }
@@ -61,7 +59,7 @@ internal class Witch : AnimationSprite
 
     private void AnimationCycles()
     {
-        if (Input.GetKeyUp(Key.B))
+        if (((MyGame)game).isBurning == true)
         {
             currentState = BURNING;
         }
@@ -84,13 +82,12 @@ internal class Witch : AnimationSprite
             }
         }
 
-        if (free)
+        if (((MyGame)game).mobHit == true)
         {
-            Console.WriteLine(currentFrame);
             currentState = FREE;
             if (currentFrame == 14)
             {
-                stop = true;
+                stopAnimating = true;
                 free = false;
                 currentState = NORMAL;
             }
