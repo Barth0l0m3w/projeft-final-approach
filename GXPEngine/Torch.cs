@@ -19,14 +19,15 @@ public class Torch : AnimationSprite
     private int angle;
     private float speed = 10f;
     private float bounciness = 0.8f;
-    private static Vec2 acceleration = new Vec2(0, 0.4f);
+    private static Vec2 acceleration;
     private Vec2 accelerationOriginal;
     private Collider boxCollider;
     private TorchArrow arrow;
-   // private MyGame game;
+    //private MyGame game;
 
     public Torch(TiledObject obj = null) : base("TorchSprite.png", 8,1)
     {
+        acceleration = acceleration = new Vec2(0, 0.4f);
         position = new Vec2(obj.X, obj.Y);
         velocity = new Vec2(0, 0);
         //height = (int)obj.Height;
@@ -121,7 +122,7 @@ public class Torch : AnimationSprite
                 if (collisions[i] is TheVoid)
                 {
                     Console.WriteLine("GAME IS OVER, sorry");
-                    if (((MyGame)game).isBurning)
+                    if (MyGame.instance.isBurning)
                     {
                         SceneManager.Instance.LoadLevel(((MyGame)game).CurrentLevel);
                     }

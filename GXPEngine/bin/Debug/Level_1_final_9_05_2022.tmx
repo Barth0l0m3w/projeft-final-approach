@@ -37,7 +37,7 @@
    </properties>
   </object>
   <object id="18" name="scary void" type="TheVoid" x="-1046" y="1154" width="4298" height="172"/>
-  <object id="19" name="restart" type="Button" x="1756" y="916" width="128" height="128">
+  <object id="19" name="restart" type="Button" x="1007.24" y="480.868" width="370.667" height="181.412" rotation="22.9869">
    <properties>
     <property name="function" type="int" value="1"/>
    </properties>

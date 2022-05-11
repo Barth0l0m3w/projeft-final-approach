@@ -23,6 +23,7 @@ public class Button : Sprite
     private int function = 0;
     //private int levelNumber = 1;
     private string image = null;
+    TiledObject obj;
 
     public Button(TiledObject obj = null) : base("square.png")
     {
@@ -30,10 +31,25 @@ public class Button : Sprite
         levelName = obj.GetStringProperty("levelName", null);
         function = obj.GetIntProperty("function", 0);
         image = obj.GetStringProperty("image", null);
+        alpha = 0;
+        this.obj = obj;
+        HierarchyManager.Instance.LateCall(ButtonSprite); // this would call it after update is done (and after the TiledLoader has set scale). But in this case, that's not needed.
+        //ButtonSprite();
     }
 
     private void Update()
     {
+
+        if (HitTestPoint(Input.mouseX,Input.mouseY))
+        {
+            //visible = false;
+            SetColor(1, 0, 0);
+        } else
+        {
+            //visible = true;
+            SetColor(1, 1, 1);
+        }
+
         _position.x = x;
         _position.y = y;
         Step();
@@ -43,12 +59,14 @@ public class Button : Sprite
     {
         if (distance.Length() <= width / 2)
         {
+            Console.WriteLine("I am touching" + obj.Name);
 
             if (Input.GetMouseButtonUp(0))
             {
                 clicked = true;
             }
         }
+        Console.WriteLine("Not touching");
     }
     private void CurrentLoad()
     {
@@ -79,7 +97,10 @@ public class Button : Sprite
         distance = mouseP - Position;
         MouseTouching();
         UpdateMousePosition();
-        ChooseFunction();
+        if (clicked)
+        {
+            ChooseFunction();
+        }
         MoveButton();
     }
 
@@ -92,15 +113,48 @@ public class Button : Sprite
         }
     }
 
+    void ButtonSprite()
+    {
+        switch (function)
+        {
+            case 0:
+                LateAddChild(PrepareSprite("nextLevel.png"));
+                break;
+            case 1:
+                LateAddChild(PrepareSprite("restartLevel.png"));
+                break;
+            case 2:
+                break;
+            case 3:
+                LateAddChild(PrepareSprite("Play.png"));
+                break;
+            case 4:
+                LateAddChild(PrepareSprite("Quit.png"));
+                break;
+            default:
+                break;
+        }
+    }
+
+    Sprite PrepareSprite(string spriteName)
+    {
+        Sprite sprite = new Sprite(spriteName);
+        sprite.SetOrigin(sprite.width/2, sprite.height/2);
+        
+        // this is because a child already inherits the scale values from its parent, so using widht & height would apply it twice:
+        // However, we still want to scale relative to the width of this vs width of sprite (child).
+        sprite.width = texture.width;
+        sprite.height = texture.height;
+        //sprite.alpha = 0.2f;
+        return sprite;
+    }
+
     public void ChooseFunction()
     {
         switch (function)
         {
             case 0: //next level
-                if (clicked)
-                {
-                    GoLevel();
-                };
+                GoLevel();
                 break;
             case 1: //restart level
                 if (clicked)
@@ -113,6 +167,14 @@ public class Button : Sprite
                 {
                     ((MyGame)game).startTorch = true;
                 }
+                break;
+            case 3: //start game
+                GoLevel();
+                break;
+            case 4: //quit game
+                ((MyGame)game).Destroy();
+                break;
+            default:
                 break;
         }
     }
