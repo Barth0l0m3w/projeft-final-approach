@@ -57,7 +57,7 @@ public class Button : Sprite
 
     private void MouseTouching()
     {
-        if (distance.Length() <= width / 2)
+        if (distance.Length() <= width/2)
         {
             Console.WriteLine("I am touching" + obj.Name);
 
@@ -110,6 +110,11 @@ public class Button : Sprite
         {
             x = ((MyGame)game).width/2;
             y = ((MyGame)game).height/2;
+        }
+        if (((MyGame)game).startTorch && function == 2)
+        {
+            x = 3000 + 64;
+            y = 2000 + 64;
         }
     }
 
