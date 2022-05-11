@@ -49,6 +49,7 @@ public class Torch : Sprite
         ((MyGame)game).torchMoving = false;
         ((MyGame)game).mobHit = false;
         ((MyGame)game).isBurning = false;
+        ((MyGame)game).voidTouched = false;
       //  game = ((MyGame)game);
     }
 
