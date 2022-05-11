@@ -53,6 +53,7 @@ public class Torch : AnimationSprite
         ((MyGame)game).torchMoving = false;
         ((MyGame)game).mobHit = false;
         ((MyGame)game).isBurning = false;
+        ((MyGame)game).voidTouched = false;
       //  game = ((MyGame)game);
     }
 
@@ -66,6 +67,7 @@ public class Torch : AnimationSprite
 
             ReduceAcceleration();
         }
+        
     }
 
 
@@ -73,60 +75,78 @@ public class Torch : AnimationSprite
     private void CheckCollisions()
     {
         float ballDistance;
-
-        GameObject[] collisions = GetCollisions();
-        for (int i = 0; i < collisions.Length; i++)
+        if (((MyGame)game).torchMoving)
         {
-            if (collisions[i] is Mushroom)
+            GameObject[] collisions = GetCollisions();
+            for (int i = 0; i < collisions.Length; i++)
             {
-                // TODO: use this:
-                Collision colInfo = boxCollider.GetCollisionInfo(((Mushroom)collisions[i]).boxCollider);
-                // Console.WriteLine(boxCollider.GetCollisionInfo(((Mushroom)collisions[i]).boxCollider).penetrationDepth);
-                ballDistance = colInfo.penetrationDepth;
-
-                Vec2 normal = new Vec2(colInfo.normal.x, colInfo.normal.y);
-
-                Vec2 normalCopy = normal;
-                normalCopy.WeirdNormalize();
-                float overshootFactor = normalCopy.Length();
-
-                Console.WriteLine("depth: {0}  overshootFactor: {1}", ballDistance, overshootFactor);
-
-                ballDistance /= overshootFactor;
-
-                Console.WriteLine("depth: {0}  overshootFactor: {1}", ballDistance, overshootFactor);
-
-
-                position += normal * ballDistance;
-
-                if (normal.Dot(velocity) < 0)
+                if (collisions[i] is Mushroom mushroom)
                 {
-                    velocity.Reflect(normal, bounciness);
+
+                    // TODO: use this:
+                    Collision colInfo = boxCollider.GetCollisionInfo(mushroom.boxCollider);
+                    // Console.WriteLine(boxCollider.GetCollisionInfo(((Mushroom)collisions[i]).boxCollider).penetrationDepth);
+                    ballDistance = colInfo.penetrationDepth;
+
+                    Vec2 normal = new Vec2(colInfo.normal.x, colInfo.normal.y);
+
+                    Vec2 normalCopy = normal;
+                    normalCopy.WeirdNormalize();
+                    float overshootFactor = normalCopy.Length();
+
+                    Console.WriteLine("depth: {0}  overshootFactor: {1}", ballDistance, overshootFactor);
+
+                    ballDistance /= overshootFactor;
+
+                    Console.WriteLine("depth: {0}  overshootFactor: {1}", ballDistance, overshootFactor);
+
+
+                    position += normal * ballDistance;
+
+                    if (normal.Dot(velocity) < 0)
+                    {
+                        velocity.Reflect(normal, bounciness);
+                    }
+
+
                 }
-            }
-            if (collisions[i] is BlowPlant)
-            {
-                acceleration = accelerationOriginal * -((BlowPlant)collisions[i]).power;
-            }
-            if (collisions[i] is TheVoid)
-            {
-                Console.WriteLine("GAME IS OVER, sorry");
-                SceneManager.Instance.LoadLevel(((MyGame)game).CurrentLevel);
-            }
-            if(collisions[i] is Witch)
-            {
-                ((MyGame)game).isBurning = true;
-                Console.WriteLine("BURN THE BITCH!!!!!");
-                LateDestroy();
-              //  SceneManager.Instance.LoadLevel("map_prototype_big");
-            }
-            if(collisions[i] is Mob)
-            {
-                ((MyGame)game).mobHit = true;
-                LateDestroy();
+                if (collisions[i] is BlowPlant)
+                {
+                    acceleration = accelerationOriginal * -((BlowPlant)collisions[i]).power;
+                }
+                if (collisions[i] is DownCloud)
+                {
+                    acceleration = accelerationOriginal * ((DownCloud)collisions[i]).power;
+                }
+                if (collisions[i] is TheVoid)
+                {
+                    Console.WriteLine("GAME IS OVER, sorry");
+                    if (((MyGame)game).isBurning)
+                    {
+                        SceneManager.Instance.LoadLevel(((MyGame)game).CurrentLevel);
+                    }
+                    else
+                    {
+                        ((MyGame)game).voidTouched = true;
+                    }
+                }
+                if (collisions[i] is Witch)
+                {
+                    ((MyGame)game).isBurning = true;
+                    Console.WriteLine("BURN THE BITCH!!!!!");
+                    LateDestroy();
+                    //  SceneManager.Instance.LoadLevel("map_prototype_big");
+                }
+                if (collisions[i] is Mob)
+                {
+                    ((MyGame)game).mobHit = true;
+                    LateDestroy();
+                }
             }
         }
     }
+
+       
 
     private void ReduceAcceleration()
     {

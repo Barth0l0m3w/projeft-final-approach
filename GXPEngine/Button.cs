@@ -85,10 +85,10 @@ public class Button : Sprite
 
     void MoveButton()
     {
-        if (((MyGame)game).mobHit && function == 0)
+        if (((MyGame)game).mobHit && function == 0 || ((MyGame)game).voidTouched && function == 0 || Input.GetKeyUp(Key.Q))
         {
-            x = 1588+64;
-            y = 916+64;
+            x = ((MyGame)game).width/2;
+            y = ((MyGame)game).height/2;
         }
     }
 
