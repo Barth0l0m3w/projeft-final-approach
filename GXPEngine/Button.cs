@@ -41,7 +41,7 @@ public class Button : Sprite
 
     private void MouseTouching()
     {
-        if (distance.Length() <= width / 2)
+        if (distance.Length() <= width/2)
         {
 
             if (Input.GetMouseButtonUp(0))
@@ -89,6 +89,11 @@ public class Button : Sprite
         {
             x = 1588+64;
             y = 916+64;
+        }
+        if (((MyGame)game).startTorch && function == 2)
+        {
+            x = 3000 + 64;
+            y = 2000 + 64;
         }
     }
 
