@@ -65,7 +65,7 @@ public abstract class Objects : Sprite
                 soundChannel2 = spell.Play();
                 clicked = false;
                 ((MyGame)game).spellPlaced = true;
-
+                ((MyGame)game).animWitch = true;
             }
             else
             {
