@@ -12,7 +12,7 @@ public class Torch : AnimationSprite
     private static SoundChannel soundChannel1 = new SoundChannel(1);
     private static Sound hitMob = new Sound("witch_victory_noises.wav");
     private static Sound gameLost = new Sound("witch_defeat_noises.wav");
-    
+
 
     private int currentState = NORMAL;
     private const int NORMAL = 0;
@@ -45,9 +45,9 @@ public class Torch : AnimationSprite
         angle = obj.GetIntProperty("angle", 0);
         speed = obj.GetFloatProperty("speed", 0f);
         SetFrame(0);
-       // x = obj.X;// + width / 2;
-       // y = obj.Y;// + height / 2;
-        position = new Vec2(obj.X+width/2, obj.Y+width/2);
+        // x = obj.X;// + width / 2;
+        // y = obj.Y;// + height / 2;
+        position = new Vec2(obj.X + width / 2, obj.Y + width / 2);
         Console.WriteLine("Torch width: " + width + ":" + height);
         Console.WriteLine("Torch in tiled width: " + obj.Width + ":" + obj.Height);
         //x = position.x;
@@ -105,31 +105,33 @@ public class Torch : AnimationSprite
             {
                 if (collisions[i] is Mushroom mushroom)
                 {
-                    if (((Mushroom)collisions[i]).inSpellRange) { 
+                    if (((Mushroom)collisions[i]).y < 900)
+                    {
+                        Console.WriteLine("In a spell range");
                         // TODO: use this:
                         Collision colInfo = boxCollider.GetCollisionInfo(mushroom.boxCollider);
-                    // Console.WriteLine(boxCollider.GetCollisionInfo(((Mushroom)collisions[i]).boxCollider).penetrationDepth);
-                    ballDistance = colInfo.penetrationDepth;
+                        // Console.WriteLine(boxCollider.GetCollisionInfo(((Mushroom)collisions[i]).boxCollider).penetrationDepth);
+                        ballDistance = colInfo.penetrationDepth;
 
-                    Vec2 normal = new Vec2(colInfo.normal.x, colInfo.normal.y);
+                        Vec2 normal = new Vec2(colInfo.normal.x, colInfo.normal.y);
 
-                    Vec2 normalCopy = normal;
-                    normalCopy.WeirdNormalize();
-                    float overshootFactor = normalCopy.Length();
+                        Vec2 normalCopy = normal;
+                        normalCopy.WeirdNormalize();
+                        float overshootFactor = normalCopy.Length();
 
-                    ballDistance /= overshootFactor;
+                        ballDistance /= overshootFactor;
 
-                    position += normal * ballDistance;
+                        position += normal * ballDistance;
 
-                    if (normal.Dot(velocity) < 0)
-                    {
-                        velocity.Reflect(normal, bounciness);
+                        if (normal.Dot(velocity) < 0)
+                        {
+                            velocity.Reflect(normal, bounciness);
+                        }
                     }
-                }
                 }
                 if (collisions[i] is BlowPlant plant)
                 {
-                    if (((BlowPlant)collisions[i]).inSpellRange)
+                    if (((BlowPlant)collisions[i]).y < 900)
                     {
                         acceleration = accelerationOriginal * -plant.power;
                     }
@@ -168,7 +170,7 @@ public class Torch : AnimationSprite
                     ((MyGame)game).startTorch = false;
                     LateDestroy();
                 }
-                if(collisions[i] is Collectable)
+                if (collisions[i] is Collectable)
                 {
                     ((MyGame)game).collectibleGrabbed = true;
                 }
@@ -236,7 +238,7 @@ public class Torch : AnimationSprite
         AnimateCharacter();
         Move();
         CheckCollisions();
-       // Console.WriteLine(((MyGame)game).startTorch);   
+        // Console.WriteLine(((MyGame)game).startTorch);   
         ShootTorch();
     }
 }
