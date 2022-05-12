@@ -87,6 +87,8 @@ public class Torch : AnimationSprite
             velocity += acceleration;
             position += velocity;
 
+            currentState = TURNING;
+
             ReduceAcceleration();
             UpdateScreenPosition();
         }
@@ -216,7 +218,7 @@ public class Torch : AnimationSprite
                 Animate(0.5f);
                 break;
             case TURNING:
-                //SetCycle();
+                SetCycle(15, 8);
                 Animate(0.5f);
                 break;
         }
