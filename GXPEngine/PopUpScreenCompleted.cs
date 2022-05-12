@@ -1,0 +1,27 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using GXPEngine;
+using TiledMapParser;
+
+
+internal class PopUpScreenCompleted : Sprite
+{
+    public PopUpScreenCompleted(TiledObject obj = null) : base("level_copmplete_book.png")
+    {
+    }
+
+    void Update()
+    {
+        
+        if (((MyGame)game).voidTouched || ((MyGame)game).mobHit)
+        {
+            Console.WriteLine("Gane Won");
+
+            x = width/2;
+            y = height/2;
+        }
+    }
+}
