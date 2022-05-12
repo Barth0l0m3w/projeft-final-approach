@@ -9,6 +9,11 @@ using TiledMapParser;
 
 public class Torch : AnimationSprite
 {
+    private static SoundChannel soundChannel1 = new SoundChannel(1);
+    private static Sound hitMob = new Sound("witch_victory_noises.wav");
+    private static Sound gameLost = new Sound("witch_defeat_noises.wav");
+    
+
     private int currentState = NORMAL;
     const int NORMAL = 0;
     const int TURNING = 1;
@@ -22,6 +27,7 @@ public class Torch : AnimationSprite
     private static Vec2 acceleration = new Vec2(0, 0.4f);
     private Vec2 accelerationOriginal;
     private Collider boxCollider;
+
     private TorchArrow arrow;
    // private MyGame game;
 
@@ -120,6 +126,9 @@ public class Torch : AnimationSprite
                 }
                 if (collisions[i] is TheVoid)
                 {
+                    soundChannel1 = gameLost.Play();
+                    soundChannel1.Volume = 0.2f;
+
                     Console.WriteLine("GAME IS OVER, sorry");
                     if (((MyGame)game).isBurning)
                     {
@@ -139,6 +148,7 @@ public class Torch : AnimationSprite
                 }
                 if (collisions[i] is Mob)
                 {
+                    soundChannel1 = hitMob.Play();
                     ((MyGame)game).mobHit = true;
                     LateDestroy();
                 }
