@@ -219,7 +219,7 @@ public class Torch : AnimationSprite
                 break;
             case TURNING:
                 SetCycle(15, 8);
-                Animate(0.5f);
+                Animate(0.3f);
                 break;
         }
     }
