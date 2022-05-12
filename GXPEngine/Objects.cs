@@ -64,7 +64,12 @@ public abstract class Objects : Sprite
             {
                 soundChannel2 = spell.Play();
                 clicked = false;
+                ((MyGame)game).spellPlaced = true;
 
+            }
+            else
+            {
+                ((MyGame)game).spellPlaced = false;
             }
         }
     }

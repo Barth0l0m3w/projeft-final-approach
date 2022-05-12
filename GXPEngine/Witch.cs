@@ -20,19 +20,15 @@ internal class Witch : AnimationSprite
 
     public Witch(TiledObject obj = null) : base("witch_trimmed.png", 5, 5)
     {
-
         SetOrigin(width / 2, height / 2);
-        
     }
 
     void Update()
     {
-        //-110Gizmos.DrawRectangle(0, 0, width, height, this);
         if (!stopAnimating)
         {
             AnimateCharacter();
         }
-
         AnimationCycles();
     }
 
@@ -74,13 +70,15 @@ internal class Witch : AnimationSprite
             free = true;
         }
 
-        if (spell)
+        if (((MyGame)game).spellPlaced == true)
         {
             currentState = SPELL;
+
             if (currentFrame == 21)
             {
                 spell = false;
                 currentState = NORMAL;
+                ((MyGame)game).spellPlaced = false;
             }
         }
 

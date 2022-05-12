@@ -21,6 +21,7 @@ public class MyGame : Game
     public bool mobHit = false;
     public bool startTorch = false;
     public bool popupSpawned = false;
+    public bool spellPlaced = false;
 
     public bool voidTouched = false;
     public bool collectibleGrabbed = false;

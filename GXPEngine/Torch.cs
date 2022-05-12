@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,7 +33,7 @@ public class Torch : AnimationSprite
     bool shootTorch;
     //private MyGame game;
 
-    public Torch(TiledObject obj = null) : base("TorchSprite.png", 8, 1)
+    public Torch(TiledObject obj = null) : base("TorchSprite.png", 8, 3)
     {
         shootTorch = ((MyGame)game).startTorch;
         this.obj = obj;
@@ -82,11 +82,12 @@ public class Torch : AnimationSprite
 
     private void Move()
     {
-
         if (((MyGame)game).torchMoving)
         {
             velocity += acceleration;
             position += velocity;
+
+            currentState = TURNING;
 
             ReduceAcceleration();
             UpdateScreenPosition();
@@ -115,12 +116,7 @@ public class Torch : AnimationSprite
                     normalCopy.WeirdNormalize();
                     float overshootFactor = normalCopy.Length();
 
-                    Console.WriteLine("depth: {0}  overshootFactor: {1}", ballDistance, overshootFactor);
-
                     ballDistance /= overshootFactor;
-
-                    Console.WriteLine("depth: {0}  overshootFactor: {1}", ballDistance, overshootFactor);
-
 
                     position += normal * ballDistance;
 
@@ -128,8 +124,6 @@ public class Torch : AnimationSprite
                     {
                         velocity.Reflect(normal, bounciness);
                     }
-
-
                 }
                 if (collisions[i] is BlowPlant plant)
                 {
@@ -137,7 +131,6 @@ public class Torch : AnimationSprite
                     {
                         acceleration = accelerationOriginal * -plant.power;
                     }
-                    
                 }
                 if (collisions[i] is DownCloud)
                 {
@@ -156,7 +149,6 @@ public class Torch : AnimationSprite
                     else
                     {
                         ((MyGame)game).voidTouched = true;
-                       
                     }
 
                      ((MyGame)game).startTorch = false;
@@ -164,10 +156,8 @@ public class Torch : AnimationSprite
                 if (collisions[i] is Witch)
                 {
                     ((MyGame)game).isBurning = true;
-                    Console.WriteLine("BURN THE BITCH!!!!!");
                     ((MyGame)game).startTorch = false;
                     LateDestroy();
-                    //  SceneManager.Instance.LoadLevel("map_prototype_big");
                 }
                 if (collisions[i] is Mob)
                 {
@@ -203,23 +193,18 @@ public class Torch : AnimationSprite
         {
             Vec2 normal = new Vec2(colInfo.normal.x, colInfo.normal.y);
             velocity.Reflect(normal);
-
         }
-
     }
 
     private void ShootTorch()
     {
         shootTorch = ((MyGame)game).startTorch;
-        //Console.WriteLine("ShootTorch: " + ((MyGame)game).startTorch);
         if (shootTorch == true && !((MyGame)game).torchMoving)
         {
             position.SetXY(x, y);
-            Console.WriteLine("Torch shot");
             velocity = aiming * speed;
             ((MyGame)game).torchMoving = true;
             ((MyGame)game).startTorch = false;
-            Console.WriteLine(((MyGame)game).startTorch);
             arrow.LateDestroy();
         }
     }
@@ -233,7 +218,7 @@ public class Torch : AnimationSprite
                 Animate(0.5f);
                 break;
             case TURNING:
-                //SetCycle();
+                SetCycle(15, 8);
                 Animate(0.5f);
                 break;
         }
