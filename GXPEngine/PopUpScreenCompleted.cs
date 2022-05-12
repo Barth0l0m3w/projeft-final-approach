@@ -9,7 +9,7 @@ using TiledMapParser;
 
 internal class PopUpScreenCompleted : Sprite
 {
-    public PopUpScreenCompleted(TiledObject obj = null) : base("level_copmplete_book.png")
+    public PopUpScreenCompleted(TiledObject obj = null) : base("level_complete.png")
     {
     }
 

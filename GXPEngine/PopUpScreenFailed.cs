@@ -7,7 +7,7 @@ using GXPEngine;
 using TiledMapParser;
     internal class PopUpScreenFailed : Sprite
     {
-    public  PopUpScreenFailed(TiledObject obj = null): base("level_fail_book.png")
+    public  PopUpScreenFailed(TiledObject obj = null): base("level_failed.png")
     {
 
     }
