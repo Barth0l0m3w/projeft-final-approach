@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="9" nextobjectid="35">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="9" nextobjectid="36">
  <tileset firstgid="1" name="tileset1" tilewidth="120" tileheight="120" tilecount="0" columns="2">
   <image source="../projeft-final-approach-development/project_lift_off/FireScript/GXPEngine/bin/Debug/tile_set_prototype_l1.png" width="256" height="256"/>
  </tileset>
  <imagelayer id="5" name="Warstwa Obrazka 1">
   <image source="final_background.png" width="1920" height="1080"/>
  </imagelayer>
- <imagelayer id="8" name="popuscreentest" offsetx="-104" offsety="1318">
+ <imagelayer id="8" name="popuscreentest" offsetx="-632" offsety="2118">
   <image source="level_copmplete_book.png" width="1920" height="1080"/>
  </imagelayer>
- <imagelayer id="6" name="Image Layer 2" offsetx="-4" offsety="842">
+ <imagelayer id="6" name="scroll1" offsetx="-4" offsety="842">
   <image source="scroll.png" width="240" height="240"/>
  </imagelayer>
  <layer id="1" name="Warstwa Kafelków 1" width="16" height="9">
@@ -44,7 +44,7 @@
   <object id="18" name="scary void" type="TheVoid" x="-1046" y="1154" width="4298" height="172"/>
   <object id="21" name="witch" type="Witch" x="344.675" y="499.581" width="180" height="300"/>
   <object id="22" name="TheMob" type="Mob" x="1685.28" y="601.751" width="240" height="240"/>
-  <object id="24" name="torch" type="Button" x="1586.52" y="916" width="128" height="128">
+  <object id="24" name="torch" type="Button" x="1586" y="916" width="128" height="128">
    <properties>
     <property name="function" type="int" value="2"/>
    </properties>
@@ -54,10 +54,10 @@
   <object id="20" name="next" type="Button" x="2116" y="116" width="128" height="128">
    <properties>
     <property name="function" type="int" value="0"/>
-    <property name="levelName" value="Level_3_Final_9_05_2022"/>
+    <property name="levelName" value="Level_2_Final_9_05_2022"/>
    </properties>
   </object>
-  <object id="19" name="restart" type="Button" x="1756" y="918" width="128" height="128">
+  <object id="19" name="restart" type="Button" x="1756" y="916" width="128" height="128">
    <properties>
     <property name="function" type="int" value="1"/>
    </properties>
@@ -82,6 +82,7 @@
     <property name="function" type="int" value="5"/>
    </properties>
   </object>
+  <object id="35" name="potion" type="Collectable" x="963.325" y="236.662" width="120" height="120"/>
  </objectgroup>
  <objectgroup id="7" name="Warstwa Obiektu 2"/>
 </map>

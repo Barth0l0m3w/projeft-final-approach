@@ -133,7 +133,7 @@ public class Torch : AnimationSprite
                 }
                 if (collisions[i] is BlowPlant plant)
                 {
-                    if (plant.inSpellRange)
+                    if (((BlowPlant)collisions[i]).inSpellRange)
                     {
                         acceleration = accelerationOriginal * -plant.power;
                     }

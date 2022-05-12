@@ -24,7 +24,7 @@ public abstract class Objects : Sprite
 
     //protected Vec2 velocity;
     protected bool clicked = false;
-    protected bool inSpellRange = false;
+    public bool inSpellRange = false;
 
     protected Vec2 _position;
     protected Vec2 mouseP;
@@ -34,7 +34,7 @@ public abstract class Objects : Sprite
 
     public Objects( string image) : base(image)
     {
-        
+        inSpellRange = false;
         SetOrigin(width / 2, height / 2);
     }
 
@@ -95,7 +95,7 @@ public abstract class Objects : Sprite
     {
         UpdateMousePosition();
         MouseTouching();
-        inSpellRange = false;
+        
         distance = mouseP - Position;
 
         _position.x = x;

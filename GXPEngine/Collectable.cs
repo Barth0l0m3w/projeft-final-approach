@@ -10,7 +10,7 @@ using GXPEngine;
 public class Collectable : Sprite
 {
 
-    public Collectable(TiledObject obj = null) : base("star_full.png")
+    public Collectable(TiledObject obj = null) : base("bottle_sprite.png")
     {
         SetOrigin(width/2, height/2);
     }
@@ -28,9 +28,18 @@ public class Collectable : Sprite
         }
     }
 
+    private void DeleteIfNotCollected()
+    {
+        if (((MyGame)game).isBurning || ((MyGame)game).voidTouched || ((MyGame)game).mobHit)
+        {
+            LateDestroy();
+        }
+    }
+
     private void Update()
     {
         CheckCollisions();
+        DeleteIfNotCollected();
     }
 }
 
