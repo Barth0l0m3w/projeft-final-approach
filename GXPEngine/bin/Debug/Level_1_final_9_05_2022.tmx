@@ -27,7 +27,7 @@
    <ellipse/>
   </object>
   <object id="12" name="spellrange" type="CollisionSpellRange" x="313.03" y="315.702" width="198" height="195.879"/>
-  <object id="3" name="Torch" type="Torch" x="1393.95" y="453.795" width="200" height="200">
+  <object id="3" name="Torch" type="Torch" x="1537.95" y="615.795" width="146" height="140">
    <properties>
     <property name="angle" type="int" value="250"/>
     <property name="speed" type="float" value="25"/>
@@ -70,11 +70,6 @@
   <object id="28" name="star" type="Star" x="2503.32" y="176" width="128" height="128">
    <properties>
     <property name="completed" type="int" value="3"/>
-   </properties>
-  </object>
-  <object id="29" name="ss" type="BlowPlant" x="1238.6" y="358.748" width="149.816" height="234.495">
-   <properties>
-    <property name="power" type="float" value="90"/>
    </properties>
   </object>
  </objectgroup>

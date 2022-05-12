@@ -10,7 +10,7 @@ using TiledMapParser;
 public class Torch : AnimationSprite
 {
     private int currentState = NORMAL;
-    const int NORMAL = 0;
+    private const int NORMAL = 0;
     const int TURNING = 1;
 
     private Vec2 position;
@@ -41,7 +41,7 @@ public class Torch : AnimationSprite
         SetFrame(0);
        // x = obj.X;// + width / 2;
        // y = obj.Y;// + height / 2;
-        position = new Vec2(obj.X+width/3, obj.Y+height/3);
+        position = new Vec2(obj.X+width/2, obj.Y+width/2);
         Console.WriteLine("Torch width: " + width + ":" + height);
         Console.WriteLine("Torch in tiled width: " + obj.Width + ":" + obj.Height);
         //x = position.x;
@@ -200,6 +200,7 @@ public class Torch : AnimationSprite
         //Console.WriteLine("ShootTorch: " + ((MyGame)game).startTorch);
         if (shootTorch == true && !((MyGame)game).torchMoving)
         {
+            position.SetXY(x, y);
             Console.WriteLine("Torch shot");
             velocity = aiming * speed;
             ((MyGame)game).torchMoving = true;
@@ -229,7 +230,7 @@ public class Torch : AnimationSprite
 
         //Alternative();
         //Draw the boxCollider
-        //Gizmos.DrawRectangle(0, 0,width, height, this);
+        Gizmos.DrawRectangle(0, 0,width/scaleX, height/scaleY, this);
         //Gizmos.DrawRectangle(0, 0, obj.Width, obj.Height, this);
         AnimateCharacter();
         Move();
