@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="7" nextobjectid="19">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="7" nextobjectid="27">
  <imagelayer id="3" name="Image Layer 1">
   <image source="final_background.png" width="1920" height="1080"/>
  </imagelayer>
- <imagelayer id="4" name="Image Layer 2" offsetx="598.911" offsety="838.475">
+ <imagelayer id="4" name="Image Layer 2" offsetx="-4" offsety="842">
   <image source="scroll.png" width="240" height="240"/>
  </imagelayer>
- <imagelayer id="5" name="Image Layer 3" offsetx="864.61" offsety="838.475">
+ <imagelayer id="5" name="Image Layer 3" offsetx="200" offsety="842">
   <image source="scroll.png" width="240" height="240"/>
  </imagelayer>
- <imagelayer id="6" name="Image Layer 4" offsetx="1130.31" offsety="838.475">
+ <imagelayer id="6" name="Image Layer 4" offsetx="408" offsety="842">
   <image source="scroll.png" width="240" height="240"/>
  </imagelayer>
  <layer id="1" name="Tile Layer 1" width="16" height="9">
@@ -26,34 +26,30 @@
 </data>
  </layer>
  <objectgroup id="2" name="Object Layer 1">
-  <object id="2" name="Cloud" type="DownCloud" x="917.459" y="905.038" width="128" height="71">
+  <object id="17" name="Collision" type="CollisionSpellRange" x="365.88" y="248.276" width="475.666" height="244.548"/>
+  <object id="18" name="Collision" type="CollisionSpellRange" x="219.964" y="265.699" width="128.494" height="226.497"/>
+  <object id="2" name="Cloud" type="DownCloud" x="497.459" y="889.038" width="60" height="120">
    <properties>
     <property name="power" type="float" value="4"/>
    </properties>
   </object>
-  <object id="3" name="Torch" type="Torch" x="1357.34" y="368.603" width="120" height="120">
+  <object id="3" name="Torch" type="Torch" x="1357.34" y="368.603" width="160" height="160">
    <properties>
     <property name="angle" type="int" value="210"/>
     <property name="speed" type="float" value="20"/>
    </properties>
   </object>
-  <object id="4" name="Mob" type="Mob" x="1554" y="382" width="240" height="240"/>
-  <object id="6" name="restart" type="Button" x="1745.45" y="909.09" width="128" height="128">
-   <properties>
-    <property name="function" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="8" name="next" type="Button" x="2340" y="544" width="128" height="128"/>
-  <object id="12" name="Visual" type="VisualSpellRange" x="-4.43557" y="110" width="1242.44" height="712">
+  <object id="4" name="Mob" type="Mob" x="1674" y="382" width="240" height="240"/>
+  <object id="12" name="Visual" type="VisualSpellRange" x="-4.43557" y="-318" width="1242.44" height="1140">
    <ellipse/>
   </object>
   <object id="13" name="scary void" type="TheVoid" x="-3032" y="1360" width="7144" height="160"/>
-  <object id="9" name="mushroom" type="Mushroom" x="709.604" y="884.408" width="120" height="120" rotation="60">
+  <object id="9" name="mushroom" type="Mushroom" x="109.604" y="876.408" width="120" height="120" rotation="60">
    <properties>
     <property name="angle" type="int" value="60"/>
    </properties>
   </object>
-  <object id="10" name="Blowplant" type="BlowPlant" x="1175.21" y="815.332" width="140" height="180">
+  <object id="10" name="Blowplant" type="BlowPlant" x="275.21" y="883.332" width="60" height="120">
    <properties>
     <property name="power" type="float" value="7"/>
    </properties>
@@ -63,8 +59,40 @@
     <property name="function" type="int" value="2"/>
    </properties>
   </object>
-  <object id="17" name="Collision" type="CollisionSpellRange" x="365.88" y="248.276" width="583.666" height="398.548"/>
-  <object id="18" name="Collision" type="CollisionSpellRange" x="219.964" y="265.699" width="128.494" height="226.497"/>
-  <object id="5" name="Witch" type="Witch" x="50" y="509.554" width="300" height="300"/>
+  <object id="5" name="Witch" type="Witch" x="126" y="517.554" width="180" height="300"/>
+  <object id="19" name="screen" type="PopUpScreenFailed" x="2592" y="-140" width="1920" height="1080"/>
+  <object id="20" name="screen" type="PopUpScreenCompleted" x="2592" y="-1260" width="1920" height="1080"/>
+  <object id="21" name="next" type="Button" x="2698.68" y="-1144.66" width="128" height="128">
+   <properties>
+    <property name="function" type="int" value="0"/>
+    <property name="levelName" value="Level_6_Final_9_05_2022"/>
+   </properties>
+  </object>
+  <object id="6" name="restart" type="Button" x="1745.45" y="909.09" width="128" height="128">
+   <properties>
+    <property name="function" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="22" name="star" type="Star" x="2626.68" y="-728.66" width="128" height="128">
+   <properties>
+    <property name="completed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="23" name="star" type="Star" x="2632.68" y="-556.66" width="128" height="128">
+   <properties>
+    <property name="completed" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="24" name="star" type="Star" x="2632.68" y="-348.66" width="128" height="128">
+   <properties>
+    <property name="completed" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="25" name="quit" type="Button" x="2708.68" y="-876.66" width="128" height="128">
+   <properties>
+    <property name="function" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="26" name="potion" type="Collectable" x="1200" y="118" width="120" height="120"/>
  </objectgroup>
 </map>
