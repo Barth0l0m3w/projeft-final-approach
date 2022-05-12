@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="5" nextobjectid="23">
+ <imagelayer id="3" name="Image Layer 1">
+  <image source="final_background.png" width="1920" height="1080"/>
+ </imagelayer>
+ <imagelayer id="4" name="Image Layer 2" offsetx="-28" offsety="840">
+  <image source="inventory.png" width="2020" height="287"/>
+ </imagelayer>
+ <layer id="1" name="Tile Layer 1" width="16" height="9">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="2" name="Object Layer 1">
+  <object id="1" name="Mushroom 1" type="Mushroom" x="642.567" y="972.827" width="193.705" height="59.034" rotation="-6">
+   <properties>
+    <property name="angle" type="int" value="-6"/>
+   </properties>
+  </object>
+  <object id="4" name="Mushroom 1" type="Mushroom" x="391.659" y="891.603" width="193.705" height="59.034" rotation="35">
+   <properties>
+    <property name="angle" type="int" value="35"/>
+   </properties>
+  </object>
+  <object id="5" name="Visual" type="VisualSpellRange" x="194.218" y="309.119" width="1315.89" height="523.62">
+   <ellipse/>
+  </object>
+  <object id="10" name="Collision" type="CollisionSpellRange" x="268.833" y="371.616" width="1123.48" height="396.707">
+   <ellipse/>
+  </object>
+  <object id="17" name="scary void" type="TheVoid" x="-816" y="1164" width="3620" height="92"/>
+  <object id="18" name="Torch" type="Torch" x="1589" y="197" width="120" height="120">
+   <properties>
+    <property name="angle" type="int" value="190"/>
+    <property name="speed" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="19" name="Mob" type="Mob" x="1745.33" y="240" width="120" height="120"/>
+  <object id="20" name="restart" type="Button" x="1745.45" y="909.091" width="128" height="128">
+   <properties>
+    <property name="function" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="21" name="next" type="Button" x="2203.03" y="384.848" width="128" height="128">
+   <properties>
+    <property name="levelName" value="Level_4_Final_9_05_2022"/>
+   </properties>
+  </object>
+  <object id="22" name="Witch" type="Witch" x="336.364" y="494.553" width="114" height="218"/>
+ </objectgroup>
+</map>

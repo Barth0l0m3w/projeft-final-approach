@@ -22,10 +22,12 @@ internal class Witch : AnimationSprite
     {
 
         SetOrigin(width / 2, height / 2);
+        
     }
 
     void Update()
     {
+        Gizmos.DrawRectangle(0, 0, width, height, this);
         if (!stopAnimating)
         {
             AnimateCharacter();

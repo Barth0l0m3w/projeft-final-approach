@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="7" nextobjectid="23">
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="7" nextobjectid="23">
  <tileset firstgid="1" name="tileset1" tilewidth="120" tileheight="120" tilecount="0" columns="2">
   <image source="../projeft-final-approach-development/project_lift_off/FireScript/GXPEngine/bin/Debug/tile_set_prototype_l1.png" width="256" height="256"/>
  </tileset>
  <imagelayer id="5" name="Warstwa Obrazka 1">
   <image source="final_background.png" width="1920" height="1080"/>
  </imagelayer>
- <imagelayer id="6" name="Image Layer 2" offsetx="64.6025" offsety="832.2">
-  <image source="scroll.png" width="240" height="240"/>
+ <imagelayer id="6" name="Image Layer 2" offsetx="-4" offsety="842">
+  <image source="inventory.png" width="2020" height="287"/>
  </imagelayer>
  <layer id="1" name="Warstwa Kafelków 1" width="16" height="9">
   <data encoding="csv">
@@ -25,13 +25,13 @@
  <objectgroup id="3" name="Warstwa Obiektu 1" offsetx="-5.32479" offsety="-2.66239">
   <object id="13" name="visualSpellRange" type="VisualSpellRange" x="99.5222" y="233.641" width="684.217" height="487.27"/>
   <object id="12" name="spellrange" type="CollisionSpellRange" x="239.03" y="339.702" width="428" height="379.879"/>
-  <object id="3" name="Torch" type="Torch" x="1535.26" y="572.684" width="120" height="120">
+  <object id="3" name="Torch" type="Torch" x="1543.25" y="623.269" width="120" height="120">
    <properties>
     <property name="angle" type="int" value="250"/>
     <property name="speed" type="float" value="25"/>
    </properties>
   </object>
-  <object id="16" name="Mushroom" type="Mushroom" x="177.411" y="862.331" width="120" height="120" rotation="43">
+  <object id="16" name="Mushroom" type="Mushroom" x="513.073" y="894.182" width="171.42" height="63.6364" rotation="43">
    <properties>
     <property name="angle" type="int" value="43"/>
    </properties>
@@ -49,6 +49,6 @@
    </properties>
   </object>
   <object id="21" name="witch" type="Witch" x="396.675" y="501.581" width="114" height="218"/>
-  <object id="22" name="TheMob" type="Mob" x="1670.09" y="598.667" width="120" height="120"/>
+  <object id="22" name="TheMob" type="Mob" x="1678.08" y="670.552" width="120" height="120"/>
  </objectgroup>
 </map>

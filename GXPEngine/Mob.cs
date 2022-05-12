@@ -15,13 +15,17 @@ internal class Mob : AnimationSprite
 
     public Mob(TiledObject obj = null) : base("mob_spritesheet.png", 4, 2)
     {
-        SetOrigin(width / 2, height / 2);
+        // SetOrigin(width / 2, height / 2);
+        //width =(int)obj.Width;
+       // height = (int)obj.Height;
+        
     }
 
     private void Update()
     {
         AnimateCharacter();
         AnimationCycles();
+        //Gizmos.DrawRectangle(0, 0, width, height, this);
 
     }
 

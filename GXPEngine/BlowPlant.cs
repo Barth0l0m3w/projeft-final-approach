@@ -10,6 +10,7 @@ using TiledMapParser;
 public class BlowPlant : Objects
 {
    public float power = 0f;
+    public bool inSpellRange;
 
     public BlowPlant(TiledObject obj = null) : base("Blow Plant.png")
     { 

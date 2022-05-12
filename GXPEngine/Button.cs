@@ -35,11 +35,12 @@ public class Button : Sprite
         this.obj = obj;
         HierarchyManager.Instance.LateCall(ButtonSprite); // this would call it after update is done (and after the TiledLoader has set scale). But in this case, that's not needed.
         //ButtonSprite();
+        ((MyGame)game).startTorch = false;
     }
 
     private void Update()
     {
-
+        Gizmos.DrawRectangle(0, 0, texture.width, texture.height, this);
         if (HitTestPoint(Input.mouseX, Input.mouseY))
         {
             //visible = false;
@@ -60,14 +61,18 @@ public class Button : Sprite
     {
         if (distance.Length() <= width / 2)
         {
-            Console.WriteLine("I am touching" + obj.Name);
+           //Console.WriteLine("I am touching" + obj.Name);
 
             if (Input.GetMouseButtonUp(0))
             {
                 clicked = true;
             }
+            else
+            {
+                clicked = false;
+            }
         }
-        Console.WriteLine("Not touching");
+       // Console.WriteLine("Not touching");
     }
     private void CurrentLoad()
     {
@@ -101,8 +106,10 @@ public class Button : Sprite
         if (clicked)
         {
             ChooseFunction();
+            
         }
         MoveButton();
+        
     }
 
     void MoveButton()
@@ -166,12 +173,14 @@ public class Button : Sprite
             case 1: //restart level
                 if (clicked)
                 {
+                    Console.WriteLine("Button " + function);
                     CurrentLoad();
                 }
                 break;
             case 2: //start torch
                 if (clicked)
                 {
+                    Console.WriteLine("Button " + function);
                     ((MyGame)game).startTorch = true;
                 }
                 break;
@@ -190,6 +199,7 @@ public class Button : Sprite
             default:
                 break;
         }
+        clicked = false;
     }
 }
 
