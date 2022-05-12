@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="10" nextobjectid="23">
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="10" nextobjectid="23">
  <imagelayer id="3" name="Image Layer 1">
   <image source="final_background.png" width="1920" height="1080"/>
  </imagelayer>
@@ -47,7 +47,11 @@
    <ellipse/>
   </object>
   <object id="9" name="Mob" type="Mob" x="5.4167" y="285" width="240" height="240"/>
-  <object id="10" name="Witch" type="Witch" x="1292.95" y="496.909" width="180" height="300"/>
+  <object id="10" name="Witch" type="Witch" x="1292.95" y="496.909" width="180" height="300">
+   <properties>
+    <property name="mirrored" type="int" value="1"/>
+   </properties>
+  </object>
   <object id="13" name="screen" type="PopUpScreenFailed" x="2788" y="599.999" width="1920" height="1080"/>
   <object id="14" name="screen" type="PopUpScreenCompleted" x="2788" y="-520" width="1920" height="1080"/>
   <object id="11" name="restart" type="Button" x="1756" y="916" width="128" height="128">

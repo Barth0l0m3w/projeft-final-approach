@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="9" nextobjectid="30">
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="9" nextobjectid="30">
  <imagelayer id="3" name="Image Layer 1">
   <image source="final_background.png" width="1920" height="1080"/>
  </imagelayer>
@@ -32,7 +32,11 @@
   <object id="17" name="Visual" type="VisualSpellRange" x="-263.636" y="-372.727" width="1403.03" height="1227.27">
    <ellipse/>
   </object>
-  <object id="1" name="Witch" type="Witch" x="130.963" y="509.239" width="180" height="300"/>
+  <object id="1" name="Witch" type="Witch" x="130.963" y="509.239" width="180" height="300">
+   <properties>
+    <property name="mirrored" type="int" value="0"/>
+   </properties>
+  </object>
   <object id="2" name="Mob" type="Mob" x="1683.48" y="357.169" width="240" height="240"/>
   <object id="3" name="Mushroom" type="Mushroom" x="172.638" y="901.929" width="120" height="120" rotation="90">
    <properties>
