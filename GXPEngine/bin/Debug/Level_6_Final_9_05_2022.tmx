@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="5" nextobjectid="19">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="9" nextobjectid="30">
  <imagelayer id="3" name="Image Layer 1">
   <image source="final_background.png" width="1920" height="1080"/>
  </imagelayer>
- <imagelayer id="4" name="Image Layer 2" offsetx="-37.0236" offsety="840.653">
-  <image source="inventory.png" width="2020" height="287"/>
+ <imagelayer id="5" name="scroll1" offsetx="-4" offsety="842">
+  <image source="scroll.png" width="240" height="240"/>
+ </imagelayer>
+ <imagelayer id="6" name="scroll2" offsetx="200" offsety="842">
+  <image source="scroll.png" width="240" height="240"/>
+ </imagelayer>
+ <imagelayer id="7" name="scroll3" offsetx="408" offsety="842">
+  <image source="scroll.png" width="240" height="240"/>
+ </imagelayer>
+ <imagelayer id="8" name="scroll4" offsetx="616" offsety="842">
+  <image source="scroll.png" width="240" height="240"/>
  </imagelayer>
  <layer id="1" name="Tile Layer 1" width="16" height="9">
   <data encoding="csv">
@@ -20,46 +29,71 @@
 </data>
  </layer>
  <objectgroup id="2" name="Object Layer 1">
-  <object id="1" name="Witch" type="Witch" x="37.0236" y="518.33" width="114" height="218"/>
-  <object id="2" name="Mob" type="Mob" x="1683.48" y="357.169" width="120" height="120"/>
-  <object id="3" name="Mushroom" type="Mushroom" x="239.305" y="853.929" width="214.657" height="60.98" rotation="90">
+  <object id="17" name="Visual" type="VisualSpellRange" x="12.1212" y="-403.03" width="1403.03" height="1227.27">
+   <ellipse/>
+  </object>
+  <object id="1" name="Witch" type="Witch" x="130.963" y="509.239" width="180" height="300"/>
+  <object id="2" name="Mob" type="Mob" x="1683.48" y="357.169" width="240" height="240"/>
+  <object id="3" name="Mushroom" type="Mushroom" x="172.638" y="901.929" width="120" height="120" rotation="90">
    <properties>
     <property name="angle" type="int" value="90"/>
    </properties>
   </object>
-  <object id="5" name="Cloud2" type="DownCloud" x="302.139" y="903.872" width="235.21" height="128.491">
+  <object id="5" name="Cloud2" type="DownCloud" x="290.139" y="895.872" width="60" height="120">
    <properties>
     <property name="power" type="float" value="8"/>
    </properties>
   </object>
-  <object id="6" name="Cloud1" type="DownCloud" x="1079.46" y="903.501" width="235.21" height="119.78">
+  <object id="6" name="Cloud1" type="DownCloud" x="696.793" y="896.834" width="60" height="120">
    <properties>
     <property name="power" type="float" value="4"/>
    </properties>
   </object>
-  <object id="8" name="Torch" type="Torch" x="1509.26" y="322.323" width="120" height="120">
+  <object id="8" name="Torch" type="Torch" x="1509.26" y="322.323" width="160" height="160">
    <properties>
     <property name="angle" type="int" value="210"/>
     <property name="speed" type="float" value="20"/>
    </properties>
   </object>
-  <object id="9" name="restart" type="Button" x="1745.45" y="909.09" width="128" height="128">
-   <properties>
-    <property name="function" type="int" value="1"/>
-   </properties>
-  </object>
-  <object id="10" name="next" type="Button" x="2166.97" y="485.662" width="128" height="128"/>
-  <object id="15" name="Mushroom" type="Mushroom" x="622.257" y="935.456" width="354.991" height="60.98">
+  <object id="15" name="Mushroom" type="Mushroom" x="466.257" y="891.456" width="120" height="120">
    <properties>
     <property name="angle" type="int" value="0"/>
    </properties>
   </object>
-  <object id="16" name="Collision" type="CollisionSpellRange" x="54.5455" y="90.9091" width="1321.21" height="696.97">
-   <ellipse/>
-  </object>
-  <object id="17" name="Visual" type="VisualSpellRange" x="12.1212" y="18.1818" width="1403.03" height="806.061">
-   <ellipse/>
-  </object>
   <object id="18" name="scary void" type="TheVoid" x="-2576" y="1216" width="6712" height="56"/>
+  <object id="19" name="screen" type="PopUpScreenFailed" x="2424" y="404" width="1920" height="1080"/>
+  <object id="20" name="screen" type="PopUpScreenCompleted" x="2424" y="-716" width="1920" height="1080"/>
+  <object id="22" name="star" type="Star" x="2458.68" y="-184.66" width="128" height="128">
+   <properties>
+    <property name="completed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="9" name="restart" type="Button" x="1756" y="916" width="128" height="128">
+   <properties>
+    <property name="function" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="23" name="star" type="Star" x="2464.68" y="-12.66" width="128" height="128">
+   <properties>
+    <property name="completed" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="24" name="star" type="Star" x="2464.68" y="195.34" width="128" height="128">
+   <properties>
+    <property name="completed" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="25" name="quit" type="Button" x="2540.68" y="-332.66" width="128" height="128">
+   <properties>
+    <property name="function" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="26" name="collision" type="CollisionSpellRange" x="330.303" y="142.424" width="745.455" height="415.152"/>
+  <object id="28" name="torch" type="Button" x="1586" y="916" width="128" height="128">
+   <properties>
+    <property name="function" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="29" name="potion" type="Collectable" x="245.455" y="278.788" width="120" height="120"/>
  </objectgroup>
 </map>

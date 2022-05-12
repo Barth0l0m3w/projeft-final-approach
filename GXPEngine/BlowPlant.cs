@@ -10,9 +10,9 @@ using TiledMapParser;
 public class BlowPlant : Objects
 {
    public float power = 0f;
-    public bool inSpellRange;
+    public bool inSpellRanger;
 
-    public BlowPlant(TiledObject obj = null) : base("Blow Plant.png")
+    public BlowPlant(TiledObject obj = null) : base("Blow Plant_c.png")
     { 
         SetOrigin(width / 2, height / 2);
         Position = new Vec2(obj.X, obj.Y);
@@ -23,6 +23,8 @@ public class BlowPlant : Objects
     void Update()
     {
         Step();
+        inSpellRanger = inSpellRange;
+        Console.WriteLine(this + " is " + inSpellRanger);
     }
 }
 
