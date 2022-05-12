@@ -35,7 +35,7 @@
   </object>
   <object id="3" name="Torch" type="Torch" x="1357.34" y="368.603" width="160" height="160">
    <properties>
-    <property name="angle" type="int" value="210"/>
+    <property name="angle" type="int" value="-150"/>
     <property name="speed" type="float" value="20"/>
    </properties>
   </object>

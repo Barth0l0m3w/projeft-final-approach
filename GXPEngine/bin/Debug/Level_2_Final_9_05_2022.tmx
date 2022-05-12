@@ -39,7 +39,7 @@
   <object id="17" name="scary void" type="TheVoid" x="-816" y="1164" width="3620" height="92"/>
   <object id="18" name="Torch" type="Torch" x="1545" y="189" width="160" height="160">
    <properties>
-    <property name="angle" type="int" value="190"/>
+    <property name="angle" type="int" value="-170"/>
     <property name="speed" type="float" value="20"/>
    </properties>
   </object>

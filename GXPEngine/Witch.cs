@@ -27,7 +27,7 @@ internal class Witch : AnimationSprite
 
     void Update()
     {
-        //Gizmos.DrawRectangle(0, 0, width, height, this);
+        //-110Gizmos.DrawRectangle(0, 0, width, height, this);
         if (!stopAnimating)
         {
             AnimateCharacter();

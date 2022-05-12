@@ -32,7 +32,7 @@
   <object id="12" name="spellrange" type="CollisionSpellRange" x="323.03" y="321.702" width="198" height="195.879"/>
   <object id="3" name="Torch" type="Torch" x="1507.95" y="603.795" width="160" height="160">
    <properties>
-    <property name="angle" type="int" value="250"/>
+    <property name="angle" type="int" value="-110"/>
     <property name="speed" type="float" value="25"/>
    </properties>
   </object>

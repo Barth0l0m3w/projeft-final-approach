@@ -29,7 +29,7 @@
 </data>
  </layer>
  <objectgroup id="2" name="Object Layer 1">
-  <object id="17" name="Visual" type="VisualSpellRange" x="12.1212" y="-403.03" width="1403.03" height="1227.27">
+  <object id="17" name="Visual" type="VisualSpellRange" x="-263.636" y="-372.727" width="1403.03" height="1227.27">
    <ellipse/>
   </object>
   <object id="1" name="Witch" type="Witch" x="130.963" y="509.239" width="180" height="300"/>
@@ -51,7 +51,7 @@
   </object>
   <object id="8" name="Torch" type="Torch" x="1509.26" y="322.323" width="160" height="160">
    <properties>
-    <property name="angle" type="int" value="210"/>
+    <property name="angle" type="int" value="-150"/>
     <property name="speed" type="float" value="20"/>
    </properties>
   </object>
@@ -88,7 +88,7 @@
     <property name="function" type="int" value="5"/>
    </properties>
   </object>
-  <object id="26" name="collision" type="CollisionSpellRange" x="330.303" y="142.424" width="745.455" height="415.152"/>
+  <object id="26" name="collision" type="CollisionSpellRange" x="124.242" y="142.424" width="745.455" height="415.152"/>
   <object id="28" name="torch" type="Button" x="1586" y="916" width="128" height="128">
    <properties>
     <property name="function" type="int" value="2"/>

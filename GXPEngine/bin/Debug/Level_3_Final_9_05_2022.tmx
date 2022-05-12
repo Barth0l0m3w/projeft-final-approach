@@ -23,12 +23,12 @@
 </data>
  </layer>
  <objectgroup id="2" name="Object Layer 1">
-  <object id="5" name="Visual" type="VisualSpellRange" x="572.073" y="-466.97" width="1324" height="1912">
+  <object id="5" name="Visual" type="VisualSpellRange" x="572.073" y="-466.97" width="2192" height="1912">
    <ellipse/>
   </object>
   <object id="1" name="Torch" type="Torch" x="283.077" y="241.626" width="160" height="160">
    <properties>
-    <property name="angle" type="int" value="-5"/>
+    <property name="angle" type="int" value="355"/>
     <property name="speed" type="float" value="20.4"/>
    </properties>
   </object>
