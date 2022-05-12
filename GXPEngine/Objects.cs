@@ -19,6 +19,8 @@ public abstract class Objects : Sprite
             _position = value;
         }
     }
+    private static SoundChannel soundChannel2 = new SoundChannel(2);
+    private static Sound spell = new Sound("spell_sneeze.wav");
 
     //protected Vec2 velocity;
     protected bool clicked = false;
@@ -60,7 +62,9 @@ public abstract class Objects : Sprite
             }
             else if (clicked && Input.GetMouseButtonUp(0) && inSpellRange)
             {
+                soundChannel2 = spell.Play();
                 clicked = false;
+
             }
         }
     }

@@ -27,16 +27,18 @@ public class Button : Sprite
         this.obj = obj;
         HierarchyManager.Instance.LateCall(ButtonSprite); // this would call it after update is done (and after the TiledLoader has set scale). But in this case, that's not needed.
         //ButtonSprite();
+        ((MyGame)game).startTorch = false;
     }
 
     private void Update()
     {
-
-        if (HitTestPoint(Input.mouseX,Input.mouseY))
+        //Gizmos.DrawRectangle(0, 0, texture.width, texture.height, this);
+        if (HitTestPoint(Input.mouseX, Input.mouseY))
         {
             //visible = false;
             SetColor(1, 0, 0);
-        } else
+        }
+        else
         {
             //visible = true;
             SetColor(1, 1, 1);
@@ -55,8 +57,12 @@ public class Button : Sprite
             {
                 clicked = true;
             }
+            else
+            {
+                clicked = false;
+            }
         }
-        Console.WriteLine("Not touching");
+       // Console.WriteLine("Not touching");
     }
 
     private void CurrentLoad()
@@ -83,8 +89,10 @@ public class Button : Sprite
         if (clicked)
         {
             ChooseFunction();
+            
         }
         MoveButton();
+        
     }
 
     void MoveButton()
@@ -106,18 +114,19 @@ public class Button : Sprite
         switch (function)
         {
             case 0:
-                LateAddChild(PrepareSprite("nextLevel.png"));
+                LateAddChild(PrepareSprite("Next Button.png"));
                 break;
             case 1:
-                LateAddChild(PrepareSprite("restartLevel.png"));
+                LateAddChild(PrepareSprite("Replay.png"));
                 break;
             case 2:
+                LateAddChild(PrepareSprite("Burn Button.png"));
                 break;
             case 3:
                 LateAddChild(PrepareSprite("Play.png"));
                 break;
             case 4:
-                LateAddChild(PrepareSprite("Quit.png"));
+                LateAddChild(PrepareSprite("QuitMain.png"));
                 break;
             default:
                 break;
@@ -127,8 +136,8 @@ public class Button : Sprite
     Sprite PrepareSprite(string spriteName)
     {
         Sprite sprite = new Sprite(spriteName);
-        sprite.SetOrigin(sprite.width/2, sprite.height/2);
-        
+        sprite.SetOrigin(sprite.width / 2, sprite.height / 2);
+
         // this is because a child already inherits the scale values from its parent, so using widht & height would apply it twice:
         // However, we still want to scale relative to the width of this vs width of sprite (child).
         sprite.width = texture.width;
@@ -147,24 +156,33 @@ public class Button : Sprite
             case 1: //restart level
                 if (clicked)
                 {
+                    Console.WriteLine("Button " + function);
                     CurrentLoad();
                 }
                 break;
             case 2: //start torch
                 if (clicked)
                 {
+                    Console.WriteLine("Button " + function);
                     ((MyGame)game).startTorch = true;
                 }
                 break;
             case 3: //start game
-                GoLevel();
+                if (clicked)
+                {
+                    GoLevel();
+                }
                 break;
             case 4: //quit game
-                ((MyGame)game).Destroy();
+                if (clicked)
+                {
+                    ((MyGame)game).Destroy();
+                }
                 break;
             default:
                 break;
         }
+        clicked = false;
     }
 }
 

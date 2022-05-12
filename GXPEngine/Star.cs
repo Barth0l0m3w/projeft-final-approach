@@ -10,10 +10,10 @@ using TiledMapParser;
 internal class Star : Sprite
 {
     int starType;
-    Sprite spr = new Sprite("star_full.png");
+    Sprite spr = new Sprite("bottle_sprite.png");
     int stars = 0;
 
-    public Star(TiledObject obj = null) : base("star_empty.png")
+    public Star(TiledObject obj = null) : base("bottle_empty.png")
     {
         starType = obj.GetIntProperty("completed", 0);
         spr.SetOrigin(width / 2, height / 2);
