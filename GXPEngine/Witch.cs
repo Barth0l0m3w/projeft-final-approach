@@ -70,7 +70,7 @@ internal class Witch : AnimationSprite
             free = true;
         }
 
-        if (((MyGame)game).spellPlaced == true)
+        if (((MyGame)game).animWitch == true)
         {
             currentState = SPELL;
 
@@ -78,7 +78,7 @@ internal class Witch : AnimationSprite
             {
                 spell = false;
                 currentState = NORMAL;
-                ((MyGame)game).spellPlaced = false;
+                ((MyGame)game).animWitch = false;
             }
         }
 
