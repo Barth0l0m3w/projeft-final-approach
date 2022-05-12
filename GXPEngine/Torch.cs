@@ -76,6 +76,7 @@ public class Torch : AnimationSprite
         ((MyGame)game).isBurning = false;
         ((MyGame)game).voidTouched = false;
         ((MyGame)game).startTorch = false;
+        ((MyGame)game).collectibleGrabbed = false;
         //  game = ((MyGame)game);
         //UpdateScreenPosition();
     }
@@ -104,9 +105,9 @@ public class Torch : AnimationSprite
             {
                 if (collisions[i] is Mushroom mushroom)
                 {
-
-                    // TODO: use this:
-                    Collision colInfo = boxCollider.GetCollisionInfo(mushroom.boxCollider);
+                    if (((Mushroom)collisions[i]).inSpellRange) { 
+                        // TODO: use this:
+                        Collision colInfo = boxCollider.GetCollisionInfo(mushroom.boxCollider);
                     // Console.WriteLine(boxCollider.GetCollisionInfo(((Mushroom)collisions[i]).boxCollider).penetrationDepth);
                     ballDistance = colInfo.penetrationDepth;
 
@@ -124,6 +125,7 @@ public class Torch : AnimationSprite
                     {
                         velocity.Reflect(normal, bounciness);
                     }
+                }
                 }
                 if (collisions[i] is BlowPlant plant)
                 {
