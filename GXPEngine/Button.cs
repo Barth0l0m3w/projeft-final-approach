@@ -97,10 +97,40 @@ public class Button : Sprite
 
     void MoveButton()
     {
-        if (((MyGame)game).mobHit && function == 0 || ((MyGame)game).voidTouched && function == 0 || Input.GetKeyUp(Key.Q))
+        if (((MyGame)game).mobHit || ((MyGame)game).voidTouched || Input.GetKeyUp(Key.Q))
         {
-            x = 1588 + 64;
-            y = 916 + 64;
+            x = 1074+width/2;
+            switch (function)
+            {
+                case 0:
+                    y = 280;
+                    break;
+                case 1:
+                    y = 460;
+                    break;
+                case 5:
+                    y = 640;
+                    break;
+                default: break;
+            }
+            y+=height/2;
+        }
+        if (((MyGame)game).isBurning){
+            x = 1074+width/2;
+            switch (function)
+            {
+                case 0:
+                    y = 2000;
+                    break;
+                case 1:
+                    y = 360;
+                    break;
+                case 5:
+                    y = 586;
+                    break;
+                default: break;
+            }
+            y+=height/2;
         }
         if (((MyGame)game).startTorch && function == 2)
         {
@@ -127,6 +157,9 @@ public class Button : Sprite
                 break;
             case 4:
                 LateAddChild(PrepareSprite("QuitMain.png"));
+                break;
+            case 5:
+                LateAddChild(PrepareSprite("Quit.png"));
                 break;
             default:
                 break;
@@ -174,6 +207,12 @@ public class Button : Sprite
                 }
                 break;
             case 4: //quit game
+                if (clicked)
+                {
+                    ((MyGame)game).Destroy();
+                }
+                break;
+            case 5: //small quit
                 if (clicked)
                 {
                     ((MyGame)game).Destroy();

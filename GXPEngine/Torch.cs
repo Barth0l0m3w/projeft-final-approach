@@ -174,7 +174,7 @@ public class Torch : AnimationSprite
                     soundChannel1 = hitMob.Play();
                     ((MyGame)game).mobHit = true;
                     ((MyGame)game).startTorch = false;
-                    //LateDestroy();
+                    LateDestroy();
                 }
                 if(collisions[i] is Collectable)
                 {
@@ -244,7 +244,7 @@ public class Torch : AnimationSprite
 
         //Alternative();
         //Draw the boxCollider
-        Gizmos.DrawRectangle(0, 0,width/scaleX, height/scaleY, this);
+        //Gizmos.DrawRectangle(0, 0,width/scaleX, height/scaleY, this);
         //Gizmos.DrawRectangle(0, 0, obj.Width, obj.Height, this);
         AnimateCharacter();
         Move();

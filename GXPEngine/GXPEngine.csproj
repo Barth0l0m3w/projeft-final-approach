@@ -44,6 +44,8 @@
     <Compile Include="Collectable.cs" />
     <Compile Include="DownCloud.cs" />
     <Compile Include="Mob.cs" />
+    <Compile Include="PopUpScreenCompleted.cs" />
+    <Compile Include="PopUpScreenFailed.cs" />
     <Compile Include="Star.cs" />
     <Compile Include="TheVoid.cs" />
     <Compile Include="TorchArrow.cs" />

@@ -23,22 +23,6 @@ internal class Star : Sprite
 
     private void ShowRightStar()
     {
-        //if (starType == 1 && ((MyGame)game).voidTouched)
-        //{
-        //    AddChild(spr);
-        //    if (starType == 3 && ((MyGame)game).collectibleGrabbed)
-        //    {
-        //        AddChild(spr);
-        //    }
-        //}
-        //else if (starType == 2 && ((MyGame)game).mobHit || starType == 1 && ((MyGame)game).mobHit)
-        //{
-        //    AddChild(spr);
-        //    if (starType == 3 && ((MyGame)game).collectibleGrabbed)
-        //    {
-        //        AddChild(spr);
-        //    }
-        //}
 
         if (((MyGame)game).voidTouched)
         {
@@ -90,25 +74,27 @@ internal class Star : Sprite
     {
         if (((MyGame)game).voidTouched || ((MyGame)game).mobHit)
         {
+            y = 460;
+            //x = 630+width/2;
             switch (starType)
             {
                 case 1:
-                    x = ((MyGame)game).width/2 - width - 40;
-                    //y = 180+height/2;
+                    //y = 280;
+                    x = 536;
                     break;
                 case 2:
-                    x = ((MyGame)game).width/2;
-                   // y = ((MyGame)game).y;
+                    //y = 460;
+                    x = 630;
                     break;
                 case 3:
-                    x = ((MyGame)game).width/2 + width + 40;
-                   // y = ((MyGame)game).y;
+                    //y = 640;
+                    x = 722;
                     break;
                 default:
                     break;
             }
-
-            y = 180 + height / 2;
+            x += width / 2;
+            y += height / 2;
         }
     }
 

@@ -74,7 +74,7 @@ public abstract class Objects : Sprite
         mouseP.x = Input.mouseX;
         mouseP.y = Input.mouseY;
 
-        if (clicked)
+        if (clicked && !((MyGame)game).torchMoving)
         {
             _position.x = Input.mouseX;
             _position.y = Input.mouseY;
