@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlowPlant.cs" />
+    <Compile Include="Collectable.cs" />
     <Compile Include="DownCloud.cs" />
     <Compile Include="Mob.cs" />
     <Compile Include="Star.cs" />

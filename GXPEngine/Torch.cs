@@ -143,6 +143,10 @@ public class Torch : AnimationSprite
                     ((MyGame)game).mobHit = true;
                     LateDestroy();
                 }
+                if(collisions[i] is Collectable)
+                {
+                    ((MyGame)game).collectibleGrabbed = true;
+                }
             }
         }
     }

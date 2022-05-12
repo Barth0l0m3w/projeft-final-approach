@@ -45,9 +45,8 @@ public class MyGame : Game
             targetFps = 60;
         }
 
-        if (Input.GetKey(Key.S))
+        if (collectibleGrabbed)
         {
-            collectibleGrabbed = true;
             Console.WriteLine(collectibleGrabbed);
         }
     }
