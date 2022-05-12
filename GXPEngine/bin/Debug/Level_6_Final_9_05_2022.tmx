@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="9" nextobjectid="33">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="10" nextobjectid="33">
  <imagelayer id="3" name="Image Layer 1">
   <image source="final_background.png" width="1920" height="1080"/>
+ </imagelayer>
+ <imagelayer id="9" name="hill" offsetx="-724.242" offsety="78.7879">
+  <image source="hill.png" width="1920" height="1080"/>
  </imagelayer>
  <imagelayer id="5" name="scroll1" offsetx="-4" offsety="842">
   <image source="scroll.png" width="240" height="240"/>

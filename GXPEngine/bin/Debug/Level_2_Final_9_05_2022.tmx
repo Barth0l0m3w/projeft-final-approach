@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="7" nextobjectid="38">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="8" nextobjectid="38">
  <imagelayer id="3" name="Image Layer 1">
   <image source="final_background.png" width="1920" height="1080"/>
+ </imagelayer>
+ <imagelayer id="7" name="hill" offsetx="-514.667" offsety="64">
+  <image source="hill.png" width="1920" height="1080"/>
  </imagelayer>
  <imagelayer id="5" name="scroll1" offsetx="-4" offsety="842">
   <image source="scroll.png" width="240" height="240"/>
@@ -88,7 +91,7 @@
    </properties>
   </object>
   <object id="34" name="collision" type="CollisionSpellRange" x="382" y="408" width="718" height="230"/>
-  <object id="35" name="potion" type="Collectable" x="844" y="240" width="120" height="120"/>
+  <object id="35" name="potion" type="Collectable" x="482.667" y="282.667" width="120" height="120"/>
   <object id="36" name="scary void" type="TheVoid" x="-609.56" y="-1234.33" width="3620" height="92" rotation="89.5075"/>
   <object id="37" name="scary void" type="TheVoid" x="2542" y="-1230" width="3620" height="92" rotation="89.5075"/>
  </objectgroup>

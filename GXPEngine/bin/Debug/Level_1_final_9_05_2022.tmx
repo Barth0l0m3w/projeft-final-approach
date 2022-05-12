@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="9" nextobjectid="36">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="12" nextobjectid="36">
  <tileset firstgid="1" name="tileset1" tilewidth="120" tileheight="120" tilecount="0" columns="2">
   <image source="../projeft-final-approach-development/project_lift_off/FireScript/GXPEngine/bin/Debug/tile_set_prototype_l1.png" width="256" height="256"/>
  </tileset>
  <imagelayer id="5" name="Warstwa Obrazka 1">
   <image source="final_background.png" width="1920" height="1080"/>
+ </imagelayer>
+ <imagelayer id="9" name="hill" offsetx="-534" offsety="56">
+  <image source="hill.png" width="1920" height="1080"/>
  </imagelayer>
  <imagelayer id="8" name="popuscreentest" offsetx="-632" offsety="2118">
   <image source="level_copmplete_book.png" width="1920" height="1080"/>
@@ -88,5 +91,6 @@
   </object>
   <object id="35" name="potion" type="Collectable" x="963.325" y="236.662" width="120" height="120"/>
  </objectgroup>
+ <objectgroup id="10" name="Warstwa Obiektu 3"/>
  <objectgroup id="7" name="Warstwa Obiektu 2"/>
 </map>
