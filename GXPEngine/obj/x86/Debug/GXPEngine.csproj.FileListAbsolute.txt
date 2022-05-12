@@ -20,3 +20,11 @@ E:\projeft-final-approach\GXPEngine\obj\x86\Debug\GXPEngine.csproj.SuggestedBind
 E:\projeft-final-approach\GXPEngine\obj\x86\Debug\GXPEngine.csproj.CoreCompileInputs.cache
 E:\projeft-final-approach\GXPEngine\obj\x86\Debug\GXPEngine.exe
 E:\projeft-final-approach\GXPEngine\obj\x86\Debug\GXPEngine.pdb
+I:\projeft-final-approach\GXPEngine\bin\Debug\GXPEngine.exe.config
+I:\projeft-final-approach\GXPEngine\bin\Debug\GXPEngine.exe
+I:\projeft-final-approach\GXPEngine\bin\Debug\GXPEngine.pdb
+I:\projeft-final-approach\GXPEngine\obj\x86\Debug\GXPEngine.csproj.AssemblyReference.cache
+I:\projeft-final-approach\GXPEngine\obj\x86\Debug\GXPEngine.csproj.SuggestedBindingRedirects.cache
+I:\projeft-final-approach\GXPEngine\obj\x86\Debug\GXPEngine.csproj.CoreCompileInputs.cache
+I:\projeft-final-approach\GXPEngine\obj\x86\Debug\GXPEngine.exe
+I:\projeft-final-approach\GXPEngine\obj\x86\Debug\GXPEngine.pdb

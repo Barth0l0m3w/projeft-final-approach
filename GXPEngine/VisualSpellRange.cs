@@ -10,10 +10,10 @@ using TiledMapParser;
 public class VisualSpellRange : Sprite
 {
 
-    public VisualSpellRange(TiledObject obj = null) : base("checkers.png", false)
+    public VisualSpellRange(TiledObject obj = null) : base("spell range bubble.png", false)
     {
         SetOrigin(width/2, height/2);
-        alpha = 0.3f;
+        //alpha = 0.3f;
     }
 }
 

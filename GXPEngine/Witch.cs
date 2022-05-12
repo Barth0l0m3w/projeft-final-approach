@@ -18,14 +18,16 @@ internal class Witch : AnimationSprite
     const int FREE = 3;
     int currentState = NORMAL;
 
-    public Witch(TiledObject obj = null) : base("witch_spritesheet.png", 5, 5)
+    public Witch(TiledObject obj = null) : base("witch_trimmed.png", 5, 5)
     {
 
         SetOrigin(width / 2, height / 2);
+        
     }
 
     void Update()
     {
+        //Gizmos.DrawRectangle(0, 0, width, height, this);
         if (!stopAnimating)
         {
             AnimateCharacter();

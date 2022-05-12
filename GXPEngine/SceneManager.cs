@@ -11,6 +11,8 @@ namespace GXPEngine
         //private int whatLevel = 0;
         private static SceneManager _instance;
 
+        private SoundChannel mainMenuMusic = null;
+
         public static SceneManager Instance
         {
             get
@@ -47,6 +49,34 @@ namespace GXPEngine
             
             LevelLoader levelLoader = new LevelLoader($"{LevelName}.tmx");
             AddChild(levelLoader);
+            LoadMusic(LevelName);
+        }
+
+        private void LoadMusic(string filename)
+        {
+            if (filename.Contains("Menu"))
+            {
+                StartMusic("sound_test.mp3");
+            }
+            else
+            {
+                StopMusic();
+            }
+        }
+
+        private void StopMusic()
+        {
+            if(mainMenuMusic != null)
+            {
+                mainMenuMusic.Stop();
+            }
+        }
+
+        private void StartMusic(string trackName)
+        {
+            StopMusic();
+            mainMenuMusic = new Sound(trackName, true, true).Play();
+            mainMenuMusic.Volume = 5f;
         }
     }
 }
