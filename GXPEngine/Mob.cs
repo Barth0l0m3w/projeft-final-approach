@@ -13,7 +13,7 @@ internal class Mob : AnimationSprite
     const int BURNING = 2;
     int currentState = NORMAL;
 
-    public Mob(TiledObject obj = null) : base("mob_spritesheet.png", 4, 2)
+    public Mob(TiledObject obj = null) : base("mob_spritesheet.png", 7, 1)
     {
         SetOrigin(width / 2, height / 2);
     }
@@ -39,7 +39,7 @@ internal class Mob : AnimationSprite
                 break;
             case BURNING:
                 Console.WriteLine("BURN BABY BURN");
-                SetCycle(4, 2);
+                SetCycle(4, 3);
                 Animate(0.2f);
                 break;
         }
