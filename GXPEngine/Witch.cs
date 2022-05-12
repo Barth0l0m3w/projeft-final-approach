@@ -78,6 +78,7 @@ internal class Witch : AnimationSprite
             {
                 spell = false;
                 currentState = NORMAL;
+                ((MyGame)game).spellPlaced = false;
                 ((MyGame)game).animWitch = false;
             }
         }

@@ -100,6 +100,7 @@ public abstract class Objects : Sprite
     {
         UpdateMousePosition();
         MouseTouching();
+        inSpellRange = false;
         
         distance = mouseP - Position;
 
