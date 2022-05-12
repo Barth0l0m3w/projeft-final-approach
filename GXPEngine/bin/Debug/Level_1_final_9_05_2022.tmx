@@ -26,14 +26,14 @@
   <object id="23" name="visualSpellRange" type="VisualSpellRange" x="37.3248" y="4.66239" width="800" height="800">
    <ellipse/>
   </object>
-  <object id="12" name="spellrange" type="CollisionSpellRange" x="313.03" y="315.702" width="198" height="195.879"/>
-  <object id="3" name="Torch" type="Torch" x="1537.95" y="615.795" width="146" height="140">
+  <object id="12" name="spellrange" type="CollisionSpellRange" x="323.03" y="321.702" width="198" height="195.879"/>
+  <object id="3" name="Torch" type="Torch" x="1507.95" y="603.795" width="160" height="160">
    <properties>
     <property name="angle" type="int" value="250"/>
     <property name="speed" type="float" value="25"/>
    </properties>
   </object>
-  <object id="16" name="Mushroom" type="Mushroom" x="78.4448" y="888.921" width="120" height="120" rotation="43">
+  <object id="16" name="Mushroom" type="Mushroom" x="84.4448" y="898.921" width="120" height="120" rotation="43">
    <properties>
     <property name="angle" type="int" value="43"/>
    </properties>
@@ -50,8 +50,8 @@
     <property name="levelName" value="Level_3_Final_9_05_2022"/>
    </properties>
   </object>
-  <object id="21" name="witch" type="Witch" x="294.675" y="501.581" width="300" height="300"/>
-  <object id="22" name="TheMob" type="Mob" x="1697.28" y="613.751" width="200" height="200"/>
+  <object id="21" name="witch" type="Witch" x="344.675" y="499.581" width="180" height="300"/>
+  <object id="22" name="TheMob" type="Mob" x="1685.28" y="601.751" width="240" height="240"/>
   <object id="24" name="torch" type="Button" x="1586.52" y="916" width="128" height="128">
    <properties>
     <property name="function" type="int" value="2"/>

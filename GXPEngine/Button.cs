@@ -40,7 +40,7 @@ public class Button : Sprite
 
     private void Update()
     {
-        Gizmos.DrawRectangle(0, 0, texture.width, texture.height, this);
+        //Gizmos.DrawRectangle(0, 0, texture.width, texture.height, this);
         if (HitTestPoint(Input.mouseX, Input.mouseY))
         {
             //visible = false;

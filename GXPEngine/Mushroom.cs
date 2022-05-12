@@ -38,7 +38,7 @@ class Mushroom : Objects
     {
         Step();
         //rotation = angle;
-        Gizmos.DrawRectangle(0, 0, texture.width, texture.height, this);
+        //Gizmos.DrawRectangle(0, 0, texture.width, texture.height, this);
     }
 }
 
