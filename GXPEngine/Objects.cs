@@ -58,7 +58,6 @@ public abstract class Objects : Sprite //heritance class
     {
         if (HitTestPoint(Input.mouseX, Input.mouseY))
         {
-
             if (!clicked && Input.GetMouseButtonUp(0) && !((MyGame)game).itemPicked)
             {
                 //activating that the item is picked so no others can also be picked
