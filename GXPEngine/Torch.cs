@@ -96,6 +96,15 @@ public class Torch : AnimationSprite
         }
     }
 
+    private void StopMusic()
+    {
+        if (((MyGame)game).stopSound)
+        {
+            soundChannel1.Stop();
+            ((MyGame)game).stopSound = false;
+        }
+    }
+
     private void CheckCollisions()
     {
         float ballDistance;
@@ -247,6 +256,7 @@ public class Torch : AnimationSprite
         CheckCollisions();
        // Console.WriteLine(((MyGame)game).startTorch);   
         ShootTorch();
+        StopMusic();
     }
 }
 

@@ -55,16 +55,17 @@ public abstract class Objects : Sprite
     {
         if (distance.Length() <= this.width/2)
         {
-            if (!clicked && Input.GetMouseButtonUp(0))
+            if (!clicked && Input.GetMouseButtonUp(0) && !((MyGame)game).itemPicked)
             {
                 clicked = true;
                 clickedOnce = true;
+                ((MyGame)game).itemPicked = true;
             }
             else if (clicked && Input.GetMouseButtonUp(0) && inSpellRange)
             {
                 soundChannel2 = spell.Play();
                 clicked = false;
-                ((MyGame)game).spellPlaced = true;
+                ((MyGame)game).itemPicked = false;
                 ((MyGame)game).animWitch = true;
             }
             else

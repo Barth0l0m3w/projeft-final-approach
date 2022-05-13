@@ -191,6 +191,7 @@ public class Button : Sprite
                 {
                     Console.WriteLine("Button " + function);
                     CurrentLoad();
+                    ((MyGame)game).stopSound = true;
                 }
                 break;
             case 2: //start torch

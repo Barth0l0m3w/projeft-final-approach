@@ -16,14 +16,15 @@ public class MyGame : Game
     public LevelLoader level;
     SceneManager sceneManager;
 
+    public bool stopSound = false;
     public bool torchMoving = false;
     public bool isBurning = false;
     public bool mobHit = false;
     public bool startTorch = false;
     public bool popupSpawned = false;
     public bool spellPlaced = false;
+    public bool itemPicked = false;
     public bool animWitch = false;
-
     public bool voidTouched = false;
     public bool collectibleGrabbed = false;
     public String CurrentLevel = null;
@@ -35,8 +36,8 @@ public class MyGame : Game
 
         //SceneManager.Instance.LoadLevel("mainMenu");
         //CurrentLevel = "mainMenu";
-        SceneManager.Instance.LoadLevel("Level_5_Final_9_05_2022");
-        CurrentLevel = "Level_5_Final_9_05_2022";
+        SceneManager.Instance.LoadLevel("Level_2_Final_9_05_2022");
+        CurrentLevel = "Level_2_Final_9_05_2022";
     }
 
     void Update()
