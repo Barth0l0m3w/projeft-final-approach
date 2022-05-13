@@ -33,54 +33,45 @@ public class Torch : AnimationSprite
     private TorchArrow arrow;
     TiledObject obj;
     bool shootTorch;
-    //private MyGame game;
 
     public Torch(TiledObject obj = null) : base("TorchSprite.png", 8, 3)
     {
         shootTorch = ((MyGame)game).startTorch;
         this.obj = obj;
         acceleration = acceleration = new Vec2(0, 0.4f);
-        //SetOrigin(width / 2, height / 2);
+
         velocity = new Vec2(0, 0);
-        //height = (int)obj.Height;
-        //width = (int)obj.Width;
+
         angle = obj.GetIntProperty("angle", 0);
         speed = obj.GetFloatProperty("speed", 0f);
         SetFrame(0);
-        // x = obj.X;// + width / 2;
-        // y = obj.Y;// + height / 2;
-        position = new Vec2(obj.X + width / 2, obj.Y + width / 2);
-        Console.WriteLine("Torch width: " + width + ":" + height);
-        Console.WriteLine("Torch in tiled width: " + obj.Width + ":" + obj.Height);
-        //x = position.x;
-        // y = position.y;
-        boxCollider = createCollider();
-        // rotation = angle;
-        //scale = 2;
-        // obj.Rotation = angle;
-        Console.WriteLine("Torch START: " + x + " : " + y);
-        Console.WriteLine("Torch END: " + x + width + " : " + y + height);
-        Console.WriteLine("Torch PX: " + position.x + " PY: " + position.y);
-        Console.WriteLine("Torch PX: " + position.x + width + " PY: " + position.y + height);
-        Console.WriteLine("Torch Object START: " + obj.X + " : " + obj.Y);
-        Console.WriteLine("Torch Object START: " + obj.X + obj.Width + " : " + obj.Y + obj.Height);
-        aiming = Vec2.GetUnitVectorDeg(angle);
-        Console.WriteLine(aiming.ToString());
-        Console.WriteLine(speed);
 
-        Console.WriteLine(velocity);
+        position = new Vec2(obj.X + width / 2, obj.Y + width / 2);
+
+        boxCollider = createCollider();
+
+        aiming = Vec2.GetUnitVectorDeg(angle);
+
         accelerationOriginal = acceleration;
-        // Console.WriteLine(speed + " SPEED VALUE");
+
         arrow = new TorchArrow(0, 0, angle, this);
         LateAddChild(arrow);
+
         ((MyGame)game).torchMoving = false;
         ((MyGame)game).mobHit = false;
         ((MyGame)game).isBurning = false;
         ((MyGame)game).voidTouched = false;
         ((MyGame)game).startTorch = false;
         ((MyGame)game).collectibleGrabbed = false;
-        //  game = ((MyGame)game);
-        //UpdateScreenPosition();
+    }
+
+    void Update()
+    {
+        AnimateCharacter();
+        Move();
+        CheckCollisions();
+        ShootTorch();
+        StopMusic();
     }
 
     private void Move()
@@ -109,21 +100,21 @@ public class Torch : AnimationSprite
     private void CheckCollisions()
     {
         float ballDistance;
+
         if (((MyGame)game).torchMoving)
         {
-            
-
             GameObject[] collisions = GetCollisions();
+
             for (int i = 0; i < collisions.Length; i++)
             {
+
                 if (collisions[i] is Mushroom mushroom)
                 {
+
                     if (((Mushroom)collisions[i]).y < 900)
                     {
-                        Console.WriteLine("In a spell range");
-                        // TODO: use this:
                         Collision colInfo = boxCollider.GetCollisionInfo(mushroom.boxCollider);
-                        // Console.WriteLine(boxCollider.GetCollisionInfo(((Mushroom)collisions[i]).boxCollider).penetrationDepth);
+
                         ballDistance = colInfo.penetrationDepth;
 
                         Vec2 normal = new Vec2(colInfo.normal.x, colInfo.normal.y);
@@ -142,27 +133,31 @@ public class Torch : AnimationSprite
                         }
                     }
                 }
+
                 if (collisions[i] is BlowPlant plant)
                 {
+
                     if (((BlowPlant)collisions[i]).y < 900)
                     {
                         acceleration = accelerationOriginal * -plant.power;
                     }
                 }
+
                 if (collisions[i] is DownCloud)
                 {
                     acceleration = accelerationOriginal * ((DownCloud)collisions[i]).power;
                 }
+
                 if (collisions[i] is TheVoid)
                 {
                     soundChannel1 = gameLost.Play();
                     soundChannel1.Volume = 0.3f;
 
-                    Console.WriteLine("GAME IS OVER, sorry");
                     if (MyGame.instance.isBurning)
                     {
                         SceneManager.Instance.LoadLevel(((MyGame)game).CurrentLevel);
                     }
+
                     else
                     {
                         ((MyGame)game).voidTouched = true;
@@ -170,6 +165,7 @@ public class Torch : AnimationSprite
 
                      ((MyGame)game).startTorch = false;
                 }
+
                 if (collisions[i] is Witch)
                 {
                     soundChannel1 = onFire.Play();
@@ -179,6 +175,7 @@ public class Torch : AnimationSprite
                     ((MyGame)game).startTorch = false;
                     LateDestroy();
                 }
+
                 if (collisions[i] is Mob)
                 {
                     soundChannel1 = hitMob.Play();
@@ -188,6 +185,7 @@ public class Torch : AnimationSprite
                     ((MyGame)game).startTorch = false;
                     LateDestroy();
                 }
+
                 if (collisions[i] is Collectable)
                 {
                     ((MyGame)game).collectibleGrabbed = true;
@@ -221,6 +219,7 @@ public class Torch : AnimationSprite
     private void ShootTorch()
     {
         shootTorch = ((MyGame)game).startTorch;
+
         if (shootTorch == true && !((MyGame)game).torchMoving)
         {
             soundChannel1 = swoosh.Play();
@@ -246,21 +245,6 @@ public class Torch : AnimationSprite
                 Animate(0.3f);
                 break;
         }
-    }
-
-    void Update()
-    {
-
-        //Alternative();
-        //Draw the boxCollider
-        //Gizmos.DrawRectangle(0, 0,width/scaleX, height/scaleY, this);
-        //Gizmos.DrawRectangle(0, 0, obj.Width, obj.Height, this);
-        AnimateCharacter();
-        Move();
-        CheckCollisions();
-        // Console.WriteLine(((MyGame)game).startTorch);   
-        ShootTorch();
-        StopMusic();
     }
 }
 

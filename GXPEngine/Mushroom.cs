@@ -7,10 +7,12 @@ using GXPEngine;
 using GXPEngine.Core;
 using TiledMapParser;
 
-class Mushroom : Objects
+
+class Mushroom : Objects //having it be inherited from Objects
 {
-    public Vec2 position;
     public Collider boxCollider;
+    public Vec2 position;
+    
     private int angle;
     public bool isClicked;
 
@@ -21,24 +23,16 @@ class Mushroom : Objects
         width = (int)obj.Width;
         SetOrigin(width/2,height/2);
 
-        isClicked = clicked;
-
-        //x = Position.x;
-       // y = Position.y;
-
         angle = obj.GetIntProperty("angle", 0);
         boxCollider = createCollider();
 
         rotation = angle;
-        //obj.Rotation = angle;
-        //rotation = 45;
+        isClicked = clicked;
     }
 
     void Update()
     {
         Step();
-        //rotation = angle;
-        //Gizmos.DrawRectangle(0, 0, texture.width, texture.height, this);
     }
 }
 

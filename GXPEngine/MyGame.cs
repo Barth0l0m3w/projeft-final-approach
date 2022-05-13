@@ -3,8 +3,9 @@ using GXPEngine;
 using System.Drawing;
 using System.Collections.Generic;
 
+
 public class MyGame : Game
-{ 
+{
     public static MyGame instance
     {
         get
@@ -12,9 +13,6 @@ public class MyGame : Game
             return (MyGame)Game.main;
         }
     }
-
-    public LevelLoader level;
-    SceneManager sceneManager;
 
     public bool stopSound = false;
     public bool torchMoving = false;
@@ -27,49 +25,31 @@ public class MyGame : Game
     public bool animWitch = false;
     public bool voidTouched = false;
     public bool collectibleGrabbed = false;
+
     public String CurrentLevel = null;
+
+    public LevelLoader level;
+
+    SceneManager sceneManager;
 
     public MyGame() : base(1920, 1080, false, false, 960, 540)
     {
+        //adding the scenemanager who will switch the correct chenes and destroys the old ones
         sceneManager = new SceneManager();
         AddChild(sceneManager);
 
-        //SceneManager.Instance.LoadLevel("mainMenu");
-        //CurrentLevel = "mainMenu";
+        //begin the game at main menu
         SceneManager.Instance.LoadLevel("mainMenu");
         CurrentLevel = "mainMenu";
     }
 
     void Update()
     {
-        if (Input.GetKey(Key.SPACE))
-        {
-            targetFps = 5;
-        }
-        else
-        {
-            targetFps = 60;
-        }
-
-        if (collectibleGrabbed)
-        {
-            Console.WriteLine(collectibleGrabbed);
-        }
+        targetFps = 60;
     }
 
     static void Main()
     {
         new MyGame().Start();
     }
-
-    private void DestroyAll()
-    {
-        List<GameObject> children = GetChildren();
-        foreach (GameObject child in children)
-        {
-            child.LateDestroy();
-        }
-    }
-
-  
 }

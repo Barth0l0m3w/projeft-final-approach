@@ -8,7 +8,6 @@ namespace GXPEngine
 {
     public class SceneManager : GameObject
     {
-        //private int whatLevel = 0;
         private static SceneManager _instance;
 
         private SoundChannel mainMenuMusic = null;
@@ -47,6 +46,7 @@ namespace GXPEngine
                 Child.Destroy();
             }
             
+            //making the name put in the correct file so the scenemanager can load it from tiled when activated
             LevelLoader levelLoader = new LevelLoader($"{LevelName}.tmx");
             AddChild(levelLoader);
             LoadMusic(LevelName);
@@ -54,15 +54,18 @@ namespace GXPEngine
 
         private void LoadMusic(string filename)
         {
+
             if (filename.Contains("Menu"))
             {
                 StartMusic("main_menu_music_hq.wav");
             }
+
             else if(filename.Contains("Level"))
             {
                 StartMusic("gameplay_music_hq.wav");
                 mainMenuMusic.Volume = 1f;
             }
+
             else
             {
                 StopMusic();
@@ -71,6 +74,7 @@ namespace GXPEngine
 
         private void StopMusic()
         {
+            //stopping the music
             if(mainMenuMusic != null)
             {
                 mainMenuMusic.Stop();
@@ -79,7 +83,10 @@ namespace GXPEngine
 
         private void StartMusic(string trackName)
         {
+            //stopping the previous music and starting the new correct one
             StopMusic();
+
+            //adding a string in the construct to start a custom soundtrack for every scene you want
             mainMenuMusic = new Sound(trackName, true, true).Play();
             mainMenuMusic.Volume = 2f;
         }

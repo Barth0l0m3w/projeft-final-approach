@@ -48,19 +48,19 @@ internal class Witch : AnimationSprite
     {
         switch (currentState)
         {
-            case NORMAL:
+            case NORMAL: //idle
                 SetCycle(0, 10);
                 Animate(0.06f);
                 break;
-            case BURNING:
+            case BURNING: //witch burning
                 SetCycle(22, 3);
                 Animate(0.07f);
                 break;
-            case SPELL:
+            case SPELL: //when placing a spell
                 SetCycle(19, 3);
                 Animate(0.07f);
                 break;
-            case FREE:
+            case FREE: //completing the level
                 SetCycle(9, 6);
                 Animate(0.2f);
                 break;
@@ -72,7 +72,7 @@ internal class Witch : AnimationSprite
         switch (mirrored)
         {
             case notMirrored:
-                //nothing
+                //do absolutely nothing
                 break;
             case isMirrored:
                 MirrorAll(true);
@@ -83,27 +83,21 @@ internal class Witch : AnimationSprite
 
     private void AnimationCycles()
     {
+
         if (((MyGame)game).isBurning == true)
         {
             currentState = BURNING;
-        }
-        if (Input.GetKeyDown(Key.S))
-        {
-            spell = true;
-        }
-        if (Input.GetKeyUp(Key.F))
-        {
-            free = true;
         }
 
         if (((MyGame)game).animWitch == true)
         {
             currentState = SPELL;
 
-            if (currentFrame == 21)
+            if (currentFrame == 21) //stopping the animation on the last frame so it doesnt loop
             {
                 spell = false;
                 currentState = NORMAL;
+
                 ((MyGame)game).spellPlaced = false;
                 ((MyGame)game).animWitch = false;
             }
@@ -112,7 +106,8 @@ internal class Witch : AnimationSprite
         if (((MyGame)game).mobHit == true)
         {
             currentState = FREE;
-            if (currentFrame == 14)
+
+            if (currentFrame == 14) //stopping the animation on the last frame so it doesnt loop
             {
                 stopAnimating = true;
                 free = false;

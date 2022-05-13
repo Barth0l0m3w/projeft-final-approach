@@ -13,6 +13,5 @@ internal class TheVoid :Sprite
     {
 
     }
-
 }
 

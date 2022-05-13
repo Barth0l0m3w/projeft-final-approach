@@ -22,6 +22,7 @@ public class Collectable : Sprite
         {
             if (collisions[i] is Torch)
             {
+                //activating the MyGame boolean and destroying it when touching the torch
                 ((MyGame)game).collectibleGrabbed = true;
                 LateDestroy();
             }

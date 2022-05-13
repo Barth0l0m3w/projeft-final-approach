@@ -17,14 +17,12 @@ public class BlowPlant : Objects
         SetOrigin(width / 2, height / 2);
         Position = new Vec2(obj.X, obj.Y);
         power = obj.GetFloatProperty("power", 0f);
-        Console.WriteLine(power);
     }
 
     void Update()
     {
         Step();
         inSpellRanger = inSpellRange;
-        Console.WriteLine(this + " is " + inSpellRanger);
     }
 }
 

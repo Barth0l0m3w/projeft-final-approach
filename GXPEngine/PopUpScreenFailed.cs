@@ -16,7 +16,6 @@ using TiledMapParser;
     {
         if (((MyGame)game).isBurning)
         {
-            Console.WriteLine("Game lost");
             x = ((MyGame)game).width/2;
             y = ((MyGame)game).height/2;
         }

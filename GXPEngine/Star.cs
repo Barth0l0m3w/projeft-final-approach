@@ -10,8 +10,9 @@ using TiledMapParser;
 internal class Star : Sprite
 {
     int starType;
-    Sprite spr = new Sprite("bottle_sprite.png");
     int stars = 0;
+
+    Sprite spr = new Sprite("bottle_sprite.png");
 
     public Star(TiledObject obj = null) : base("bottle_empty.png")
     {
@@ -35,7 +36,8 @@ internal class Star : Sprite
                     stars = 3;
                 }
             }
-        } 
+        }
+
         else if (((MyGame)game).mobHit)
         {
             stars = 2;
@@ -65,9 +67,6 @@ internal class Star : Sprite
             default:
                 break;
         }
-
-
-
     }
 
     private void MoveStars()
@@ -75,19 +74,16 @@ internal class Star : Sprite
         if (((MyGame)game).voidTouched || ((MyGame)game).mobHit)
         {
             y = 460;
-            //x = 630+width/2;
+
             switch (starType)
             {
                 case 1:
-                    //y = 280;
                     x = 536;
                     break;
                 case 2:
-                    //y = 460;
                     x = 630;
                     break;
                 case 3:
-                    //y = 640;
                     x = 722;
                     break;
                 default:

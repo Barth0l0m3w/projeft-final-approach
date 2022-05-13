@@ -9,7 +9,6 @@ using TiledMapParser;
 public class CollisionSpellRange : Sprite
 {
 
-
     public CollisionSpellRange(TiledObject obj = null) : base("colors.png", true)
     {
         alpha = 0.0f;

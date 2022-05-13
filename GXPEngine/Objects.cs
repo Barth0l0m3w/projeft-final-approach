@@ -6,31 +6,31 @@ using System.Threading.Tasks;
 using GXPEngine;
 
 
-public abstract class Objects : Sprite
+public abstract class Objects : Sprite //heritance class
 {
-    public Vec2 Position
+    public Vec2 Position //getting the object position when moving them
     {
         get
         {
             return _position;
         }
+
         set
         {
             _position = value;
         }
     }
+
     private static SoundChannel soundChannel2 = new SoundChannel(2);
     private static Sound spell = new Sound("spell_sneeze.wav");
 
-    //protected Vec2 velocity;
     protected bool clicked = false;
     public bool inSpellRange = false;
+    private bool clickedOnce = false;
 
     protected Vec2 _position;
     protected Vec2 mouseP;
     protected Vec2 distance;
-
-    private bool clickedOnce = false;
 
     public Objects( string image) : base(image)
     {
@@ -40,11 +40,14 @@ public abstract class Objects : Sprite
 
     protected virtual void UpdateScreenPosition()
     {
+        //setting the new position coordenates when having the object picked up
         x = _position.x;
         y = _position.y;
     }
+
     protected void OnCollision(GameObject Other)
     {
+        //when the object is in spellrange make the boolean true to be able to place the objects
         if (Other is CollisionSpellRange)
         {
             inSpellRange = true;
@@ -53,21 +56,28 @@ public abstract class Objects : Sprite
 
     protected void MouseTouching()
     {
-        if (distance.Length() <= this.width/2)
+        if (HitTestPoint(Input.mouseX, Input.mouseY))
         {
+
             if (!clicked && Input.GetMouseButtonUp(0) && !((MyGame)game).itemPicked)
             {
+                //activating that the item is picked so no others can also be picked
                 clicked = true;
                 clickedOnce = true;
                 ((MyGame)game).itemPicked = true;
             }
+
             else if (clicked && Input.GetMouseButtonUp(0) && inSpellRange)
             {
+                //placing the objects in the spellrange when thei're picked 
                 soundChannel2 = spell.Play();
                 clicked = false;
+
+                //deactvating the boolians to be able to pick up new objects
                 ((MyGame)game).itemPicked = false;
                 ((MyGame)game).animWitch = true;
             }
+
             else
             {
                 ((MyGame)game).spellPlaced = false;
@@ -82,8 +92,10 @@ public abstract class Objects : Sprite
 
         if (clicked && !((MyGame)game).torchMoving)
         {
+            //moving the objects with the mouse after thei're picked up
             _position.x = Input.mouseX;
             _position.y = Input.mouseY;
+
             UpdateScreenPosition();
            Grow();
         }
@@ -102,8 +114,6 @@ public abstract class Objects : Sprite
         UpdateMousePosition();
         MouseTouching();
         inSpellRange = false;
-        
-        distance = mouseP - Position;
 
         _position.x = x;
         _position.y = y;

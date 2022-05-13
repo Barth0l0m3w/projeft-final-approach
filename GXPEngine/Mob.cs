@@ -11,38 +11,32 @@ internal class Mob : AnimationSprite
     const int NORMAL = 0;
     const int HAPPY = 1;
     const int BURNING = 2;
-    int currentState = NORMAL;
+    int currentState = NORMAL; //have idle as default
 
     public Mob(TiledObject obj = null) : base("mob_spritesheet.png", 7, 1)
-    {
-        // SetOrigin(width / 2, height / 2);
-        //width =(int)obj.Width;
-       // height = (int)obj.Height;
-        
+    {   
     }
 
     private void Update()
     {
+        //animating the correct animation at the correct moments
         AnimateCharacter();
         AnimationCycles();
-        //Gizmos.DrawRectangle(0, 0, width, height, this);
-
     }
 
     private void AnimateCharacter()
     {
         switch (currentState)
         {
-            case NORMAL:
+            case NORMAL: //idle
                 SetCycle(0, 2);
                 Animate(0.09f);
                 break;
-            case HAPPY:
+            case HAPPY: //witch burning (level lost)
                 SetCycle(2, 2);
                 Animate(0.15f);
                 break;
-            case BURNING:
-                Console.WriteLine("BURN BABY BURN");
+            case BURNING://mob burning (level won)
                 SetCycle(4, 3);
                 Animate(0.2f);
                 break;
@@ -51,18 +45,16 @@ internal class Mob : AnimationSprite
 
     private void AnimationCycles()
     {
+        //mob burning
         if (((MyGame)game).mobHit == true)
         {
             currentState = BURNING;
         }
 
+        //witch burning
         if (((MyGame)game).isBurning == true)
         {
             currentState = HAPPY;
-        }
-        if (Input.GetKeyUp(Key.N))
-        {
-            currentState = NORMAL;
         }
     }
 }

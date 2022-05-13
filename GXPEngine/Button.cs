@@ -16,6 +16,7 @@ public class Button : Sprite
     private string levelName = null;
     private int function = 0;
     private string image = null;
+
     TiledObject obj;
 
     public Button(TiledObject obj = null) : base("square.png")
@@ -24,23 +25,22 @@ public class Button : Sprite
         function = obj.GetIntProperty("function", 0);
         image = obj.GetStringProperty("image", null);
         alpha = 0;
+
         this.obj = obj;
         HierarchyManager.Instance.LateCall(ButtonSprite); // this would call it after update is done (and after the TiledLoader has set scale). But in this case, that's not needed.
-        //ButtonSprite();
+
         ((MyGame)game).startTorch = false;
     }
 
     private void Update()
     {
-        //Gizmos.DrawRectangle(0, 0, texture.width, texture.height, this);
+
         if (HitTestPoint(Input.mouseX, Input.mouseY))
         {
-            //visible = false;
             SetColor(1, 0, 0);
         }
         else
         {
-            //visible = true;
             SetColor(1, 1, 1);
         }
 
@@ -62,22 +62,26 @@ public class Button : Sprite
                 clicked = false;
             }
         }
-       // Console.WriteLine("Not touching");
     }
 
     private void CurrentLoad()
     {
+        //resetting the current level
         SceneManager.Instance.LoadLevel(((MyGame)game).CurrentLevel);
     }
 
     private void GoLevel()
     {
+        //loading the new level in
         SceneManager.Instance.LoadLevel(levelName);
+
+        //setting the current level to the new level
         ((MyGame)game).CurrentLevel = levelName;
     }
 
     private void UpdateMousePosition()
     {
+        //getting the position from the mouse coordenates
         mouseP.x = Input.mouseX;
         mouseP.y = Input.mouseY;
     }
@@ -86,20 +90,21 @@ public class Button : Sprite
     {
         MouseTouching();
         UpdateMousePosition();
+
         if (clicked)
         {
             ChooseFunction();
-            
         }
+
         MoveButton();
-        
     }
 
     void MoveButton()
     {
         if (((MyGame)game).mobHit || ((MyGame)game).voidTouched || Input.GetKeyUp(Key.Q))
         {
-            x = 1074+width/2;
+            x = 1074 + width / 2;
+
             switch (function)
             {
                 case 0:
@@ -113,10 +118,13 @@ public class Button : Sprite
                     break;
                 default: break;
             }
-            y+=height/2;
+
+            y += height / 2;
         }
-        if (((MyGame)game).isBurning){
-            x = 1074+width/2;
+
+        if (((MyGame)game).isBurning)
+        {
+            x = 1074 + width / 2;
             switch (function)
             {
                 case 0:
@@ -130,8 +138,10 @@ public class Button : Sprite
                     break;
                 default: break;
             }
-            y+=height/2;
+
+            y += height / 2;
         }
+
         if (((MyGame)game).startTorch && function == 2)
         {
             x = 3000 + 64;
@@ -175,7 +185,7 @@ public class Button : Sprite
         // However, we still want to scale relative to the width of this vs width of sprite (child).
         sprite.width = texture.width;
         sprite.height = texture.height;
-        //sprite.alpha = 0.2f;
+
         return sprite;
     }
 
@@ -186,42 +196,47 @@ public class Button : Sprite
             case 0: //next level
                 GoLevel();
                 break;
+
             case 1: //restart level
                 if (clicked)
                 {
-                    Console.WriteLine("Button " + function);
                     CurrentLoad();
                     ((MyGame)game).stopSound = true;
                 }
                 break;
+
             case 2: //start torch
                 if (clicked)
                 {
-                    Console.WriteLine("Button " + function);
                     ((MyGame)game).startTorch = true;
                 }
                 break;
+
             case 3: //start game
                 if (clicked)
                 {
                     GoLevel();
                 }
                 break;
+
             case 4: //quit game
                 if (clicked)
                 {
                     ((MyGame)game).Destroy();
                 }
                 break;
+
             case 5: //small quit
                 if (clicked)
                 {
                     ((MyGame)game).Destroy();
                 }
                 break;
+
             default:
                 break;
         }
+
         clicked = false;
     }
 }

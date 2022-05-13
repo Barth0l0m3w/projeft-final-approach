@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using TiledMapParser;
 using GXPEngine;
 
+
 public class LevelLoader : GameObject
 {
     private TiledLoader loader;
@@ -23,11 +24,11 @@ public class LevelLoader : GameObject
 
     private void OnSpriteCreated(Sprite sprite, TiledObject obj)
     {
-        // if type==mytext: setFont(...) TiledLoader.DrawText(text)
     }
 
     private void StartLevel(bool includeImageLayers = true)
     {
+        //correctly loading everything from tiled 
         loader.addColliders = false;
         loader.rootObject = this;
         loader.LoadImageLayers();
@@ -39,13 +40,6 @@ public class LevelLoader : GameObject
         loader.LoadTileLayers(3);
         loader.autoInstance = true;
         loader.LoadObjectGroups();
-    }
-
-  
-
-    void Update()
-    {
-        //stuff
     }
 }
 

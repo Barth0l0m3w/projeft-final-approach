@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="9" nextobjectid="30">
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="9" nextobjectid="33">
  <imagelayer id="3" name="Image Layer 1">
   <image source="final_background.png" width="1920" height="1080"/>
  </imagelayer>
@@ -99,5 +99,7 @@
    </properties>
   </object>
   <object id="29" name="potion" type="Collectable" x="245.455" y="278.788" width="120" height="120"/>
+  <object id="31" name="scary void" type="TheVoid" x="-871.65" y="-2876.03" width="6712" height="56" rotation="89.9377"/>
+  <object id="32" name="scary void" type="TheVoid" x="2276" y="-2316" width="6712" height="56" rotation="89.9377"/>
  </objectgroup>
 </map>
