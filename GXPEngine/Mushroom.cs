@@ -7,35 +7,32 @@ using GXPEngine;
 using GXPEngine.Core;
 using TiledMapParser;
 
-class Mushroom : Sprite
+
+class Mushroom : Objects //having it be inherited from Objects
 {
-    public Vec2 position;
     public Collider boxCollider;
+    public Vec2 position;
+    
     private int angle;
+    public bool isClicked;
 
     public Mushroom(TiledObject obj = null) : base("mushroom.png")
     {
-        position = new Vec2(obj.X, obj.Y);
+        Position = new Vec2(obj.X, obj.Y);
         height = (int)obj.Height;
         width = (int)obj.Width;
         SetOrigin(width/2,height/2);
-
-        x = position.x;
-        y = position.y;
 
         angle = obj.GetIntProperty("angle", 0);
         boxCollider = createCollider();
 
         rotation = angle;
-        //obj.Rotation = angle;
-        //rotation = 45;
+        isClicked = clicked;
     }
 
     void Update()
     {
-        
-        //rotation = angle;
-        Gizmos.DrawRectangle(0, 0, texture.width, texture.height, this);
+        Step();
     }
 }
 

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.8" tiledversion="1.8.4" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="6" nextobjectid="17">
+ <tileset firstgid="1" name="tileset1" tilewidth="120" tileheight="120" tilecount="0" columns="2">
+  <image source="../../../../project_lift_off/FireScript/GXPEngine/bin/Debug/tile_set_prototype_l1.png" width="256" height="256"/>
+ </tileset>
+ <imagelayer id="5" name="Warstwa Obrazka 1">
+  <image source="placeholder 2 background.png" width="1920" height="1080"/>
+ </imagelayer>
+ <layer id="1" name="Warstwa Kafelków 1" width="16" height="9">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="3" name="Warstwa Obiektu 1">
+  <object id="16" name="angry mob" type="Mob" x="227.273" y="300" width="496.97" height="421.212"/>
+ </objectgroup>
+</map>

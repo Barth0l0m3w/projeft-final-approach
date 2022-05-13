@@ -134,7 +134,8 @@ namespace GXPEngine {
 
 				if (blendMode != null) BlendMode.NORMAL.enable();
 			} else {
-				//Console.WriteLine("Not rendering sprite batch");
+				//
+				//.WriteLine("Not rendering sprite batch");
 			}
 		}
 

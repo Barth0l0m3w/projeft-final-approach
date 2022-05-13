@@ -41,13 +41,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BlowPlant.cs" />
-    <Compile Include="Buttons.cs" />
-    <Compile Include="Cloud.cs" />
-    <Compile Include="Ball.cs" />
+    <Compile Include="Collectable.cs" />
+    <Compile Include="DownCloud.cs" />
+    <Compile Include="Mob.cs" />
+    <Compile Include="PopUpScreenCompleted.cs" />
+    <Compile Include="PopUpScreenFailed.cs" />
+    <Compile Include="Star.cs" />
+    <Compile Include="TheVoid.cs" />
+    <Compile Include="TorchArrow.cs" />
+    <Compile Include="Tower.cs" />
+    <Compile Include="VisualSpellRange.cs" />
+    <Compile Include="Button.cs" />
+    <Compile Include="Torch.cs" />
     <Compile Include="GXPEngine\AddOns\Gizmos.cs" />
     <Compile Include="GXPEngine\AddOns\SpriteBatch.cs" />
     <Compile Include="GXPEngine\AddOns\TiledLoader.cs" />
-    <Compile Include="Levels.cs" />
+    <Compile Include="LevelLoader.cs" />
     <Compile Include="Mushroom.cs" />
     <Compile Include="MyGame.cs" />
     <Compile Include="GXPEngine\Core\Canvas.cs" />
@@ -89,8 +98,9 @@
     <Compile Include="GXPEngine\SoLoud\SoloudSoundSystem.cs" />
     <Compile Include="Objects.cs" />
     <Compile Include="SceneManager.cs" />
-    <Compile Include="SpellRange.cs" />
+    <Compile Include="CollisionSpellRange.cs" />
     <Compile Include="Vec2.cs" />
+    <Compile Include="Witch.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />

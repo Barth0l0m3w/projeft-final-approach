@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="6" nextobjectid="10">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="7" nextobjectid="16">
  <tileset firstgid="1" name="tileset1" tilewidth="120" tileheight="120" tilecount="4" columns="2">
   <image source="../../../../project_lift_off/FireScript/GXPEngine/bin/Debug/tile_set_prototype_l1.png" width="256" height="256"/>
  </tileset>
  <imagelayer id="5" name="Warstwa Obrazka 1">
-  <image source="placeholder 2 background.png" width="1920" height="1080"/>
+  <image source="final_background.png" width="1920" height="1080"/>
+ </imagelayer>
+ <imagelayer id="6" name="Warstwa Obrazka 2" offsetx="0" offsety="960">
+  <image source="inventory.png" width="2020" height="120"/>
  </imagelayer>
  <layer id="1" name="Warstwa Kafelków 1" width="16" height="9">
   <data encoding="csv">
@@ -20,22 +23,31 @@
 </data>
  </layer>
  <objectgroup id="3" name="Warstwa Obiektu 1">
-  <object id="3" name="Torch" type="Ball" x="1560.29" y="119.896" width="120" height="120">
+  <object id="13" name="visualSellRange" type="VisualSpellRange" x="-90.9091" y="530.303" width="1760.61" height="636.364"/>
+  <object id="12" name="spellrange" type="CollisionSpellRange" x="-34" y="794.121" width="1204" height="305.879"/>
+  <object id="3" name="Torch" type="Torch" x="1554.23" y="241.108" width="120" height="120">
    <properties>
-    <property name="angle" type="int" value="160"/>
+    <property name="angle" type="int" value="180"/>
     <property name="speed" type="float" value="20"/>
    </properties>
   </object>
-  <object id="6" name="Mushroom" type="Mushroom" x="287.879" y="1015.15" width="481.818" height="63.6364" rotation="-110">
+  <object id="6" name="Mushroom" type="Mushroom" x="345.879" y="1087.15" width="864.75" height="63.6364" rotation="-110">
    <properties>
     <property name="angle" type="int" value="-110"/>
    </properties>
   </object>
-  <object id="8" name="Mushroom2" type="Mushroom" x="1096.97" y="1103.03" width="509.091" height="60.6061" rotation="-30">
+  <object id="8" name="Mushroom2" type="Mushroom" x="1448.07" y="1118.61" width="887.411" height="60.6061" rotation="287">
    <properties>
-    <property name="angle" type="int" value="-30"/>
+    <property name="angle" type="int" value="287"/>
    </properties>
   </object>
-  <object id="9" name="mushroom3" type="Mushroom" x="460.606" y="145.455" width="500" height="60"/>
+  <object id="10" name="name" type="ReloadButton" x="1802.42" y="954.667" width="112.97" height="120"/>
+  <object id="11" name="test plant" type="BlowPlant" x="763.455" y="838.303" width="120" height="240">
+   <properties>
+    <property name="power" type="float" value="10"/>
+   </properties>
+  </object>
+  <object id="14" name="the void" type="TheVoid" x="-4376" y="1200" width="11040" height="248"/>
+  <object id="15" name="witch" type="Witch" x="433.333" y="769.697" width="166.667" height="309.091"/>
  </objectgroup>
 </map>

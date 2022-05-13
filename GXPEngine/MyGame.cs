@@ -3,64 +3,54 @@ using GXPEngine;
 using System.Drawing;
 using System.Collections.Generic;
 
+
 public class MyGame : Game
 {
-    Mushroom mushroom;
-    BlowPlant blowPlant;
-    SpellRange spellRange;
-	string levelName = "map_prototype_big.tmx";
-	Levels level;
-
-	public MyGame() : base(1920, 1080, false, true, 960, 540)
-	{
-        //// Draw some things on a canvas:
-        //EasyDraw canvas = new EasyDraw(800, 600);
-        //AddChild(canvas);
-
-        //spellRange = new SpellRange(3, 3, width / 2, height / 2);
-        //AddChild(spellRange);
-
-        //mushroom = new Mushroom();
-        //AddChild(mushroom);
-
+    public static MyGame instance
+    {
+        get
+        {
+            return (MyGame)Game.main;
+        }
     }
 
-	void Update()
+    public bool stopSound = false;
+    public bool torchMoving = false;
+    public bool isBurning = false;
+    public bool mobHit = false;
+    public bool startTorch = false;
+    public bool popupSpawned = false;
+    public bool spellPlaced = false;
+    public bool itemPicked = false;
+    public bool animWitch = false;
+    public bool voidTouched = false;
+    public bool collectibleGrabbed = false;
+
+    public String CurrentLevel = null;
+
+    public LevelLoader level;
+
+    SceneManager sceneManager;
+
+    public MyGame() : base(1920, 1080, false, false)//, 960, 540)
     {
-		if (Input.GetKey(Key.SPACE))
-		{
-			targetFps = 5;
-		}
-		else
-		{
-			targetFps = 60;
-		}
+        //adding the scenemanager who will switch the correct chenes and destroys the old ones
+        sceneManager = new SceneManager();
+        AddChild(sceneManager);
 
-		if (Input.GetKeyDown(Key.R))
-		{
-			Console.WriteLine("Reloading the level " + levelName);
-			LoadLevel(levelName);
-		}
-	}
+        //SceneManager.Instance.LoadLevel("mainMenu");
+        //CurrentLevel = "mainMenu";
+        SceneManager.Instance.LoadLevel("mainMenu");
+        CurrentLevel = "mainMenu";
+    }
 
-	static void Main()							// Main() is the first method that's called when the program is run
-	{
-		new MyGame().Start();					// Create a "MyGame" and start it
-	}
-
-	private void DestroyAll()
-	{
-		List<GameObject> children = GetChildren();
-		foreach (GameObject child in children)
-		{
-			child.LateDestroy();
-		}
-	}
-
-	private void LoadLevel(string filename)
+    void Update()
     {
-		DestroyAll();
-		level = new Levels(filename);
-		LateAddChild(level);
+        targetFps = 60;
+    }
+
+    static void Main()
+    {
+        new MyGame().Start();
     }
 }

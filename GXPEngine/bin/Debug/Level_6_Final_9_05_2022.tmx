@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="10" nextobjectid="34">
+ <imagelayer id="3" name="Image Layer 1">
+  <image source="final_background.png" width="1920" height="1080"/>
+ </imagelayer>
+ <imagelayer id="9" name="hill" offsetx="-724.242" offsety="78.7879">
+  <image source="hill.png" width="1920" height="1080"/>
+ </imagelayer>
+ <imagelayer id="5" name="scroll1" offsetx="516" offsety="842">
+  <image source="scroll.png" width="240" height="240"/>
+ </imagelayer>
+ <imagelayer id="6" name="scroll2" offsetx="720" offsety="842">
+  <image source="scroll.png" width="240" height="240"/>
+ </imagelayer>
+ <imagelayer id="7" name="scroll3" offsetx="928" offsety="842">
+  <image source="scroll.png" width="240" height="240"/>
+ </imagelayer>
+ <imagelayer id="8" name="scroll4" offsetx="1136" offsety="842">
+  <image source="scroll.png" width="240" height="240"/>
+ </imagelayer>
+ <layer id="1" name="Tile Layer 1" width="16" height="9">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="2" name="Object Layer 1">
+  <object id="17" name="Visual" type="VisualSpellRange" x="-263.636" y="-478.727" width="1403.03" height="1333.27">
+   <ellipse/>
+  </object>
+  <object id="1" name="Witch" type="Witch" x="130.963" y="509.239" width="180" height="300">
+   <properties>
+    <property name="mirrored" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="2" name="Mob" type="Mob" x="1683.48" y="357" width="240" height="240"/>
+  <object id="33" name="twr" type="Tower" x="1656.06" y="417" width="300" height="1140"/>
+  <object id="3" name="Mushroom" type="Mushroom" x="682.638" y="887.929" width="120" height="120" rotation="90">
+   <properties>
+    <property name="angle" type="int" value="90"/>
+   </properties>
+  </object>
+  <object id="5" name="Cloud2" type="DownCloud" x="804.139" y="889.872" width="60" height="120">
+   <properties>
+    <property name="power" type="float" value="8"/>
+   </properties>
+  </object>
+  <object id="6" name="Cloud1" type="DownCloud" x="1222.79" y="890.834" width="60" height="120">
+   <properties>
+    <property name="power" type="float" value="4"/>
+   </properties>
+  </object>
+  <object id="8" name="Torch" type="Torch" x="1509.26" y="322.323" width="160" height="160">
+   <properties>
+    <property name="angle" type="int" value="-150"/>
+    <property name="speed" type="float" value="20"/>
+   </properties>
+  </object>
+  <object id="15" name="Mushroom" type="Mushroom" x="980.257" y="887.456" width="120" height="120">
+   <properties>
+    <property name="angle" type="int" value="0"/>
+   </properties>
+  </object>
+  <object id="18" name="scary void" type="TheVoid" x="-2576" y="1216" width="6712" height="56"/>
+  <object id="19" name="screen" type="PopUpScreenFailed" x="2424" y="404" width="1920" height="1080"/>
+  <object id="20" name="screen" type="PopUpScreenCompleted" x="2424" y="-716" width="1920" height="1080"/>
+  <object id="22" name="star" type="Star" x="2458.68" y="-184.66" width="128" height="128">
+   <properties>
+    <property name="completed" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="9" name="restart" type="Button" x="1756" y="916" width="128" height="128">
+   <properties>
+    <property name="function" type="int" value="1"/>
+   </properties>
+  </object>
+  <object id="23" name="star" type="Star" x="2464.68" y="-12.66" width="128" height="128">
+   <properties>
+    <property name="completed" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="24" name="star" type="Star" x="2464.68" y="195.34" width="128" height="128">
+   <properties>
+    <property name="completed" type="int" value="3"/>
+   </properties>
+  </object>
+  <object id="25" name="quit" type="Button" x="2540.68" y="-332.66" width="128" height="128">
+   <properties>
+    <property name="function" type="int" value="5"/>
+   </properties>
+  </object>
+  <object id="26" name="collision" type="CollisionSpellRange" x="124.242" y="142.424" width="745.455" height="415.152"/>
+  <object id="28" name="torch" type="Button" x="1586" y="916" width="128" height="128">
+   <properties>
+    <property name="function" type="int" value="2"/>
+   </properties>
+  </object>
+  <object id="29" name="potion" type="Collectable" x="245.455" y="278.788" width="120" height="120"/>
+  <object id="31" name="scary void" type="TheVoid" x="-871.65" y="-2876.03" width="6712" height="56" rotation="89.9377"/>
+  <object id="32" name="scary void" type="TheVoid" x="2276" y="-2316" width="6712" height="56" rotation="89.9377"/>
+ </objectgroup>
+</map>
