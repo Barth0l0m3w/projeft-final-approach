@@ -12,7 +12,8 @@ public class Torch : AnimationSprite
     private static SoundChannel soundChannel1 = new SoundChannel(1);
     private static Sound hitMob = new Sound("witch_victory_noises.wav");
     private static Sound gameLost = new Sound("witch_defeat_noises.wav");
-    
+    private static Sound onFire = new Sound("onfire.wav", true);
+    private static Sound swoosh = new Sound("Blowplant.wav", false);
 
     private int currentState = NORMAL;
     private const int NORMAL = 0;
@@ -100,6 +101,8 @@ public class Torch : AnimationSprite
         float ballDistance;
         if (((MyGame)game).torchMoving)
         {
+            
+
             GameObject[] collisions = GetCollisions();
             for (int i = 0; i < collisions.Length; i++)
             {
@@ -157,6 +160,9 @@ public class Torch : AnimationSprite
                 }
                 if (collisions[i] is Witch)
                 {
+                    soundChannel1 = onFire.Play();
+                    soundChannel1.Volume = 5f;
+
                     ((MyGame)game).isBurning = true;
                     ((MyGame)game).startTorch = false;
                     LateDestroy();
@@ -164,6 +170,8 @@ public class Torch : AnimationSprite
                 if (collisions[i] is Mob)
                 {
                     soundChannel1 = hitMob.Play();
+                    soundChannel1.Volume = 0.5f;
+
                     ((MyGame)game).mobHit = true;
                     ((MyGame)game).startTorch = false;
                     LateDestroy();
@@ -203,6 +211,7 @@ public class Torch : AnimationSprite
         shootTorch = ((MyGame)game).startTorch;
         if (shootTorch == true && !((MyGame)game).torchMoving)
         {
+            soundChannel1 = swoosh.Play();
             position.SetXY(x, y);
             velocity = aiming * speed;
             ((MyGame)game).torchMoving = true;
