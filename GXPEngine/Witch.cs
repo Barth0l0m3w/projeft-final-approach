@@ -16,11 +16,17 @@ internal class Witch : AnimationSprite
     const int BURNING = 1;
     const int SPELL = 2;
     const int FREE = 3;
-    int currentState = NORMAL;
+
+    const int notMirrored = 0;
+    const int isMirrored = 1;
+
+    private int currentState = NORMAL;
+    private int mirrored = 0;
 
     public Witch(TiledObject obj = null) : base("witch_trimmed.png", 5, 5)
     {
         SetOrigin(width / 2, height / 2);
+        mirrored = obj.GetIntProperty("mirrored", 0);
     }
 
     void Update()
@@ -28,8 +34,14 @@ internal class Witch : AnimationSprite
         if (!stopAnimating)
         {
             AnimateCharacter();
+            AnimMirror();
         }
         AnimationCycles();
+    }
+
+    private void MirrorAll(bool mirrorX, bool mirrorY = false)
+    {
+        Mirror(mirrorX, mirrorY);
     }
 
     private void AnimateCharacter()
@@ -52,6 +64,20 @@ internal class Witch : AnimationSprite
                 SetCycle(9, 6);
                 Animate(0.2f);
                 break;
+        }
+    }
+
+    private void AnimMirror()
+    {
+        switch (mirrored)
+        {
+            case notMirrored:
+                //nothing
+                break;
+            case isMirrored:
+                MirrorAll(true);
+                break;
+
         }
     }
 
