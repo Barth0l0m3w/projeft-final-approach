@@ -61,6 +61,7 @@ namespace GXPEngine
             else if(filename.Contains("Level"))
             {
                 StartMusic("gameplay_music_hq.wav");
+                mainMenuMusic.Volume = 1f;
             }
             else
             {
@@ -80,7 +81,7 @@ namespace GXPEngine
         {
             StopMusic();
             mainMenuMusic = new Sound(trackName, true, true).Play();
-            mainMenuMusic.Volume = 3f;
+            mainMenuMusic.Volume = 2f;
         }
     }
 }

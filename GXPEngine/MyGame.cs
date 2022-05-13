@@ -36,8 +36,8 @@ public class MyGame : Game
 
         //SceneManager.Instance.LoadLevel("mainMenu");
         //CurrentLevel = "mainMenu";
-        SceneManager.Instance.LoadLevel("Level_1_Final_9_05_2022");
-        CurrentLevel = "Level_1_Final_9_05_2022";
+        SceneManager.Instance.LoadLevel("mainMenu");
+        CurrentLevel = "mainMenu";
     }
 
     void Update()

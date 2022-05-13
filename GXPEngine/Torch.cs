@@ -156,7 +156,7 @@ public class Torch : AnimationSprite
                 if (collisions[i] is TheVoid)
                 {
                     soundChannel1 = gameLost.Play();
-                    soundChannel1.Volume = 0.2f;
+                    soundChannel1.Volume = 0.3f;
 
                     Console.WriteLine("GAME IS OVER, sorry");
                     if (MyGame.instance.isBurning)
@@ -173,7 +173,7 @@ public class Torch : AnimationSprite
                 if (collisions[i] is Witch)
                 {
                     soundChannel1 = onFire.Play();
-                    soundChannel1.Volume = 5f;
+                    soundChannel1.Volume = 4f;
 
                     ((MyGame)game).isBurning = true;
                     ((MyGame)game).startTorch = false;
@@ -182,7 +182,7 @@ public class Torch : AnimationSprite
                 if (collisions[i] is Mob)
                 {
                     soundChannel1 = hitMob.Play();
-                    soundChannel1.Volume = 0.5f;
+                    soundChannel1.Volume = 1;
 
                     ((MyGame)game).mobHit = true;
                     ((MyGame)game).startTorch = false;
@@ -224,6 +224,7 @@ public class Torch : AnimationSprite
         if (shootTorch == true && !((MyGame)game).torchMoving)
         {
             soundChannel1 = swoosh.Play();
+            soundChannel1.Volume = 3f;
             position.SetXY(x, y);
             velocity = aiming * speed;
             ((MyGame)game).torchMoving = true;
