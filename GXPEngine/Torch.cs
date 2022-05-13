@@ -164,6 +164,7 @@ public class Torch : AnimationSprite
                     }
 
                      ((MyGame)game).startTorch = false;
+                    LateDestroy();
                 }
 
                 if (collisions[i] is Witch)

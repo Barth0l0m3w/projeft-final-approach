@@ -49,6 +49,7 @@
     <Compile Include="Star.cs" />
     <Compile Include="TheVoid.cs" />
     <Compile Include="TorchArrow.cs" />
+    <Compile Include="Tower.cs" />
     <Compile Include="VisualSpellRange.cs" />
     <Compile Include="Button.cs" />
     <Compile Include="Torch.cs" />

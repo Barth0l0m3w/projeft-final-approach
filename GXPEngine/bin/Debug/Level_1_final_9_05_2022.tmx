@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="12" nextobjectid="36">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="12" nextobjectid="37">
  <tileset firstgid="1" name="tileset1" tilewidth="120" tileheight="120" tilecount="0" columns="2">
   <image source="../projeft-final-approach-development/project_lift_off/FireScript/GXPEngine/bin/Debug/tile_set_prototype_l1.png" width="256" height="256"/>
  </tileset>
@@ -12,7 +12,7 @@
  <imagelayer id="8" name="popuscreentest" offsetx="-632" offsety="2118">
   <image source="level_copmplete_book.png" width="1920" height="1080"/>
  </imagelayer>
- <imagelayer id="6" name="scroll1" offsetx="-4" offsety="842">
+ <imagelayer id="6" name="scroll1" offsetx="840" offsety="850">
   <image source="scroll.png" width="240" height="240"/>
  </imagelayer>
  <layer id="1" name="Warstwa Kafelków 1" width="16" height="9">
@@ -39,7 +39,7 @@
     <property name="speed" type="float" value="25"/>
    </properties>
   </object>
-  <object id="16" name="Mushroom" type="Mushroom" x="84.4448" y="898.921" width="120" height="120" rotation="43">
+  <object id="16" name="Mushroom" type="Mushroom" x="942" y="886.921" width="120" height="120" rotation="43">
    <properties>
     <property name="angle" type="int" value="43"/>
    </properties>
@@ -50,7 +50,8 @@
     <property name="mirrored" type="int" value="0"/>
    </properties>
   </object>
-  <object id="22" name="TheMob" type="Mob" x="1685.28" y="601.751" width="240" height="240"/>
+  <object id="22" name="TheMob" type="Mob" x="1685.28" y="602" width="240" height="240"/>
+  <object id="36" name="twr" type="Tower" x="1645.32" y="662" width="300" height="1140"/>
   <object id="24" name="torch" type="Button" x="1586" y="916" width="128" height="128">
    <properties>
     <property name="function" type="int" value="2"/>

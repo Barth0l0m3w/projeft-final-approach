@@ -32,7 +32,7 @@ public class MyGame : Game
 
     SceneManager sceneManager;
 
-    public MyGame() : base(1920, 1080, false, false, 960, 540)
+    public MyGame() : base(1920, 1080, false, false)//, 960, 540)
     {
         //adding the scenemanager who will switch the correct chenes and destroys the old ones
         sceneManager = new SceneManager();

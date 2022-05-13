@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="11" nextobjectid="28">
+<map version="1.5" tiledversion="1.7.2" orientation="orthogonal" renderorder="right-down" width="16" height="9" tilewidth="120" tileheight="120" infinite="0" nextlayerid="11" nextobjectid="29">
  <imagelayer id="3" name="Image Layer 1">
   <image source="final_background.png" width="1920" height="1080"/>
  </imagelayer>
  <imagelayer id="10" name="Warstwa Obrazka 4" offsetx="444" offsety="72">
   <image source="hill.png" width="1920" height="1080"/>
  </imagelayer>
- <imagelayer id="9" name="scroll1" offsetx="-4" offsety="842">
+ <imagelayer id="9" name="scroll1" offsetx="711.152" offsety="817.758">
   <image source="scroll.png" width="240" height="240"/>
  </imagelayer>
- <imagelayer id="8" name="scroll2" offsetx="200" offsety="842">
+ <imagelayer id="8" name="scroll2" offsetx="915.152" offsety="817.758">
   <image source="scroll.png" width="240" height="240"/>
  </imagelayer>
  <layer id="1" name="Tile Layer 1" width="16" height="9">
@@ -26,7 +26,21 @@
 </data>
  </layer>
  <objectgroup id="2" name="Object Layer 1">
-  <object id="5" name="Visual" type="VisualSpellRange" x="572.073" y="-466.97" width="2192" height="1912">
+  <object id="5" name="Visual" type="VisualSpellRange" x="572.073" y="-466.97" width="1388.97" height="1266.55">
+   <ellipse/>
+  </object>
+  <object id="2" name="scary void" type="TheVoid" x="-791" y="1124.69" width="3620" height="59.6491"/>
+  <object id="3" name="BlowPlant" type="BlowPlant" x="993.651" y="880.359" width="60" height="120">
+   <properties>
+    <property name="power" type="float" value="10.2"/>
+   </properties>
+  </object>
+  <object id="4" name="Mushroom" type="Mushroom" x="805.9" y="1021.7" width="120" height="120" rotation="250">
+   <properties>
+    <property name="angle" type="int" value="250"/>
+   </properties>
+  </object>
+  <object id="6" name="Collision" type="CollisionSpellRange" x="821.333" y="-304.182" width="979.507" height="943.212">
    <ellipse/>
   </object>
   <object id="1" name="Torch" type="Torch" x="283.077" y="241.626" width="160" height="160">
@@ -35,21 +49,8 @@
     <property name="speed" type="float" value="20.4"/>
    </properties>
   </object>
-  <object id="2" name="scary void" type="TheVoid" x="-791" y="1124.69" width="3620" height="59.6491"/>
-  <object id="3" name="BlowPlant" type="BlowPlant" x="278.499" y="886.42" width="60" height="120">
-   <properties>
-    <property name="power" type="float" value="10.2"/>
-   </properties>
-  </object>
-  <object id="4" name="Mushroom" type="Mushroom" x="102.87" y="1027.76" width="120" height="120" rotation="250">
-   <properties>
-    <property name="angle" type="int" value="250"/>
-   </properties>
-  </object>
-  <object id="6" name="Collision" type="CollisionSpellRange" x="930.424" y="117.03" width="870.416" height="522">
-   <ellipse/>
-  </object>
   <object id="9" name="Mob" type="Mob" x="5.4167" y="285" width="240" height="240"/>
+  <object id="28" name="twr" type="Tower" x="-28.6667" y="345" width="300" height="1140"/>
   <object id="10" name="Witch" type="Witch" x="1292.95" y="496.909" width="180" height="300">
    <properties>
     <property name="mirrored" type="int" value="1"/>
