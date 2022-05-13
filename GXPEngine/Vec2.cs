@@ -97,7 +97,6 @@ public struct Vec2
 	public static Vec2 RandomUnitVector()
 	{
 		float random = Utils.Random(0, 360);
-		//Console.WriteLine("Degrees: " + random);
 		return GetUnitVectorDeg(random);
 	}
 
@@ -108,11 +107,9 @@ public struct Vec2
 
 	public void SetAngleRadians(float direction)
 	{
-		//Console.WriteLine("Original length: " + Length());
 		float l = Length();
 		Vec2 v1 = GetUnitVectorRad(direction);
 		SetXY(v1.x * l, v1.y * l);
-		//Console.WriteLine("SetAngle length: " + Length());
 	}
 
 	public float GetAngleRadians()
@@ -151,7 +148,6 @@ public struct Vec2
 
 	public float Dot(Vec2 b)
 	{
-		//Console.WriteLine(x * b.x + y * b.y);
 		return x * b.x + y * b.y;
 	}
 

@@ -18,8 +18,6 @@ internal class PopUpScreenCompleted : Sprite
         
         if (((MyGame)game).voidTouched || ((MyGame)game).mobHit)
         {
-            Console.WriteLine("Gane Won");
-
             x = width/2;
             y = height/2;
         }
