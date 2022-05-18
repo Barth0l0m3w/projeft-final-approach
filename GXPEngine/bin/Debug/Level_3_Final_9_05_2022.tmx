@@ -30,12 +30,12 @@
    <ellipse/>
   </object>
   <object id="2" name="scary void" type="TheVoid" x="-791" y="1124.69" width="3620" height="59.6491"/>
-  <object id="3" name="BlowPlant" type="BlowPlant" x="993.651" y="880.359" width="60" height="120">
+  <object id="3" name="BlowPlant" type="BlowPlant" x="996.681" y="895.511" width="60" height="120">
    <properties>
     <property name="power" type="float" value="10.2"/>
    </properties>
   </object>
-  <object id="4" name="Mushroom" type="Mushroom" x="805.9" y="1021.7" width="120" height="120" rotation="250">
+  <object id="4" name="Mushroom" type="Mushroom" x="793.779" y="1033.82" width="120" height="120" rotation="250">
    <properties>
     <property name="angle" type="int" value="250"/>
    </properties>

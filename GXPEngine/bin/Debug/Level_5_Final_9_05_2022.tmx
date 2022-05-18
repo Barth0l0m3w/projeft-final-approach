@@ -48,7 +48,7 @@
    <ellipse/>
   </object>
   <object id="13" name="scary void" type="TheVoid" x="-3032" y="1360" width="7144" height="160"/>
-  <object id="9" name="mushroom" type="Mushroom" x="749.604" y="876.408" width="120" height="120" rotation="60">
+  <object id="9" name="mushroom" type="Mushroom" x="769.604" y="886.408" width="120" height="120" rotation="60">
    <properties>
     <property name="angle" type="int" value="60"/>
    </properties>

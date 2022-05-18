@@ -46,7 +46,7 @@
     <property name="power" type="float" value="10"/>
    </properties>
   </object>
-  <object id="3" name="Mushroom" type="Mushroom" x="618.64" y="984.427" width="120" height="120" rotation="299.079">
+  <object id="3" name="Mushroom" type="Mushroom" x="644.64" y="998.427" width="120" height="120" rotation="299.079">
    <properties>
     <property name="angle" type="int" value="340"/>
    </properties>
